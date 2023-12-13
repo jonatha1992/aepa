@@ -1,8 +1,9 @@
-import "./App.css";
+import "./css/App.css";
 import Menu from "./components/menu.jsx";
 import { Route, Routes } from "react-router-dom";
 import SubMenu from "./components/SubMenu";
 import FormAltaCurso from "./components/FormAltaCurso";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="/eventos" element={<SubMenu />} />
         <Route path="/contenido" element={<SubMenu />} />
         <Route path="/cursos/alta" element={<FormAltaCurso />} />
-        <Route path="/login" element={<FormAltaCurso />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
