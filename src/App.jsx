@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import SubMenu from "./components/SubMenu";
 import FormAltaCurso from "./components/FormAltaCurso";
 import Login from "./components/Login";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
