@@ -16,6 +16,7 @@ function App() {
         <Route path="/eventos" element={<SubMenu />} />
         <Route path="/contenido" element={<SubMenu />} />
         <Route path="/cursos/alta" element={<FormAltaCurso />} />
+        <Route path="/login" element={<FormAltaCurso />} />
       </Routes>
     </>
   );
