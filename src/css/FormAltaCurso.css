@@ -1,0 +1,10 @@
+.item-input{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.item-input input{
+    height: 2rem;
+}
