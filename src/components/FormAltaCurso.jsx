@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/FormAltaCurso.css";
+import { agregarCurso, uploadFiles } from "../firebase.js";
 
 const FormAltaCurso = () => {
   const [error, setError] = useState(false); // Estado para controlar la presencia de errores
@@ -58,17 +59,45 @@ const FormAltaCurso = () => {
         return true;
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Aquí puedes enviar courseData a tu backend o hacer lo necesario con los datos
     console.log(courseData);
+
+    try {
+      const courseDataWithoutImage = { ...courseData };
+      let url_img = await uploadFiles(courseDataWithoutImage.image[0]);
+      delete courseDataWithoutImage.image;
+
+      // Actualizar el objeto de curso para guardar la URL en lugar del objeto File
+      courseDataWithoutImage.imageURL = url_img;
+
+      // Guardar el curso en la base de datos con la URL del archivo
+      const ordenId = await agregarCurso(courseDataWithoutImage);
+
+      console.log(ordenId);
+      e.target.reset(); // Esto reseteará el formulario
+      setCourseData({
+        title: "",
+        subtitle: "",
+        description: "",
+        objectives: "",
+        requirements: "",
+        targetAudience: "",
+        image: null,
+      });
+      setPage(1); // Volver a la primera página después del envío exitoso
+      setError(false); // Reiniciar el estado de error
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="container">
       {page === 1 && (
         <div>
-          <h2>Pantalla 1: Información Básica del Curso</h2>
+          <h2>Información Básica del Curso</h2>
           <div className="item-input">
             <label>Título del Curso:</label>
             <input
@@ -110,7 +139,7 @@ const FormAltaCurso = () => {
 
       {page === 2 && (
         <div>
-          <h2>Pantalla 2: Detalles del Curso (Parte 1)</h2>
+          <h2>Detalles del Curso (Parte 1)</h2>
           <div className="item-input">
             <label>¿Qué aprenderán los estudiantes en tu curso?</label>
             <textarea
@@ -133,7 +162,7 @@ const FormAltaCurso = () => {
 
       {page === 3 && (
         <div>
-          <h2>Pantalla 3: Detalles del Curso (Parte 2)</h2>
+          <h2>Detalles del Curso (Parte 2)</h2>
           <div className="item-input">
             <label>
               ¿Cuáles son los requisitos o los requisitos previos para realizar

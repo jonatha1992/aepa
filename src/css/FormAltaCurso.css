@@ -6,5 +6,9 @@
 }
 
 .item-input input{
-    height: 2rem;
+    height: 3rem;
+}
+
+textarea{
+    height: 5rem;
 }
