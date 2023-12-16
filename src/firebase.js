@@ -21,6 +21,8 @@ import {
   deleteObject,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js";
 
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBOWr6zYmEskzztDua6PFM_kdsoqSxyGQI",
   authDomain: "aepa-86ed6.firebaseapp.com",
@@ -34,6 +36,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
+
+export const  auth = getAuth(app);
 
 export async function agregarCurso(dati) {
   const newCourseRef = await addDoc(collection(db, "cursos"), dati);
@@ -41,7 +46,6 @@ export async function agregarCurso(dati) {
   return cursoID;
 }
 
-const storage = getStorage(app);
 
 export async function uploadFiles(file) {
   const storageRef = ref(storage, crypto.randomUUID());
