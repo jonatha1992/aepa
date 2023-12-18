@@ -3,14 +3,14 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
     const [User, setUser] = useState({
         email: "",
         password: "",
     });
     const [Error, setError] = useState(null);
 
-    const { login } = useAuth();
+    const { signup } = useAuth();
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -26,7 +26,7 @@ const Login = () => {
         e.preventDefault();
         setError('')
         try {
-            await login(User.email, User.password);
+            await signup(User.email, User.password);
             navigate("/");
         } catch (error) {
             if(error.code === 'auth/internal-error'){
@@ -43,7 +43,7 @@ const Login = () => {
         <>
             <div className="sign-in-container">
                 <form className="mx-auto col-lg-10" onSubmit={handleSubmit}>
-                    <h1 className="text-center mb-4">Log Into your Account</h1>
+                    <h1 className="text-center mb-4">Signup your Account</h1>
                     <div className="form-floating mb-3">
                         <input
                             type="email"
@@ -68,7 +68,7 @@ const Login = () => {
                         <label>Password</label>
                     </div>
                     <button className="btn btn-primary btn-lg col-5">
-                        Login
+                        Register
                     </button>
                 </form>
             </div>
@@ -76,4 +76,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

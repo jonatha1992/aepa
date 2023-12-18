@@ -15,7 +15,7 @@ import {
 
 import {
   getStorage,
-  uploadBytes,
+  uploadBytes, 
   ref,
   getDownloadURL,
   deleteObject,
