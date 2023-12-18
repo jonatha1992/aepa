@@ -1,9 +1,10 @@
-import { createContext, useContext, useEffect , useState} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
-    signOut
+    signOut,
+    
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { auth } from "../firebase";
 const authContext = createContext();
@@ -20,7 +21,7 @@ export function AutoProvider({ children }) {
         createUserWithEmailAndPassword(auth, email, password);
     };
     const login = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password);
+       return signInWithEmailAndPassword(auth, email, password);
     };
 
     const logout = () => signOut(auth);
@@ -35,7 +36,7 @@ export function AutoProvider({ children }) {
     }, []);
 
     return (
-        <authContext.Provider value={{ signup, login , logout,User }}>
+        <authContext.Provider value={{ signup, login, logout, User }}>
             {children}
         </authContext.Provider>
     );
