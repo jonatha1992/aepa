@@ -26,12 +26,10 @@ const Login = () => {
         e.preventDefault();
         setError("");
         try {
-            const currentUser = await login(User.email, User.password);
-            if(currentUser) {
-                navigate("/");
-            }
+            await login(User.email, User.password);
+            navigate("/");
         } catch (error) {
-            setError(error);
+            setError(error.message);
             console(Error);
         }
     };
