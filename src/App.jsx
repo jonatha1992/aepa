@@ -7,7 +7,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AutoProvider } from "./context/AuthContext.jsx";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
     return (
         <>
