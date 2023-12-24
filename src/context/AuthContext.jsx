@@ -4,6 +4,7 @@ import {
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
+    sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { auth } from "../firebase";
 const authContext = createContext();
@@ -19,14 +20,20 @@ export function AutoProvider({ children }) {
     
     const [User, setUser] = useState(null);
     const [Loading, setLoading] = useState(true);
-    const signup = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password);
+    const signup = async (email, password) => {
+       const currentUser =  await createUserWithEmailAndPassword(auth, email, password);
+       console.log("usuario creado: ", currentUser); 
+    //    sendEmailVerification(currentUser).then(() => {
+    //        console.log("verificacion de correo enviado");
+    //    });
+       
     };
     const login = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
     };
 
     const logout = () => signOut(auth);
+    
 
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {

@@ -12,6 +12,7 @@ function App() {
     return (
         <>
             <AutoProvider>
+              
                 <Routes>
                     <Route
                         index
