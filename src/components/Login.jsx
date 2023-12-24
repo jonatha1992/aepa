@@ -24,18 +24,13 @@ const Login = () => {
     // Manejador de envío del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError('')
+        setError("");
         try {
             await login(User.email, User.password);
             navigate("/");
         } catch (error) {
-            if(error.code === 'auth/internal-error'){
-                setError("Correo Invalido");
-            }
-            if(error.code === 'auth/email-already-in-use'){
-                setError("ya existe el email registrado")
-            }  
-            console.log(Error);
+            setError(error.message);
+            console(Error);
         }
     };
 
