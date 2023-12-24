@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AutoProvider } from "./context/AuthContext.jsx";
+import ListaCursos from "./components/ListaCursos";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/eventos" element={<SubMenu />} />
           <Route path="/contenido" element={<SubMenu />} />
           <Route path="/cursos/alta" element={<FormAltaCurso />} />
+          <Route path="/cursos/edit" element={<ListaCursos />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
