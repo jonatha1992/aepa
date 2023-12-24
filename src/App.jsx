@@ -7,7 +7,6 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AutoProvider } from "./context/AuthContext.jsx";
-import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
 
 function App() {
     return (
@@ -28,13 +27,15 @@ function App() {
                     {/* <Route exact path="/cursos/agregar" component={AgregarCurso} />
         <Route exact path="/cursos/editar/:id" component={EditarCurso} />
         <Route exact path="/cursos/:id" component={DetallesCurso} /> */}
-                    <Route path="/cursos/alta" element={<FormAltaCurso />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
-                </Routes>
-            </AutoProvider>
-        </>
-    );
+          <Route path="/eventos" element={<SubMenu />} />
+          <Route path="/contenido" element={<SubMenu />} />
+          <Route path="/cursos/alta" element={<FormAltaCurso />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </AutoProvider>
+    </>
+  );
 }
 
 export default App;

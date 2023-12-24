@@ -11,11 +11,12 @@ import {
   orderBy,
   limit,
   addDoc,
+  deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 import {
   getStorage,
-  uploadBytes, 
+  uploadBytes,
   ref,
   getDownloadURL,
   deleteObject,
@@ -38,7 +39,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-export const  auth = getAuth(app);
+export const auth = getAuth(app);
 
 export async function agregarCurso(dati) {
   const newCourseRef = await addDoc(collection(db, "cursos"), dati);
@@ -46,10 +47,53 @@ export async function agregarCurso(dati) {
   return cursoID;
 }
 
-
 export async function uploadFiles(file) {
   const storageRef = ref(storage, crypto.randomUUID());
-  await uploadBytes(storageRef, file);
+  const metadata = {
+    contentType: "image/jpeg",
+  };
+  const meta = await uploadBytes(storageRef, file, metadata);
+  console.log(meta);
   const url = await getDownloadURL(storageRef);
   return url;
 }
+
+export async function deletear(id, tabla) {
+  const docRef = doc(db, `${tabla}`, id);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+    let dato = docSnap.data();
+    console.log("intentando eliminar la imagen:", dato.imagen);
+
+    try {
+      if (tabla == "cursos") {
+        await deleteFile(dato.image);
+        await deleteDoc(doc(db, `${tabla}`, id));
+        return true;
+        /* notyf.error("Pic eliminado de la galeria"); */
+        /* administrarGaleria(); */
+      }
+    } catch (error) {
+      console.log("algo paso", error);
+      return false;
+      /* notyf.error("ocurrio un error en la operacion"); */
+    }
+  }
+}
+
+async function deleteFile(url) {
+  console.log("la url desde bd: ", url);
+  // var fileRef = storage.refFromURL(url);
+  var fileRef = ref(storage, url);
+
+  try {
+    await deleteObject(fileRef);
+    console.log("Archivo eliminado exitosamente.");
+  } catch (error) {
+    console.log("Error al eliminar archivo:", error);
+  }
+}
+
+export { collection, db, getDocs };

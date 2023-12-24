@@ -22,6 +22,7 @@ const FormAltaCurso = () => {
 
   const handleImageUpload = (e) => {
     const imageFile = e.target.files[0];
+    console.log(imageFile);
     setCourseData({ ...courseData, image: imageFile });
   };
 
@@ -66,11 +67,11 @@ const FormAltaCurso = () => {
 
     try {
       const courseDataWithoutImage = { ...courseData };
-      let url_img = await uploadFiles(courseDataWithoutImage.image[0]);
+      let url_img = await uploadFiles(courseDataWithoutImage.image);
       delete courseDataWithoutImage.image;
 
       // Actualizar el objeto de curso para guardar la URL en lugar del objeto File
-      courseDataWithoutImage.imageURL = url_img;
+      courseDataWithoutImage.image = url_img;
 
       // Guardar el curso en la base de datos con la URL del archivo
       const ordenId = await agregarCurso(courseDataWithoutImage);
@@ -126,7 +127,7 @@ const FormAltaCurso = () => {
           </div>
           <div className="item-input">
             <label>Subir Imagen:</label>
-            <input type="file" accept="image/*" onChange={handleImageUpload} />
+            <input type="file" onChange={handleImageUpload} />
           </div>
           {error && <p>Por favor completa todos los campos</p>}
           <div className="item-input">

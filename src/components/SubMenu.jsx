@@ -17,7 +17,7 @@ export default function SubMenu() {
         Baja
       </div>
       <div className="grid-item" style={{ backgroundColor: "white" }}>
-        Modificar
+        <Link to={`${match.pathname}/edit`}>Edit</Link>
       </div>
     </div>
   );
