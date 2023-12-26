@@ -15,25 +15,24 @@ export const useAuth = () => {
     return context;
 };
 
-
 export function AutoProvider({ children }) {
-    
     const [User, setUser] = useState(null);
     const [Loading, setLoading] = useState(true);
     const signup = async (email, password) => {
-       const currentUser =  await createUserWithEmailAndPassword(auth, email, password);
-       console.log("usuario creado: ", currentUser); 
-    //    sendEmailVerification(currentUser).then(() => {
-    //        console.log("verificacion de correo enviado");
-    //    });
-       
+        const credential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+        // Enviar correo de verificación al usuario actual
+         await sendEmailVerification(credential.user);
     };
+
     const login = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
     };
 
     const logout = () => signOut(auth);
-    
 
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
@@ -46,7 +45,7 @@ export function AutoProvider({ children }) {
     }, []);
 
     return (
-        <authContext.Provider value={{ signup, login, logout, User , Loading }}>
+        <authContext.Provider value={{ signup, login, logout, User, Loading }}>
             {children}
         </authContext.Provider>
     );

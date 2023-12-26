@@ -27,24 +27,25 @@ const Register = () => {
         e.preventDefault();
         setError("");
         try {
-
-            const rta = await signup(User.email, User.password);
-            console.log(rta);
-            if (rta) {
-                navigate("/");
-            }
+            await signup(User.email, User.password);
+            navigate("/login");
         } catch (error) {
             setError(error.message);
-            if( User.email === "" || User.password === "" || User.name === "") {
+            if (User.email === "" || User.password === "" || User.name === "") {
                 setError("Todos los campos son obligatorios");
             }
-            if (error.code === "auth/internal-error" ||error.code === "auth/invalid-email") {
+            if (
+                error.code === "auth/internal-error" ||
+                error.code === "auth/invalid-email"
+            ) {
                 setError("Correo Invalido");
             }
             if (error.code === "auth/email-already-in-use") {
                 setError("ya existe el email registrado");
             }
-            
+            if (error.code === "auth/weak-password") {
+                setError("La contraseña debe tener al menos 6 caracteres");
+            }
         }
     };
 
