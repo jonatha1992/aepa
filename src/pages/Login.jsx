@@ -27,8 +27,15 @@ const Login = () => {
         e.preventDefault();
         setError("");
         try {
-            await login(User.email, User.password);
-            navigate("/");
+            const userCredential =  await login(User.email, User.password);
+            const user = userCredential.user;
+            if (user.emailVerified) {
+                console.log('El correo electrónico está verificado. Usuario autenticado.');
+                navigate("/");
+            } else {
+                console.log('El correo electrónico no está verificado. El usuario debe verificar su correo electrónico.');
+                console.console.log(user);
+            }
         } catch (error) {
             setError(error.message);
             console.log(Error);
