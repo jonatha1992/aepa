@@ -24,8 +24,6 @@ function App() {
   };
   return (
     <>
-      <Menu />
-
       {User ? (
         <button onClick={logout}>Logout</button>
       ) : (
@@ -35,7 +33,7 @@ function App() {
       )}
 
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Menu />} />
         <Route path="/Home" element={<Home />} />
         <Route element={<ProtectedRoute isAllowed={!!User} />}>
           <Route path="/cursos" element={<SubMenu />} />
