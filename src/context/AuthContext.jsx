@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signOut,
   sendEmailVerification,
+  sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { auth } from "../firebase";
 const authContext = createContext();
@@ -34,6 +35,9 @@ export function AutoProvider({ children }) {
 
   const logout = () => signOut(auth);
 
+  const resetPassword = async (email) => sendPasswordResetEmail(auth, email);
+
+
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -45,7 +49,7 @@ export function AutoProvider({ children }) {
   }, []);
 
   return (
-    <authContext.Provider value={{ signup, login, logout, User, Loading }}>
+    <authContext.Provider value={{ signup, login, logout,resetPassword, User, Loading }}>
       {children}
     </authContext.Provider>
   );

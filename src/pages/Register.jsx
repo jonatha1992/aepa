@@ -41,7 +41,7 @@ const Register = () => {
                 setError("Correo Invalido");
             }
             if (error.code === "auth/email-already-in-use") {
-                setError("ya existe el email registrado");
+                setError("ya existe el email registrado");  
             }
             if (error.code === "auth/weak-password") {
                 setError("La contraseña debe tener al menos 6 caracteres");
