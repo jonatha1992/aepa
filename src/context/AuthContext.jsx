@@ -33,10 +33,12 @@ export function AutoProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = () => signOut(auth);
+  const logout = () => {
+    signOut(auth);
+    setUser(null);
+  };
 
   const resetPassword = async (email) => sendPasswordResetEmail(auth, email);
-
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -49,7 +51,9 @@ export function AutoProvider({ children }) {
   }, []);
 
   return (
-    <authContext.Provider value={{ signup, login, logout,resetPassword, User, Loading }}>
+    <authContext.Provider
+      value={{ signup, login, logout, resetPassword, User, Loading }}
+    >
       {children}
     </authContext.Provider>
   );
