@@ -97,4 +97,4 @@ async function deleteFile(url) {
   }
 }
 
-export { collection, db, getDoc , doc , setDoc, updateDoc};
+export { collection, db, getDoc, doc, setDoc, updateDoc, getDocs };

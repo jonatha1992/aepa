@@ -15,36 +15,34 @@ import Home from "./components/home";
 import Header from "./components/Header";
 
 function App() {
-    const { logout, User, setuUser } = useAuth();
+  const { logout, User, setuUser } = useAuth();
 
-    const navigate = useNavigate();
-    const handleLogout = async () => {
-        await logout();
-        setuUser(null);
-        navigate("/login");
-    };
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await logout();
+    setuUser(null);
+    navigate("/login");
+  };
 
-    return (
-        <>
-            {User !== null ? (
-                <button onClick={handleLogout}>Logout</button>
-            ) : null}
-
-      <Routes>
-        <Route index element={<Menu />} />
-        <Route path="/Home" element={<Home />} />
-        <Route element={<ProtectedRoute isAllowed={!!User} />}>
-          <Route path="/cursos" element={<SubMenu />} />
-          <Route path="/eventos" element={<SubMenu />} />
-          <Route path="/contenido" element={<SubMenu />} />
-          <Route path="/cursos/alta" element={<FormAltaCurso />} />
-        </Route>
-
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+  return (
+    <>
+      <div className="container">
+        <Header />
+        <Routes>
+          <Route index element={<Menu />} />
+          <Route path="/Home" element={<Home />} />
+          <Route element={<ProtectedRoute isAllowed={!!User} />}>
+            <Route path="/cursos" element={<SubMenu />} />
+            <Route path="/eventos" element={<SubMenu />} />
+            <Route path="/contenido" element={<SubMenu />} />
+            <Route path="/cursos/alta" element={<FormAltaCurso />} />
+            <Route path="/cursos/edit" element={<ListaCursos />} />
+          </Route>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
     </>
   );
 }
-
 export default App;
