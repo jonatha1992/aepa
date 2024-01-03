@@ -3,12 +3,16 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "../components/Alert";
+import { agregarUser } from "../controllers/controllerUser";
 
 const Register = () => {
     const [User, setUser] = useState({
-        name: "",
+        rol: "user",
+        displayName: "",
         email: "",
         password: "",
+        uid: "",
+        emailVerified: false,
     });
     const [Error, setError] = useState(null);
     const { signup } = useAuth();
@@ -27,11 +31,16 @@ const Register = () => {
         e.preventDefault();
         setError("");
         try {
-            await signup(User.email, User.password);
+            const result =  await signup(User.email, User.password, User.displayName);
+            User.uid = result.user.uid;
+            await agregarUser(User);
             navigate("/login");
         } catch (error) {
-            setError(error.message);
-            if (User.email === "" || User.password === "" || User.name === "") {
+            if (
+                User.email === "" ||
+                User.password === "" ||
+                User.displayName === ""
+            ) {
                 setError("Todos los campos son obligatorios");
             }
             if (
@@ -41,7 +50,7 @@ const Register = () => {
                 setError("Correo Invalido");
             }
             if (error.code === "auth/email-already-in-use") {
-                setError("ya existe el email registrado");  
+                setError("ya existe el email registrado");
             }
             if (error.code === "auth/weak-password") {
                 setError("La contraseña debe tener al menos 6 caracteres");
@@ -59,14 +68,13 @@ const Register = () => {
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="Insert your name"
-                            name="name"
-                            value={User.name}
+                            placeholder="Enter your name"
+                            name="displayName"
+                            value={User.displayName}
                             onChange={handleChange}
                         />
-                        <label>Full name</label>
+                        <label>Name complete</label>
                     </div>
-
                     <div className="form-floating mb-3">
                         <input
                             type="email"
@@ -78,7 +86,6 @@ const Register = () => {
                         />
                         <label>Email address</label>
                     </div>
-
                     <div className="form-floating mb-4">
                         <input
                             type="password"

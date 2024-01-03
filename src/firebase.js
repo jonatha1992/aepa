@@ -8,6 +8,7 @@ import {
   doc,
   getDoc,
   setDoc,
+  updateDoc,
   orderBy,
   limit,
   addDoc,
@@ -96,4 +97,4 @@ async function deleteFile(url) {
   }
 }
 
-export { collection, db, getDocs };
+export { collection, db, getDoc , doc , setDoc, updateDoc};

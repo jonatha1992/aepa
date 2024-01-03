@@ -28,17 +28,15 @@ const Login = () => {
         setError("");
         try {
             const userCredential =  await login(User.email, User.password);
-            const user = userCredential.user;
-            if (user.emailVerified) {
+            
+            if (userCredential.user.emailVerified) {
                 console.log('El correo electrónico está verificado. Usuario autenticado.');
                 navigate("/");
             } else {
-                console.log('El correo electrónico no está verificado. El usuario debe verificar su correo electrónico.');
-                console.console.log(user);
+                setError('El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión.');
             }
         } catch (error) {
             setError(error.message);
-            console.log(Error);
         }
     };
 
