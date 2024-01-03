@@ -38,6 +38,10 @@ export function AutoProvider({ children }) {
         return result
     };
 
+  const logout = () => {
+    signOut(auth);
+    setUser(null);
+  };
     const logout = () => {
         signOut(auth);
         setUser(null);
