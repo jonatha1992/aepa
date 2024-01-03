@@ -3,21 +3,21 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert } from "../components/Alert";
+import { agregarUser, getUser } from "../controllers/controllerUser";
 
 const Login = () => {
-    const [User, setUser] = useState({
+    const { login, loginWithGoogle, resetPassword, setUser } = useAuth();
+    const [Error, setError] = useState(null);
+    const [Form, setForm] = useState({
         email: "",
         password: "",
     });
-    const [Error, setError] = useState(null);
 
-    const { login, loginWithGoogle, resetPassword } = useAuth();
     const navigate = useNavigate();
-
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setUser({
-            ...User,
+        setForm({
+            ...Form,
             [name]: value,
         });
     };
@@ -27,13 +27,15 @@ const Login = () => {
         e.preventDefault();
         setError("");
         try {
-            const userCredential =  await login(User.email, User.password);
-            
+            const userCredential = await login(Form.email, Form.password);
+
             if (userCredential.user.emailVerified) {
-                console.log('El correo electrónico está verificado. Usuario autenticado.');
+                setUser(await getUser(userCredential.user.uid));
                 navigate("/");
             } else {
-                setError('El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión.');
+                setError(
+                    "El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión."
+                );
             }
         } catch (error) {
             setError(error.message);
@@ -42,7 +44,9 @@ const Login = () => {
 
     const handleGoogleSignin = async () => {
         try {
-            await loginWithGoogle();
+            var result = await loginWithGoogle();
+            await agregarUser(result.user);
+            setUser(await getUser(result.user.uid));
             navigate("/");
         } catch (error) {
             setError(error.message);
@@ -51,9 +55,9 @@ const Login = () => {
 
     const handleResetPassword = async (e) => {
         e.preventDefault();
-        if (!User.email) return setError("Write an email to reset password");
+        if (!Form.email) return setError("Write an email to reset password");
         try {
-            await resetPassword(User.email);
+            await resetPassword(Form.email);
             setError("We sent you an email. Check your inbox");
         } catch (error) {
             setError(error.message);
@@ -71,7 +75,7 @@ const Login = () => {
                             className="form-control"
                             placeholder="Enter your email"
                             name="email"
-                            value={User.email}
+                            value={Form.email}
                             onChange={handleChange}
                         />
                         <label>Email address</label>
@@ -83,7 +87,7 @@ const Login = () => {
                             className="form-control"
                             placeholder="********"
                             name="password"
-                            value={User.password}
+                            value={Form.password}
                             onChange={handleChange}
                         />
                         <label>Password</label>

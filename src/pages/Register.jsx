@@ -6,22 +6,20 @@ import { Alert } from "../components/Alert";
 import { agregarUser } from "../controllers/controllerUser";
 
 const Register = () => {
-    const [User, setUser] = useState({
-        rol: "user",
-        displayName: "",
+    const [newUser, setnewUser] = useState({
         email: "",
         password: "",
-        uid: "",
-        emailVerified: false,
-    });
+        displayName: "",
+    })
     const [Error, setError] = useState(null);
     const { signup } = useAuth();
+
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setUser({
-            ...User,
+        setnewUser({
+            ...newUser,
             [name]: value,
         });
     };
@@ -31,15 +29,19 @@ const Register = () => {
         e.preventDefault();
         setError("");
         try {
-            const result =  await signup(User.email, User.password, User.displayName);
-            User.uid = result.user.uid;
-            await agregarUser(User);
+            const result = await signup(
+                newUser.email,
+                newUser.password,
+                newUser.displayName
+            );
+            newUser.uid = result.user.uid;
+            await agregarUser(newUser);
             navigate("/login");
         } catch (error) {
             if (
-                User.email === "" ||
-                User.password === "" ||
-                User.displayName === ""
+                newUser.email === "" ||
+                newUser.password === "" ||
+                newUser.displayName === ""
             ) {
                 setError("Todos los campos son obligatorios");
             }
@@ -70,7 +72,7 @@ const Register = () => {
                             className="form-control"
                             placeholder="Enter your name"
                             name="displayName"
-                            value={User.displayName}
+                            value={newUser.displayName}
                             onChange={handleChange}
                         />
                         <label>Name complete</label>
@@ -81,7 +83,7 @@ const Register = () => {
                             className="form-control"
                             placeholder="Enter your email"
                             name="email"
-                            value={User.email}
+                            value={newUser.email}
                             onChange={handleChange}
                         />
                         <label>Email address</label>
@@ -92,7 +94,7 @@ const Register = () => {
                             className="form-control"
                             placeholder="********"
                             name="password"
-                            value={User.password}
+                            value={newUser.password}
                             onChange={handleChange}
                         />
                         <label>Password</label>
