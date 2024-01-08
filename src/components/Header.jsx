@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo-aepa.png";
 
 export default function Header() {
   const { User, logout } = useAuth();
@@ -18,13 +19,24 @@ export default function Header() {
   };
 
   return (
-    <nav className="navbar bg-body-tertiary">
+    <nav className="navbar" style={{ backgroundColor: "#e9ecef" }}>
       <div className="container-fluid">
-        <Link to="/">LOGO</Link>
+        <Link to="/">
+          <img
+            src={logo}
+            alt=""
+            style={{ height: "4rem", borderRadius: "3rem" }}
+          />
+        </Link>
         <div className="d-flex align-items-center">
           {User ? (
             <div className="avatar-container" onClick={toggleMenu}>
-              <img src={User.avatar} alt="Avatar" className="avatar" />
+              <img
+                src={User.avatar}
+                alt="Avatar"
+                className="avatar"
+                style={{ height: "4rem", borderRadius: "3rem" }}
+              />
               {showMenu && (
                 <div
                   className="dropdown-menu"
