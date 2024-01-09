@@ -12,3 +12,17 @@
 textarea{
     height: 5rem;
 }
+
+.form-alta{
+    width: 60%;
+}
+
+
+@media screen and (max-width: 769px) {
+    .form-alta {
+        width: 100%;
+        /* Formulario ocupará el 70% del ancho en tablets */
+        margin: 0 auto;
+        /* Centrar el formulario en tablets */
+    }
+}

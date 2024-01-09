@@ -95,104 +95,106 @@ const FormAltaCurso = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="container">
-      {page === 1 && (
-        <div>
-          <h2>Información Básica del Curso</h2>
-          <div className="item-input">
-            <label>Título del Curso:</label>
-            <input
-              type="text"
-              name="title"
-              value={courseData.title}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="item-input">
-            <label>Subtítulo del Curso:</label>
-            <input
-              type="text"
-              name="subtitle"
-              value={courseData.subtitle}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="item-input">
-            <label>Descripción del Curso:</label>
-            <textarea
-              name="description"
-              value={courseData.description}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="item-input">
-            <label>Subir Imagen:</label>
-            <input type="file" onChange={handleImageUpload} />
-          </div>
-          {error && <p>Por favor completa todos los campos</p>}
-          <div className="item-input">
-            <button type="button" onClick={nextPage}>
-              Siguiente
-            </button>
-          </div>
-        </div>
-      )}
-
-      {page === 2 && (
-        <div>
-          <h2>Detalles del Curso (Parte 1)</h2>
-          <div className="item-input">
-            <label>¿Qué aprenderán los estudiantes en tu curso?</label>
-            <textarea
-              name="objectives"
-              value={courseData.objectives}
-              onChange={handleInputChange}
-            />
-          </div>
-          {error && <p>Por favor completa todos los campos</p>}
+    <div className="container d-flex justify-content-center">
+      <form onSubmit={handleSubmit} className="form-alta">
+        {page === 1 && (
           <div>
-            <button type="button" onClick={prevPage}>
-              Anterior
-            </button>
-            <button type="button" onClick={nextPage}>
-              Siguiente
-            </button>
+            <h2>Información Básica del Curso</h2>
+            <div className="item-input">
+              <label>Título del Curso:</label>
+              <input
+                type="text"
+                name="title"
+                value={courseData.title}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="item-input">
+              <label>Subtítulo del Curso:</label>
+              <input
+                type="text"
+                name="subtitle"
+                value={courseData.subtitle}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="item-input">
+              <label>Descripción del Curso:</label>
+              <textarea
+                name="description"
+                value={courseData.description}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="item-input">
+              <label>Subir Imagen:</label>
+              <input type="file" onChange={handleImageUpload} />
+            </div>
+            {error && <p>Por favor completa todos los campos</p>}
+            <div className="item-input">
+              <button type="button" onClick={nextPage}>
+                Siguiente
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {page === 3 && (
-        <div>
-          <h2>Detalles del Curso (Parte 2)</h2>
-          <div className="item-input">
-            <label>
-              ¿Cuáles son los requisitos o los requisitos previos para realizar
-              tu curso?
-            </label>
-            <textarea
-              name="requirements"
-              value={courseData.requirements}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="item-input">
-            <label>¿A quién está dirigido este curso?</label>
-            <textarea
-              name="targetAudience"
-              value={courseData.targetAudience}
-              onChange={handleInputChange}
-            />
-          </div>
-          {error && <p>Por favor completa todos los campos</p>}
+        {page === 2 && (
           <div>
-            <button type="button" onClick={prevPage}>
-              Anterior
-            </button>
-            <button type="submit">Finalizar y Enviar</button>
+            <h2>Detalles del Curso (Parte 1)</h2>
+            <div className="item-input">
+              <label>¿Qué aprenderán los estudiantes en tu curso?</label>
+              <textarea
+                name="objectives"
+                value={courseData.objectives}
+                onChange={handleInputChange}
+              />
+            </div>
+            {error && <p>Por favor completa todos los campos</p>}
+            <div>
+              <button type="button" onClick={prevPage}>
+                Anterior
+              </button>
+              <button type="button" onClick={nextPage}>
+                Siguiente
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-    </form>
+        )}
+
+        {page === 3 && (
+          <div>
+            <h2>Detalles del Curso (Parte 2)</h2>
+            <div className="item-input">
+              <label>
+                ¿Cuáles son los requisitos o los requisitos previos para
+                realizar tu curso?
+              </label>
+              <textarea
+                name="requirements"
+                value={courseData.requirements}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="item-input">
+              <label>¿A quién está dirigido este curso?</label>
+              <textarea
+                name="targetAudience"
+                value={courseData.targetAudience}
+                onChange={handleInputChange}
+              />
+            </div>
+            {error && <p>Por favor completa todos los campos</p>}
+            <div>
+              <button type="button" onClick={prevPage}>
+                Anterior
+              </button>
+              <button type="submit">Finalizar y Enviar</button>
+            </div>
+          </div>
+        )}
+      </form>
+    </div>
   );
 };
 
