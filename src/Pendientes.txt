@@ -1,0 +1,4 @@
+Mostrar cursos
+Realizar controler de los cursos 
+Colocar boton de inscripcion y logica sobre como inscribirse 
+realizar tabla de inscripciones 
