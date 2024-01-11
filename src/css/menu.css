@@ -12,6 +12,12 @@
     font-weight: bold;
 }
 
+.container-buttons{
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+        background: #495057;
+}
 /* Para escritorio */
 @media screen and (min-width: 1024px) {
     .grid-container {

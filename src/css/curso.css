@@ -5,6 +5,8 @@
   
   .card-body {
     padding: 2rem 0 !important;
+    height: 60%;
+
   }
   
   .card-text {
@@ -24,3 +26,43 @@
   .card-img-top:hover {
     transform: scale(1.8);
   }
+
+.row{
+  background-color: #495057;
+  gap: 20px;
+}
+.cardF {
+  background: #343a40;
+  display: flex;
+  flex-direction: row;
+  /* Asegura que el card ocupe el 100% de la altura de su contenedor */
+}
+
+.card-img-top {
+
+  max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Ajusta la imagen para que se ajuste completamente al contenedor sin distorsión */
+}
+
+.container-img-card{
+  width: 100%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.container-button-next{
+      display: flex;
+        justify-content: flex-end;
+}
+
+/* Para móvil */
+@media screen and (max-width: 767px) {
+  .cardF{
+    flex-direction: column;
+  }
+}
