@@ -69,7 +69,9 @@ const Login = () => {
         <div className="sign-in-container m-4">
           {Error && <Alert message={Error} />}
           <form className="mx-auto col-lg-12" onSubmit={handleSubmit}>
-            <h1 className="text-center mb-4">Log Into your Account</h1>
+            <h1 className="text-center mb-4" style={{ color: "white" }}>
+              Log Into your Account
+            </h1>
             <div className="form-floating mb-3">
               <input
                 type="email"

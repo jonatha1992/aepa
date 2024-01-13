@@ -19,7 +19,13 @@ export default function Header() {
   };
 
   return (
-    <nav className="navbar" style={{ backgroundColor: "#e9ecef" }}>
+    <nav
+      className="navbar"
+      style={{
+        borderRadius: "0.5rem",
+        backgroundColor: "rgb(73 80 87);",
+      }}
+    >
       <div className="container-fluid">
         <Link to="/">
           <img

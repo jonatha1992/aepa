@@ -42,9 +42,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-        <div className=" bg-info">
-          <Cursos />
-        </div>
+        <div className=" bg-info">{<Cursos />}</div>
       </div>
     </>
   );

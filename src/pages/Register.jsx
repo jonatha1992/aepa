@@ -62,11 +62,21 @@ const Register = () => {
 
   return (
     <>
-      <div className="container d-flex justify-content-center">
+      <div
+        className="container d-flex justify-content-center"
+        style={{
+          marginTop: "1rem",
+
+          border: "2px solid #ffffff",
+          borderRadius: "1rem",
+        }}
+      >
         {Error && <Alert message={Error} />}
         <div className="sign-in-container m-4">
           <form className="mx-auto col-lg-12" onSubmit={handleSubmit}>
-            <h1 className="text-center mb-4">Signup your Account</h1>
+            <h1 className="text-center mb-4" style={{ color: "white" }}>
+              Signup your Account
+            </h1>
             <div className="form-floating mb-3">
               <input
                 type="text"
