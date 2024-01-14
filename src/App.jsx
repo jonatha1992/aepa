@@ -14,6 +14,7 @@ import Home from "./components/home";
 import Header from "./components/Header";
 
 import Cursos from "../src/components/Cursos";
+import Contact from "./pages/Contact.jsx";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -41,6 +42,7 @@ function App() {
           </Route>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/Contact" element={<Contact />} />
         </Routes>
         <div className=" bg-info">{<Cursos />}</div>
       </div>
