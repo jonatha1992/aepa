@@ -21,7 +21,7 @@ const Header = () => {
       <div className="logo">
         <Link to="/">
           {/* <img src={logo} alt="" style={{ height: "6em" }} /> */}
-          <div className="video-container">
+          <div className="video-container ">
             <video autoPlay muted loop style={{ height: "6em" }}>
               <source src={logoAnimado} type="video/mp4" />
               Tu navegador no soporta el elemento de video.
@@ -64,6 +64,11 @@ const Header = () => {
           <li onClick={closeMenu}>
             <Link to="/socios">
               <h3 style={{ color: "black", fontSize: "1rem" }}> Socios</h3>
+            </Link>
+          </li>
+          <li onClick={closeMenu}>
+            <Link to="/contact">
+              <h3 style={{ color: "black", fontSize: "1rem" }}> Contacto</h3>
             </Link>
           </li>
         </ul>

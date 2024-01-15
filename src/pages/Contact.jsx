@@ -4,9 +4,9 @@ import { Alert } from "../components/Alert";
 import logo from "../assets/logo-aepa.png";
 
 const countries = [
-    { label: " (+1)", value: "+1" },
-    { label: " (+44)", value: "+44" },
-    { label: "Argentina (+54)", value: "+54" },
+    { label: "USA (+1)", value: "+1" },
+    { label: "UK (+44)", value: "+44" },
+    { label: "AR (+54)", value: "+54" },
     // Add more countries as needed
 ];
 
@@ -42,11 +42,11 @@ const Contact = () => {
                 className="container"
                 style={{
                     marginTop: "1rem",
-                    border: "2px solid #ffffff",
+                    border: "2px solid black",
                     borderRadius: "1rem",
                 }}
             >
-                <div className="row justify-content-between">
+                <div className="row justify-content-center">
                     <div className="sign-in-container col-lg-4 ">
                         <div className="sign-in-container m-4 col-8 "></div>
                         <Formik
@@ -60,10 +60,9 @@ const Contact = () => {
                             validate={validateForm}
                             onSubmit={handleSubmit}
                         >
-                            <Form className="mx-auto col-lg-12 ">
+                            <Form className="mx-auto col-lg-12 text-secondary ">
                                 <h1
-                                    className="text-center mb-4"
-                                    style={{ color: "white" }}
+                                    className="text-center  mb-4 text-primary"
                                 >
                                     Contacto
                                 </h1>
@@ -82,12 +81,12 @@ const Contact = () => {
                                         )}
                                     />
                                 </div>
-                                <div className=" d-flex justify-content-between mb-3">
-                                    <div className="form-floating col-4 ">
+                                <div className="  d-flex justify-content-between mb-3 ">
+                                    <div className="form-floating col-4  ">
                                         <Field
                                             as="select"
                                             name="country"
-                                            className="form-select"
+                                            className="form-select "
                                         >
                                             {countries.map((country) => (
                                                 <option
@@ -155,7 +154,6 @@ const Contact = () => {
                                         )}
                                     />
                                 </div>
-                                k
 
                                 <button
                                     className="btn btn-primary btn-block w-100 mb-1"
@@ -166,11 +164,26 @@ const Contact = () => {
                             </Form>
                         </Formik>
                     </div>
-                    <div className="container col-lg-2 ">
-                        <img className="img-fluid" src={logo} alt="" />
-                    </div>
-                    <div className="container col-lg-6 ">
-                        {/* Resto del contenido */}
+                    <div className="container row col-lg-6  text-center text-black d-flex">
+                        <div className="col-lg-6">
+                            <h3>¿Necesitas Ayuda?</h3>
+                            <ul>
+                                <li>
+                                    <i className="bi bi-whatsapp"></i>
+                                    <a
+                                        href="https://wa.me/54911910666"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        (+54) 9-11910666
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="col-lg-6">
+                            <h3>Seguinos en las redes</h3>
+                        </div>
                     </div>
                 </div>
             </div>

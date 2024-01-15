@@ -42,6 +42,7 @@ function App() {
             <Route path="/cursos" element={<CursosPage />} />
             <Route path="/talleres" element={<Talleres />} />
             <Route path="/socios" element={<Socios />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
         {/* <div className=" bg-info">{<Cursos />}</div> */}
