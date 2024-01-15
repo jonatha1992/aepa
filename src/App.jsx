@@ -1,19 +1,18 @@
 import "./css/App.css";
 import Menu from "./components/menu.jsx";
 import { Route, Routes } from "react-router-dom";
-import SubMenu from "./components/SubMenu";
-import FormAltaCurso from "./components/FormAltaCurso";
-import ListaCursos from "./components/ListaCursos";
-import Register from "./pages/Register";
+import Nosotros from "../src/pages/Nosotros";
+import CursosPage from "../src/pages/CursosPage";
+import Talleres from "../src/pages/Talleres";
+import Socios from "../src/pages/Socios";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import Home from "./components/home";
-import Header from "./components/Header";
-
-import Cursos from "../src/components/Cursos";
+import Header2 from "./components/Header2";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -28,21 +27,23 @@ function App() {
   return (
     <>
       <div className="container">
-        <Header />
-        <Routes>
-          <Route index element={<Menu />} />
-          <Route path="/Home" element={<Home />} />
-          <Route element={<ProtectedRoute isAllowed={!!User} />}>
-            <Route path="/cursos" element={<SubMenu />} />
-            <Route path="/eventos" element={<SubMenu />} />
-            <Route path="/contenido" element={<SubMenu />} />
-            <Route path="/cursos/alta" element={<FormAltaCurso />} />
-            <Route path="/cursos/edit" element={<ListaCursos />} />
-          </Route>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-        <div className=" bg-info">{<Cursos />}</div>
+        <Header2 />
+        <div
+          className="container"
+          style={{ marginTop: "220px", color: "white" }}
+        >
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/Home" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/cursos" element={<CursosPage />} />
+            <Route path="/talleres" element={<Talleres />} />
+            <Route path="/socios" element={<Socios />} />
+          </Routes>
+        </div>
+        {/* <div className=" bg-info">{<Cursos />}</div> */}
       </div>
     </>
   );
