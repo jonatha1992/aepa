@@ -13,6 +13,7 @@ import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import Home from "./components/home";
 import Header2 from "./components/Header2";
+import Contact from "./pages/Contact.jsx";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
