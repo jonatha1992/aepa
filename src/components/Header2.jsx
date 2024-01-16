@@ -66,11 +66,6 @@ const Header = () => {
               <h3 style={{ color: "black", fontSize: "1rem" }}> Socios</h3>
             </Link>
           </li>
-          <li onClick={closeMenu}>
-            <Link to="/contact">
-              <h3 style={{ color: "black", fontSize: "1rem" }}> Contacto</h3>
-            </Link>
-          </li>
         </ul>
         <div className="menu-icon" onClick={toggleMenu}>
           ☰
