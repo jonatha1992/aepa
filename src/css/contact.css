@@ -1,7 +1,6 @@
-
 .background-contact {
     min-height: 100%;
-    background-image: url('../assets/Contact-back.svg');
+    background-image: url("../assets/Contact-back.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,5 +10,4 @@
     position: fixed;
     left: 0;
     right: 0;
- }
-
+}
