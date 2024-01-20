@@ -50,7 +50,6 @@ const Contact = () => {
     resetForm();
   };
 
-
   return (
     <>
       <div
