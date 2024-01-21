@@ -26,14 +26,16 @@
     .row-footer{
         flex-wrap: wrap;
     }
-
-        .texto-con-borde {
-            /* Color del texto */
-            -webkit-text-stroke: 0;
-            /* Ancho y color del borde */
-        }
-
-        .texto-con-borde a{color:white}
+    .toast-container {
+        left: 0;
+    }
 }
 
 
+@media only screen and (min-width: 769px) {
+    .toast-container {
+        left: 150px;
+    }
+
+        .texto-con-borde a{color:white}
+}
