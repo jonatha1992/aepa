@@ -50,11 +50,9 @@ const Contact = () => {
         }
       );
       console.log(result.text);
-      // Mostrar notificación de éxito
       toast.success("¡El formulario se envió con éxito!");
     } catch (error) {
       console.log(error.text);
-      // Mostrar notificación de error
       toast.error("¡Hubo un error al enviar el formulario!");
     }
 
@@ -66,6 +64,10 @@ const Contact = () => {
     <>
       <div className="container-footer">
         <div className="row row-footer ">
+          <ToastContainer
+            autoClose={100000}
+            style={{ position: "relative", top: "0", left: "150px", zIndex: "9999" }}
+        />
           <div className="col-md-6  d-flex justify-content-center">
             <Formik
               initialValues={{
@@ -156,7 +158,6 @@ const Contact = () => {
                 </button>
               </Form>
             </Formik>
-            <ToastContainer />
           </div>
           <div
             className="col-md-6 d-flex justify-content-center "

@@ -4,11 +4,11 @@ import { FiMail } from "react-icons/fi"; // Importing all icons for simplicity
 export const Redes = () => {
   return (
     <>
-      <div className="  ">
+      <div className=" text-black">
         <h3 className="h2">¿Necesitas Ayuda? </h3>
         <ul className="list-unstyled mt-3">
           <li className=" texto-con-borde align-items-center mb-3">
-            <FaWhatsapp size={25} className="me-2 text-success  " />
+            <FaWhatsapp size={25} className="me-2 text-success " />
             <a
               href="https://wa.me/5491140232792"
               target="_blank"
@@ -26,7 +26,7 @@ export const Redes = () => {
           </li>
         </ul>
       </div>
-      <div className="  ">
+      <div className=" text-black ">
         <h3 className="h2 mb-3">Seguinos en las Redes</h3>
         <ul className="list-unstyled">
           <li className=" texto-con-borde align-items-center mb-3">
