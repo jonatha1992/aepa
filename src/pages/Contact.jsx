@@ -1,16 +1,15 @@
-import { Formik, Field, Form, ErrorMessage, useField } from "formik";
+/* eslint-disable react/prop-types */
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import { Error } from "../components/Error.jsx";
 import { Redes } from "../components/Redes.jsx";
 import { validarNumeroTelefono } from "../security/Validacion.js";
 import "../css/contact.css"; // Asegúrate de tener un archivo CSS para estilos adicionales
-import * as Yup from 'yup';
-import emailjs from '@emailjs/browser';
-import { useRef, useState } from "react";
-import { countries as countriesList } from 'countries-list';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
+import * as Yup from "yup";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+import { countries as countriesList } from "countries-list";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Obtener la lista de países con sus prefijos telefónicos
 const countries = Object.keys(countriesList).map((code) => ({
@@ -20,30 +19,43 @@ const countries = Object.keys(countriesList).map((code) => ({
 
 const validationSchema = Yup.object().shape({
   nombre: Yup.string().required("El nombre es obligatorio"),
-  telefono: Yup.string().required("El número es obligatorio").
-    test('valido', 'Número de teléfono no válido', (value) => validarNumeroTelefono(value))
-  ,
-  email: Yup.string().email("El correo no es válido").required("El correo es obligatorio"),
+  telefono: Yup.string()
+    .required("El número es obligatorio")
+    .test("valido", "Número de teléfono no válido", (value) =>
+      validarNumeroTelefono(value)
+    ),
+  email: Yup.string()
+    .email("El correo no es válido")
+    .required("El correo es obligatorio"),
   mensaje: Yup.string().required("El mensaje es obligatorio"),
 });
 
 const Contact = () => {
   const formRef = useRef();
 
-  const handleSubmit = async (values, { setSubmitting, resetForm, setErrors }) => {
+  const handleSubmit = async (
+    values,
+    { setSubmitting, resetForm, setErrors }
+  ) => {
     setErrors({});
     const phoneNumber = `${values.country}${values.telefono}`;
     try {
-      let result = await emailjs.sendForm('service_alv459n', 'template_3a2716m', formRef.current, 'qHtG6A2I87n7CARUF', {
-        telefono: phoneNumber
-      })
+      let result = await emailjs.sendForm(
+        "service_alv459n",
+        "template_3a2716m",
+        formRef.current,
+        "qHtG6A2I87n7CARUF",
+        {
+          telefono: phoneNumber,
+        }
+      );
       console.log(result.text);
       // Mostrar notificación de éxito
-      toast.success('¡El formulario se envió con éxito!');
+      toast.success("¡El formulario se envió con éxito!");
     } catch (error) {
       console.log(error.text);
       // Mostrar notificación de error
-      toast.error('¡Hubo un error al enviar el formulario!');
+      toast.error("¡Hubo un error al enviar el formulario!");
     }
 
     setSubmitting(true);
@@ -52,13 +64,9 @@ const Contact = () => {
 
   return (
     <>
-      <div
-        className="container"
-      >
-
-        <div className="row justify-content-center ">
-          <div className="sign-in-container col-lg-6 ">
-            <div className="sign-in-container m-4 col-8 "></div>
+      <div className="container-footer">
+        <div className="row row-footer ">
+          <div className="col-md-6  d-flex justify-content-center">
             <Formik
               initialValues={{
                 nombre: "",
@@ -73,9 +81,8 @@ const Contact = () => {
               validateOnChange={false}
               validateOnBlur={false}
             >
-
-              <Form className="mx-auto col-lg-9 col-sm-12 text-black fs-6 " ref={formRef}>
-                <h1 className="text-center h1 mb-2 text-black">Contacto</h1>
+              <Form className=" col-lg-9 col-sm-12  fs-6 " ref={formRef}>
+                <h1 className="text-center h1 mb-2 ">Contacto</h1>
                 <div className="form-floating mb-3  ">
                   <Field
                     type="text"
@@ -89,8 +96,8 @@ const Contact = () => {
                     component={(props) => <Error message={props.children} />}
                   />
                 </div>
-                <div className="  d-flex justify-content-between mb-3 " >
-                  <div className="form-floating col-5" >
+                <div className="  d-flex justify-content-between mb-3 ">
+                  <div className="form-floating col-5">
                     <Field as="select" name="country" className="form-select ">
                       {countries.map((country) => (
                         <option key={country.value} value={country.value}>
@@ -151,7 +158,12 @@ const Contact = () => {
             </Formik>
             <ToastContainer />
           </div>
-          <Redes />
+          <div
+            className="col-md-6 d-flex justify-content-center "
+            style={{ flexDirection: "column" }}
+          >
+            <Redes />
+          </div>
         </div>
       </div>
     </>
