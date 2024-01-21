@@ -161,7 +161,7 @@ const Contact = () => {
             </Formik>
           </div>
           <div
-            className="col-md-6 d-flex justify-content-center "
+            className="col-md-6 d-flex justify-content-center mt-5" 
             style={{ flexDirection: "column" }}
           >
             <Redes />
