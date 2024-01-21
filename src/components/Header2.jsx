@@ -46,6 +46,12 @@ const Header = () => {
         </div>
         <ul className={isMenuOpen ? "menu-open" : ""}>
           <li onClick={closeMenu}>
+            <Link to="/home">
+              {" "}
+              <h3 style={{ color: "black", fontSize: "1rem" }}>Inicio</h3>
+            </Link>
+          </li>
+          <li onClick={closeMenu}>
             <Link to="/nosotros">
               {" "}
               <h3 style={{ color: "black", fontSize: "1rem" }}> Nosotros</h3>

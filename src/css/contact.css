@@ -1,5 +1,5 @@
-.background-contact {
-    min-height: 100%;
+.container-footer {
+    /* min-height: 100%; */
     background-image: url("../assets/Contact-back.svg");
     background-size: cover;
     background-position: center;
@@ -7,7 +7,16 @@
     opacity: 0.8;
     padding: 0; /* Ajusta según sea necesario */
     border: 0; /* Ajusta según sea necesario */
-    position: fixed;
-    left: 0;
-    right: 0;
+    margin-top:4rem;
 }
+.row-footer{
+    flex-wrap:no-wrap
+}
+
+@media only screen and (max-width: 768px) {
+    .row-footer{
+        flex-wrap: wrap;
+    }
+}
+
+

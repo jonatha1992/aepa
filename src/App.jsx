@@ -27,26 +27,21 @@ function App() {
 
   return (
     <>
-      <div className="container">
-        <Header2 />
-        <div
-          className="container"
-          style={{ marginTop: "220px", color: "white" }}
-        >
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/Home" element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/nosotros" element={<Nosotros />} />
-            <Route path="/cursos" element={<CursosPage />} />
-            <Route path="/talleres" element={<Talleres />} />
-            <Route path="/socios" element={<Socios />} />
-          </Routes>
-        </div>
-        {/* <div className=" bg-info">{<Cursos />}</div> */}
-        <Contact />
+      <Header2 />
+      <div className="container" style={{ marginTop: "220px", color: "white" }}>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/cursos" element={<CursosPage />} />
+          <Route path="/talleres" element={<Talleres />} />
+          <Route path="/socios" element={<Socios />} />
+        </Routes>
       </div>
+      {/* <div className=" bg-info">{<Cursos />}</div> */}
+      <Contact />
     </>
   );
 }

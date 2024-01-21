@@ -3,6 +3,16 @@ import React from "react";
 export default function Home() {
   return (
     <div className="container">
+      <h3
+        style={{
+          color: "#383d42",
+          fontFamily: "Kanit, sans-serif",
+          fontWeight: "bold",
+          paddingBottom: "1.5rem",
+        }}
+      >
+        Asociación de Enfermería Pediátrica Argentina
+      </h3>
       <div
         className="row flex-direction-row"
         style={{ color: "#383d42", fontFamily: "Kanit, sans-serif" }}
@@ -16,15 +26,11 @@ export default function Home() {
               color: "rgb(56, 61, 66);",
             }}
           >
-            La Asociación de Enfermería Pediátrica Argentina, A.E.P.A..Nació
-            para tener una voz unificada que representara a los enfermeros
-            pediátricos en Argentina. Somos un equipo comprometido, con una
-            premisa: brindar la mejor atención posible a nuestros pacientes y
-            sus familias , buscamos unificar y fortalecer la profesión.Los tres
-            colores, representan a las instituciones emblemáticas en nuestro
-            país en la atención pediátrica: El color Celeste al Hospital Ricardo
-            Gutiérrez, al Hospital Pedro de Elizalde y Violeta al Hospital Juan
-            Garrahan
+            Nuestra visión es liderar en Enfermería con ética y humanismo,
+            enfocándonos en equidad y justicia. La misión es representar y
+            desarrollar enfermeros priorizando la salud infantil y juvenil. Nos
+            guían valores de competencia, responsabilidad, conocimiento, e
+            innovación cientifica.
           </h1>
         </div>
         <div
@@ -33,6 +39,16 @@ export default function Home() {
         >
           <div className="  imagen-home " style={{ height: "30vh" }}></div>
         </div>
+      </div>
+      <div
+        className="row flex-direction-row"
+        style={{ color: "#383d42", fontFamily: "Kanit, sans-serif" }}
+      >
+        <div className="col-md-6"></div>
+        <div
+          className="col-md-6 d-flex  justify-content-center"
+          style={{ flexDirection: "column" }}
+        ></div>
       </div>
     </div>
   );

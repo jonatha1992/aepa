@@ -3,40 +3,39 @@ import { FiMail } from "react-icons/fi"; // Importing all icons for simplicity
 
 export const Redes = () => {
   return (
-    <div className="lg-6 mt-5  container row col-lg-6 p- text-center text-black d-flex  align-items-center"
-    >
-      <div className="col-lg-12 text-black ">
+    <>
+      <div className=" text-black">
         <h3 className="h2">¿Necesitas Ayuda? </h3>
         <ul className="list-unstyled mt-3">
           <li className="  align-items-center mb-3">
-            <FaWhatsapp size={25} className="me-2 text-success  " />
+            <FaWhatsapp size={25} className="me-2 text-success " />
             <a
               href="https://wa.me/5491140232792"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black fw-bold"
+              className=" fw-bold"
             >
               (+54) 9 11 4023-2792
             </a>
           </li>
           <li className="  align-items-center mb-3 ">
             <FiMail size={25} className="me-2 " />
-            <a className="text-black fw-bold" href="mailto:secretaria@aepa.com.ar">
+            <a className=" fw-bold" href="mailto:secretaria@aepa.com.ar">
               secretaria@aepa.com.ar
             </a>
           </li>
         </ul>
       </div>
-      <div className="col-lg-12 mt-3 ">
+      <div className=" text-black ">
         <h3 className="h2 mb-3">Seguinos en las Redes</h3>
         <ul className="list-unstyled">
           <li className="  align-items-center mb-3">
-            <FaFacebook size={25} className="me-2  text-black " />
+            <FaFacebook size={25} className="me-2   " />
             <a
               href="https://www.facebook.com/profile.php?id=61551020911888"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black  fw-bold fw-bold"
+              className=" fw-bold fw-bold"
             >
               Facebook
             </a>
@@ -53,15 +52,19 @@ export const Redes = () => {
             >
               <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
             </svg>{" "}
-            <a className="text-black fw-bold" href="https://www.tiktok.com/@aepa2023">Ticktok</a>
+            <a className=" fw-bold" href="https://www.tiktok.com/@aepa2023">
+              Ticktok
+            </a>
           </li>
           <li className="  align-items-center mb-3">
             <FaInstagram size={25} className="me-2" />
-            <a className="text-black fw-bold" href="https://www.instagram.com/aepa318/">Instagram</a>
+            <a className=" fw-bold" href="https://www.instagram.com/aepa318/">
+              Instagram
+            </a>
           </li>
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 export default Redes;
