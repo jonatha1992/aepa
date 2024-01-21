@@ -32,6 +32,8 @@
             -webkit-text-stroke: 0;
             /* Ancho y color del borde */
         }
+
+        .texto-con-borde a{color:white}
 }
 
 
