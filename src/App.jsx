@@ -1,5 +1,4 @@
 import "./css/App.css";
-import Menu from "./components/menu.jsx";
 import { Route, Routes } from "react-router-dom";
 import Nosotros from "../src/pages/Nosotros";
 import CursosPage from "../src/pages/CursosPage";
@@ -12,8 +11,7 @@ import { useNavigate } from "react-router-dom";
 import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import Home from "./components/home";
-import Header2 from "./components/Header2";
-import Contact from "./pages/Contact.jsx";
+
 import Dashbord from "./pages/Dashbord";
 import AltaContenido from "./pages/AltaContenido";
 import Layout from "./pages/Layout";
