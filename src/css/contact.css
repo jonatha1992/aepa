@@ -14,13 +14,16 @@
 }
 
 .texto-con-borde {
-    color: "#383d42";
+        color: rgb(56, 61, 66);
     /* Color del texto */
     -webkit-text-stroke: 0.5px rgb(225, 225, 225);
     /* Ancho y color del borde */
     font-size: 20px;
     /* Tamaño del texto */
 }
+
+.texto-con-borde a{
+    color: rgb(56, 61, 66);}
 
 @media only screen and (max-width: 768px) {
     .row-footer{
@@ -29,6 +32,9 @@
     .toast-container {
         left: 0;
     }
+        .texto-con-borde a {
+            color: white
+        }
 }
 
 
@@ -37,5 +43,5 @@
         left: 150px;
     }
 
-        .texto-con-borde a{color:white}
+        
 }
