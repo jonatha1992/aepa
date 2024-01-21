@@ -13,10 +13,25 @@
     flex-wrap:no-wrap
 }
 
+.texto-con-borde {
+    color: "#383d42";
+    /* Color del texto */
+    -webkit-text-stroke: 0.5px rgb(225, 225, 225);
+    /* Ancho y color del borde */
+    font-size: 20px;
+    /* Tamaño del texto */
+}
+
 @media only screen and (max-width: 768px) {
     .row-footer{
         flex-wrap: wrap;
     }
+
+        .texto-con-borde {
+            /* Color del texto */
+            -webkit-text-stroke: 0;
+            /* Ancho y color del borde */
+        }
 }
 
 

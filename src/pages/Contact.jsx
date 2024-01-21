@@ -99,8 +99,8 @@ const Contact = () => {
                 <div className="  d-flex justify-content-between mb-3 ">
                   <div className="form-floating col-5">
                     <Field as="select" name="country" className="form-select ">
-                      {countries.map((country) => (
-                        <option key={country.value} value={country.value}>
+                      {countries.map((country, index) => (
+                        <option key={index} value={country.value}>
                           {country.label}
                         </option>
                       ))}

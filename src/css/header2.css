@@ -1,4 +1,4 @@
-nav{
+.navbar{
     display: flex;
         height: 100%;
         /* position: absolute; */
@@ -22,18 +22,16 @@ header {
     color: white;
 }
 
-nav ul {
+.navbar ul {
     list-style: none;
     display: flex;
 }
 
-nav li {
+.navbar li {
     margin-right: 20px;
 }
-
-nav a {
+.navbar a {
     text-decoration: none;
-    color: #346084;
 }
 
 .menu-icon {
@@ -59,28 +57,33 @@ nav a {
 }
 
 @media only screen and (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        display: none;
-        text-align: center;
-    }
-
-    nav ul.menu-open {
-        display: flex;
-        top: 200px;
-    }
-
-    nav li {
-        margin: 0;
-        padding: 15px;
-    }
-
-    .menu-icon {
-        display: block;
-    }
+    .navbar ul {
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            /* Cambia el ancho al 100% */
+            background-color: #333;
+            display: none;
+            text-align: center;
+        }
+    
+        .navbar ul.menu-open {
+            display: flex;
+            top: 200px;
+        }
+    
+        .navbar li {
+            margin: 0;
+            padding: 15px;
+            width: 100%;
+            /* Añade esta propiedad para que los elementos ocupen todo el ancho */
+            box-sizing: border-box;
+            /* Añade esta propiedad para incluir el padding en el ancho total */
+        }
+    
+        .menu-icon {
+            display: block;
+        }
 }

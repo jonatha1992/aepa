@@ -23,7 +23,7 @@ export default function Home() {
               textAlign: "start",
               fontSize: "1em",
               lineHeight: "2em",
-              color: "rgb(56, 61, 66);",
+              color: "rgb(56, 61, 66)",
             }}
           >
             Nuestra visión es liderar en Enfermería con ética y humanismo,
