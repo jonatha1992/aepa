@@ -65,8 +65,9 @@ const Contact = () => {
       <div className="container-footer">
         <div className="row row-footer ">
           <ToastContainer
-            autoClose={100000}
-            style={{ position: "relative", top: "0", left: "150px", zIndex: "9999" }}
+            autoClose={10000}
+            className=  "toast-container"
+            style={{ position: "relative", top: "0",   zIndex: "9999" }}
         />
           <div className="col-md-6  d-flex justify-content-center">
             <Formik
@@ -101,8 +102,8 @@ const Contact = () => {
                 <div className="  d-flex justify-content-between mb-3 ">
                   <div className="form-floating col-5">
                     <Field as="select" name="country" className="form-select ">
-                      {countries.map((country) => (
-                        <option key={country.value} value={country.value}>
+                      {countries.map((country, index) => (
+                        <option key={index} value={country.value}>
                           {country.label}
                         </option>
                       ))}
@@ -160,7 +161,7 @@ const Contact = () => {
             </Formik>
           </div>
           <div
-            className="col-md-6 d-flex justify-content-center "
+            className="col-md-6 d-flex justify-content-center mt-5" 
             style={{ flexDirection: "column" }}
           >
             <Redes />
