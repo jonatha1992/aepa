@@ -65,8 +65,9 @@ const Contact = () => {
       <div className="container-footer">
         <div className="row row-footer ">
           <ToastContainer
-            autoClose={100000}
-            style={{ position: "relative", top: "0", left: "150px", zIndex: "9999" }}
+            autoClose={10000}
+            className=  "toast-container"
+            style={{ position: "relative", top: "0",   zIndex: "9999" }}
         />
           <div className="col-md-6  d-flex justify-content-center">
             <Formik

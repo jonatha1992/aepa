@@ -17,6 +17,14 @@
     .row-footer{
         flex-wrap: wrap;
     }
+    .toast-container {
+        left: 0;
+    }
 }
 
 
+@media only screen and (min-width: 769px) {
+    .toast-container {
+        left: 150px;
+    }
+}
