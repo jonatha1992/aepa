@@ -1,4 +1,4 @@
-.navbar{
+.navbarstyle{
     display: flex;
         height: 100%;
         /* position: absolute; */
@@ -22,15 +22,15 @@ header {
     color: white;
 }
 
-.navbar ul {
+.navbarstyle ul {
     list-style: none;
     display: flex;
 }
 
-.navbar li {
+.navbarstyle li {
     margin-right: 20px;
 }
-.navbar a {
+.navbarstyle a {
     text-decoration: none;
 }
 
@@ -56,8 +56,13 @@ header {
     opacity: 0.8
 }
 
+.item-menu{
+    color: rgb(56, 61, 66); 
+    font-size: 1rem;
+}
+
 @media only screen and (max-width: 768px) {
-    .navbar ul {
+    .navbarstyle ul {
             flex-direction: column;
             position: absolute;
             top: 60px;
@@ -69,12 +74,12 @@ header {
             text-align: center;
         }
     
-        .navbar ul.menu-open {
+        .navbarstyle ul.menu-open {
             display: flex;
             top: 200px;
         }
     
-        .navbar li {
+        .navbarstyle li {
             margin: 0;
             padding: 15px;
             width: 100%;
@@ -86,4 +91,9 @@ header {
         .menu-icon {
             display: block;
         }
+
+    .item-menu {
+    color: rgb(245, 245, 245);
+    font-size: 2rem;
+    }
 }

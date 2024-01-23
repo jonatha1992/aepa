@@ -16,6 +16,9 @@ import Home from "./components/home";
 import Dashbord from "./pages/Dashbord";
 import AltaContenido from "./pages/AltaContenido";
 import Layout from "./pages/Layout";
+import DashbordAlumnos from "./components/DashbordAlumnos";
+import DashboardAlumnosLayout from "./pages/DashbordAlumnosLayout";
+import MisCursos from "./components/MisCursos";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -40,8 +43,9 @@ function App() {
         <Route path="/talleres" element={<Talleres />} />
         <Route path="/socios" element={<Socios />} />
         <Route path="/Dashbord" element={<Dashbord />} />
-        <Route path="/AltaContenido" element={<AltaContenido />} />
-        <Route path="/Registro" element={<Registro />} />
+        <Route path="/admin" element={<AltaContenido />} />
+        <Route path="/Alumnos" element={<DashbordAlumnos />} />
+        <Route path="/miscursos" element={<MisCursos />} />
       </Routes>
       {/* </div> */}
       {/* <div className=" bg-info">{<Cursos />}</div> */}

@@ -1,0 +1,25 @@
+/* dashbordAlumnos.css */
+
+.feature-grid {
+    color: #606468;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.feature-item {
+    text-align: center;
+    min-height: 100px;
+}
+
+.feature-item span {
+    display: block;
+    margin-top: 10px;
+}
