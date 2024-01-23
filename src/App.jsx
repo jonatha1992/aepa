@@ -1,24 +1,25 @@
 import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
-import Nosotros from "../src/pages/Nosotros";
-import Registro from "../src/pages/Registro";
-import CursosPage from "../src/pages/CursosPage";
-import Talleres from "../src/pages/Talleres";
-import Socios from "../src/pages/Socios";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import {Nosotros ,CursosPage, Talleres, Socios, Login, Register , 
+  Dashbord , AltaContenido, DashbordAlumnos ,DashboardAlumnosLayout,MisCursos } from "../src/pages";
+
+// import CursosPage from "../src/pages/CursosPage";
+// import Talleres from "../src/pages/Talleres";
+// import Socios from "../src/pages/Socios";
+// import Login from "./pages/Login";
+// import Register from "./pages/Register";
+// import Dashbord from "./pages/Dashbord";
+// import AltaContenido from "./pages/AltaContenido";
+// import Layout from "./pages/Layout";
+// import DashbordAlumnos from "./components/DashbordAlumnos";
+// import DashboardAlumnosLayout from "./pages/DashbordAlumnosLayout";
+// import MisCursos from "./components/MisCursos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import Home from "./components/home";
 
-import Dashbord from "./pages/Dashbord";
-import AltaContenido from "./pages/AltaContenido";
-import Layout from "./pages/Layout";
-import DashbordAlumnos from "./components/DashbordAlumnos";
-import DashboardAlumnosLayout from "./pages/DashbordAlumnosLayout";
-import MisCursos from "./components/MisCursos";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
