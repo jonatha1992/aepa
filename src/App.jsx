@@ -1,6 +1,7 @@
 import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
 import Nosotros from "../src/pages/Nosotros";
+import Registro from "../src/pages/Registro";
 import CursosPage from "../src/pages/CursosPage";
 import Talleres from "../src/pages/Talleres";
 import Socios from "../src/pages/Socios";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/socios" element={<Socios />} />
         <Route path="/Dashbord" element={<Dashbord />} />
         <Route path="/AltaContenido" element={<AltaContenido />} />
+        <Route path="/Registro" element={<Registro />} />
       </Routes>
       {/* </div> */}
       {/* <div className=" bg-info">{<Cursos />}</div> */}
