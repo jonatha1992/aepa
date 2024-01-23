@@ -5,6 +5,8 @@
 /*   padding: 2rem; */
   text-align: center;
   background-color: #ffffff;
+  --aepa-azul: #0071BC;
+  --aepa-texto: #615e5e;
 }
 
 .logo {
