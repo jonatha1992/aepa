@@ -27,6 +27,7 @@ import { useNavigate } from "react-router-dom";
 import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import Home from "./components/Home";
+import UnidadesCursos from "./components/UnidadesCursos";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -54,6 +55,7 @@ function App() {
         <Route path="/admin" element={<AltaContenido />} />
         <Route path="/Alumnos" element={<DashbordAlumnos />} />
         <Route path="/miscursos" element={<MisCursos />} />
+        <Route path="/unidades/:uid/:cursoid" element={<UnidadesCursos />} />
       </Routes>
       {/* </div> */}
       {/* <div className=" bg-info">{<Cursos />}</div> */}

@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from "react";
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  db,
-  CursosInscriptos,
-} from "../firebase.js"; // Asegúrate de importar las funciones necesarias de tu librería de Firebase
+import { CursosInscriptos } from "../firebase.js";
 import { useAuth } from "../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const MisCursos = () => {
-  // Estado local para almacenar los datos de Firebase
   const [cursos, setCursos] = useState([]);
   const { User } = useAuth();
-  // Efecto secundario utilizando useEffect
-  useEffect(() => {
-    // Lógica a ejecutar después de que el componente se monta
-    // Puedes realizar llamadas a Firebase u otras operaciones asíncronas
+  const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
 
+  const handleCursoClick = (cursoId) => {
+    // Utiliza navigate en lugar de push
+    navigate(`/unidades/${User.uid}/${cursoId}`);
+  };
+
+  useEffect(() => {
     const fetchDataFromFirebase = async () => {
       try {
         const miscursos = await CursosInscriptos(User.uid);
-        console.log(miscursos);
         setCursos(miscursos);
       } catch (error) {
         console.error("Error al obtener datos de Firebase:", error);
@@ -29,23 +24,44 @@ const MisCursos = () => {
     };
 
     fetchDataFromFirebase();
+  }, [User.uid]);
 
-    // Lógica a ejecutar antes de que el componente se desmonte
-    return () => {
-      // Puedes realizar limpieza, cancelar suscripciones, etc.
-    };
-  }, []); // El segundo argumento (array de dependencias) controla cuándo se ejecuta el efecto
-
-  // Renderiza el componente
   return (
-    <div style={{ color: "black" }}>
-      <h1>Mis Cursos</h1>
-      {/* Renderiza los datos obtenidos del estado local */}
-      <ul>
-        {cursos.map((curso, index) => (
-          <li key={index}>{curso.detalles.title}</li>
-        ))}
-      </ul>
+    <div className="container container-miscursos" style={{ color: "black" }}>
+      {cursos.map((curso, index) => (
+        <div
+          key={index}
+          className="miscursos-item"
+          onClick={() => handleCursoClick(curso.cursoid)}
+        >
+          <div
+            className="blur-background"
+            style={{
+              backgroundImage: `url(${curso.detalles.image})`,
+            }}
+          >
+            <div className="content d-flex">
+              <span
+                style={{
+                  width: "70%",
+                  fontSize: "1rem",
+                  textAlign: "start",
+                  color: "#606468",
+                  fontWeight: "bold",
+                }}
+              >
+                {curso.detalles.title}
+              </span>
+              <div
+                className="info-micurso"
+                style={{ width: "30%", textAlign: "end", fontSize: "10px" }}
+              >
+                <span>25 contenidos sin ver</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
