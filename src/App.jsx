@@ -9,15 +9,10 @@ import {
   Register,
   Dashbord,
   AltaContenido,
+  Registro,
 } from "../src/pages";
 
-// import CursosPage from "../src/pages/CursosPage";
-// import Talleres from "../src/pages/Talleres";
-// import Socios from "../src/pages/Socios";
-// import Login from "./pages/Login";
-// import Register from "./pages/Register";
-// import Dashbord from "./pages/Dashbord";
-// import AltaContenido from "./pages/AltaContenido";
+
 import Layout from "./pages/Layout";
 import DashbordAlumnos from "./components/DashbordAlumnos";
 // import DashboardAlumnosLayout from "./pages/DashbordAlumnosLayout";
@@ -54,6 +49,7 @@ function App() {
         <Route path="/admin" element={<AltaContenido />} />
         <Route path="/Alumnos" element={<DashbordAlumnos />} />
         <Route path="/miscursos" element={<MisCursos />} />
+        <Route path="/registro" element={<Registro />} />
       </Routes>
       {/* </div> */}
       {/* <div className=" bg-info">{<Cursos />}</div> */}

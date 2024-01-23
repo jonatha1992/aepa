@@ -8,10 +8,10 @@ const Layout = ({ children }) => {
   const location = useLocation();
 
   // Decide si mostrar o no el componente Contact
-  const showContact = !["/Alumnos", "/admin"].includes(location.pathname);
+  const showContact = !["/Alumnos", "/admin", "/registro"].includes(location.pathname);
 
   return (
-    <>
+    <>+
       <Header2 />
       <main style={{ marginTop: "220px", color: "white" }}>{children}</main>
       {showContact && <Contact />}
