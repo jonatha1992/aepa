@@ -26,16 +26,20 @@ const FeatureGrid = () => {
 
   return (
     <>
-      <h3 style={{ color: "black" }}>Bienvenido {User.uid}</h3>
-      <div className="feature-grid">
-        {features.map((feature, index) => (
-          <Link to={feature.route} key={index}>
-            <div className="feature-item">
-              {feature.icon}
-              <span>{feature.name}</span>
-            </div>
-          </Link>
-        ))}
+      <div className="container">
+        <h3 style={{ textAlign: "start", color: "#606468" }}>
+          Bienvenido {User.displayName}.
+        </h3>
+        <div className="feature-grid">
+          {features.map((feature, index) => (
+            <Link to={feature.route} key={index}>
+              <div className="feature-item">
+                {feature.icon}
+                <span>{feature.name}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );

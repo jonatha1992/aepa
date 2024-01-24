@@ -6,6 +6,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-content: center;
+    margin-top: 4rem
 }
 
 .container-miscursos {
@@ -59,15 +60,36 @@
     }
 }
 
-.feature-item,
+
 .miscursos-item {
     text-align: center;
     min-height: 100px;
 }
 
-.feature-item,
+.feature-item{
+    display: flex;
+}
+
+.feature-item span {
+    font-size: 1.2rem;
+}
 .miscursos-item span {
     display: block;
     text-transform: capitalize;
-    color: black;
+    color: #606468;
+}
+
+.feature-item{
+    display: flex;
+        min-height: 8rem;
+        text-transform: capitalize;
+        color: #606468;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+}
+
+.feature-item svg{
+    height: 2em;
+    width: 2em;
 }

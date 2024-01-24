@@ -9,7 +9,7 @@ const UnidadesCursos = () => {
   // ...
 
   return (
-    <div>
+    <div style={{ color: "black" }}>
       <h2>
         Unidades del Curso {cursoid} para el Usuario {uid}
       </h2>
