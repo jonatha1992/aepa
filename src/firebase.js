@@ -134,4 +134,21 @@ export {
   getDocs,
   query,
   where,
+  ContenidoXCurso,
+};
+
+const ContenidoXCurso = async (cursoid) => {
+  const contenidoRef = collection(db, "contenido");
+  const q1 = query(contenidoRef, where("cursoid", "==", cursoid));
+
+  const querySnapshot = await getDocs(q1);
+
+  // Construye un array con los resultados
+  const resultados = [];
+
+  querySnapshot.forEach((doc) => {
+    resultados.push({ id: doc.id, ...doc.data() });
+  });
+
+  return resultados;
 };

@@ -12,7 +12,6 @@ import {
   Registro,
 } from "../src/pages";
 
-
 import Layout from "./pages/Layout";
 import DashbordAlumnos from "./components/DashbordAlumnos";
 // import DashboardAlumnosLayout from "./pages/DashbordAlumnosLayout";
@@ -50,7 +49,10 @@ function App() {
         <Route path="/admin" element={<AltaContenido />} />
         <Route path="/Alumnos" element={<DashbordAlumnos />} />
         <Route path="/miscursos" element={<MisCursos />} />
-        <Route path="/unidades/:uid/:cursoid" element={<UnidadesCursos />} />
+        <Route
+          path="/unidades/:cursotitle/:cursoid"
+          element={<UnidadesCursos />}
+        />
         <Route path="/registro" element={<Registro />} />
       </Routes>
       {/* </div> */}
