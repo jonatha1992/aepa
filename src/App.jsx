@@ -9,9 +9,9 @@ import {
     Register,
     Dashbord,
     AltaContenido,
-    Registro,
     Anuncio,
-} from "../src/pages";
+    Registro,
+} from "./pages";
 
 import Layout from "./pages/Layout";
 import DashbordAlumnos from "./components/DashbordAlumnos";
