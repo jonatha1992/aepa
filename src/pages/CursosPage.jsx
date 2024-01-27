@@ -3,7 +3,7 @@ import Cursos from "../components/Cursos";
 import "../css/cursospages.css"; 
 
 
-const CursoCard = ({ title, image, author, duration, startDate, price }) => (
+const CursoCard = ({ title, image, author, duration, startDate, price, ejemplo }) => (
   <div className="curso-card">
     <div className="curso-header">
       <h2>{title}</h2>
@@ -14,7 +14,13 @@ const CursoCard = ({ title, image, author, duration, startDate, price }) => (
       <p>Inicio: {startDate}</p>
       <p>Precio: ${price}</p>
     </div>
+    <div className="curso-info">
+       <h3>Ejemplo: {ejemplo}</h3>
+    </div>
   </div>
+  
+
+
 );
 
 export default class CursosPage extends React.Component {
@@ -34,6 +40,7 @@ export default class CursosPage extends React.Component {
             duration="Duracion: 2 meses (May/Jun)"
             startDate="Inicio:09/05 (8 clases)"
             price="20.000"
+            ejemplo="hola"
           
           
           />
