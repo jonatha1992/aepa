@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import { CursosInscriptos } from "../firebase.js";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const MisCursos = () => {
   const [cursos, setCursos] = useState([]);
   const { User } = useAuth();
   const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
 
-  const handleCursoClick = (cursoId) => {
+  const handleCursoClick = (cursoId, cursotitle) => {
     // Utiliza navigate en lugar de push
-    navigate(`/unidades/${User.uid}/${cursoId}`);
+    navigate(`/unidades/${cursotitle}/${cursoId}`);
   };
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const MisCursos = () => {
         <div
           key={index}
           className="miscursos-item"
-          onClick={() => handleCursoClick(curso.cursoid)}
+          onClick={() => handleCursoClick(curso.cursoid, curso.detalles.title)}
         >
           <div
             className="blur-background"

@@ -51,7 +51,7 @@ function App() {
                 <Route path="/Alumnos" element={<DashbordAlumnos />} />
                 <Route path="/miscursos" element={<MisCursos />} />
                 <Route
-                    path="/unidades/:uid/:cursoid"
+                    path="/unidades/:cursotitle/:cursoid"
                     element={<UnidadesCursos />}
                 />
                 <Route path="/registro" element={<Registro />} />
