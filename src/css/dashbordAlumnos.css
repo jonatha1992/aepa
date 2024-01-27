@@ -1,0 +1,125 @@
+/* dashbordAlumnos.css */
+
+.feature-grid {
+    color: #606468;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 4rem
+}
+
+.container-miscursos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.miscursos-item {
+    border-radius: 1rem;
+    position: relative;
+    height: 10rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    /* Agrega una transición a la sombra */
+}
+
+.blur-background {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1rem;
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
+}
+
+.miscursos-item:hover {
+    box-shadow: 0 0 40px rgb(93 128 157);
+    /* Agrega sombra al pasar el mouse */
+}
+
+.encabezado-tipo{
+    font-size: 1.5rem;
+        padding: 1rem;
+        text-align: start;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-bottom:0;
+}
+
+.titulo-contenido{
+    border: 1px solid #5d809d;
+        padding: 0.5rem;
+        display: flex;
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        justify-content: space-between;
+        background: #c9cacc;
+
+}
+
+.titulo-contenido p {
+    text-align: start;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .container-miscursos {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+.miscursos-item {
+    text-align: center;
+    min-height: 100px;
+}
+
+.feature-item{
+    display: flex;
+}
+
+.feature-item span {
+    font-size: 1.2rem;
+}
+.miscursos-item span {
+    display: block;
+    text-transform: capitalize;
+    color: #606468;
+}
+
+.feature-item{
+    display: flex;
+        min-height: 8rem;
+        text-transform: capitalize;
+        color: #606468;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+}
+
+.feature-item svg{
+    height: 2em;
+    width: 2em;
+}

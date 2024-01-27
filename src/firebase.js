@@ -2,17 +2,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import {
   getFirestore,
   collection,
-  query,
   getDocs,
-  where,
   doc,
   getDoc,
   setDoc,
   updateDoc,
-  orderBy,
-  limit,
   addDoc,
   deleteDoc,
+  query,
+  where,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 import {
@@ -97,4 +95,60 @@ async function deleteFile(url) {
   }
 }
 
-export { collection, db,  getDoc, doc, addDoc, setDoc, updateDoc, getDocs };
+const CursosInscriptos = async (uid) => {
+  try {
+    // Realiza la consulta a Firebase
+    const miscursosRef = await collection(db, "inscripciones");
+    const q = await query(miscursosRef, where("uid", "==", uid));
+    const querySnapshot = await getDocs(q);
+
+    // Extrae los datos de la consulta y actualiza el estado
+    const cursosArray = [];
+    querySnapshot.forEach((doc) => {
+      cursosArray.push({ inscripcionid: doc.id, ...doc.data() });
+    });
+    // Realiza una segunda consulta para obtener los detalles de cada curso
+    const cursosDetallesArray = await Promise.all(
+      cursosArray.map(async (curso) => {
+        const cursoDetallesRef = doc(db, "cursos", curso.cursoid);
+        const cursoDetallesSnapshot = await getDoc(cursoDetallesRef);
+        return { ...curso, detalles: cursoDetallesSnapshot.data() };
+      })
+    );
+
+    return cursosDetallesArray;
+  } catch (error) {
+    console.error("Error en la operación asincrónica:", error);
+  }
+};
+
+export {
+  CursosInscriptos,
+  collection,
+  db,
+  getDoc,
+  doc,
+  addDoc,
+  setDoc,
+  updateDoc,
+  getDocs,
+  query,
+  where,
+  ContenidoXCurso,
+};
+
+const ContenidoXCurso = async (cursoid) => {
+  const contenidoRef = collection(db, "contenido");
+  const q1 = query(contenidoRef, where("cursoid", "==", cursoid));
+
+  const querySnapshot = await getDocs(q1);
+
+  // Construye un array con los resultados
+  const resultados = [];
+
+  querySnapshot.forEach((doc) => {
+    resultados.push({ id: doc.id, ...doc.data() });
+  });
+
+  return resultados;
+};

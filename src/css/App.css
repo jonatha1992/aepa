@@ -1,27 +1,29 @@
 #root {
-  width: 100%;
-  /* max-width: 1280px; */
-  margin: 0 auto;
-/*   padding: 2rem; */
-  text-align: center;
-  background-color: #ffffff;
+    width: 100%;
+    /* max-width: 1280px; */
+    margin: 0 auto;
+    /*   padding: 2rem; */
+    text-align: center;
+    background-color: #ffffff;
+    --aepa-azul: #0071bc;
+    --aepa-texto: #615e5e;
+    --aepa-form: #5b8ca5;
 }
 
 .logo {
-  height: 6em;
-
-  will-change: filter;
-  transition: filter 300ms;
+    height: 6em;
+    will-change: filter;
+    transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+    filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.imagen-home{
-  background-image: url('../assets/hero-image.jpeg');
+.imagen-home {
+    background-image: url("../assets/hero-image.jpeg");
     background-size: cover;
     /* Ajusta según tus necesidades */
     background-position: center;
@@ -30,32 +32,30 @@
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
 }
 
 .card {
-  padding: 2em;
+    padding: 2em;
 }
 
 .read-the-docs {
-  color: #888;
+    color: #888;
 }
 image-home {
-  height: 30vh;
-  ;
+    height: 30vh;
 }
 
 @media (max-width: 767px) {
-  
 }

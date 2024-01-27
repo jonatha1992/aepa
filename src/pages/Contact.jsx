@@ -17,6 +17,11 @@ const countries = Object.keys(countriesList).map((code) => ({
   value: `+${countriesList[code].phone}`,
 }));
 
+// Encuentra el valor que corresponde a Argentina (+54)
+const defaultCountryValue =
+  countries.find((country) => country.value === "+54")?.value ||
+  countries[0].value;
+
 const validationSchema = Yup.object().shape({
   nombre: Yup.string().required("El nombre es obligatorio"),
   telefono: Yup.string()
@@ -63,108 +68,120 @@ const Contact = () => {
   return (
     <>
       <div className="container-footer">
-        <div className="row row-footer ">
-          <ToastContainer
-            autoClose={10000}
-            className=  "toast-container"
-            style={{ position: "relative", top: "0",   zIndex: "9999" }}
-        />
-          <div className="col-md-6  d-flex justify-content-center">
-            <Formik
-              initialValues={{
-                nombre: "",
-                telefono: "",
-                email: "",
-                mensaje: "",
-                country: countries[0].value,
+        <div className="container">
+          <div className="row row-footer ">
+            <ToastContainer
+              autoClose={10000}
+              className="toast-container"
+              style={{
+                position: "relative",
+                top: "0",
+                zIndex: "9999",
               }}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-              validateOnSubmit={true}
-              validateOnChange={false}
-              validateOnBlur={false}
-            >
-              <Form className=" col-lg-9 col-sm-12  fs-6 " ref={formRef}>
-                <h1 className="text-center h1 mb-2 ">Contacto</h1>
-                <div className="form-floating mb-3  ">
-                  <Field
-                    type="text"
-                    className="form-control"
-                    placeholder="Enter your name"
-                    name="nombre"
-                  />
-                  <label>Nombre Completo</label>
-                  <ErrorMessage
-                    name="nombre"
-                    component={(props) => <Error message={props.children} />}
-                  />
-                </div>
-                <div className="  d-flex justify-content-between mb-3 ">
-                  <div className="form-floating col-5">
-                    <Field as="select" name="country" className="form-select ">
-                      {countries.map((country, index) => (
-                        <option key={index} value={country.value}>
-                          {country.label}
-                        </option>
-                      ))}
-                    </Field>
-                    <label htmlFor="country">Codigo</label>
-                  </div>
-                  <div className="form-floating col-7">
+            />
+            <div className="col-md-6  d-flex justify-content-center">
+              <Formik
+                initialValues={{
+                  nombre: "",
+                  telefono: "",
+                  email: "",
+                  mensaje: "",
+                  country: defaultCountryValue,
+                }}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+                validateOnSubmit={true}
+                validateOnChange={false}
+                validateOnBlur={false}
+              >
+                <Form className=" col-lg-9 col-sm-12  fs-6 " ref={formRef}>
+                  <h1 className="text-center h1 mb-2 ">Contacto</h1>
+                  <div className="form-floating mb-3  ">
                     <Field
-                      type="tel"
-                      className="form-control"
-                      placeholder="Ingresa tu teléfono"
-                      name="telefono"
+                      type="text"
+                      className="form-control "
+                      placeholder="Enter your name"
+                      name="nombre"
                     />
-                    <label htmlFor="telefono">Número sin prefijo</label>
+                    <label>Nombre Completo</label>
                     <ErrorMessage
-                      name="telefono"
+                      name="nombre"
                       component={(props) => <Error message={props.children} />}
                     />
                   </div>
-                </div>
-                <div className="form-floating mb-3">
-                  <Field
-                    type="text"
-                    className="form-control"
-                    name="email"
-                    placeholder="Ingrese your email"
-                  />
-                  <label>Email</label>
-                  <ErrorMessage
-                    name="email"
-                    component={(props) => <Error message={props.children} />}
-                  />
-                </div>
-                <div className="form-floating mb-3">
-                  <Field
-                    as="textarea" // Usar "textarea" en lugar de "text-area"
-                    name="mensaje"
-                    className="form-control"
-                    placeholder="Ingrese el mensaje"
-                  />
-                  <label>Mensaje</label>
-                  <ErrorMessage
-                    name="mensaje"
-                    component={(props) => <Error message={props.children} />}
-                  />
-                </div>
+                  <div className="  d-flex justify-content-between mb-3 ">
+                    <div className="form-floating col-4 ">
+                      <Field
+                        as="select"
+                        name="country"
+                        className="form-select "
+                      >
+                        {countries.map((country, index) => (
+                          <option key={index} value={country.value}>
+                            {country.label}
+                          </option>
+                        ))}
+                      </Field>
+                      <label htmlFor="country">Codigo</label>
+                    </div>
+                    <div className="form-floating col-7">
+                      <Field
+                        type="tel"
+                        className="form-control"
+                        placeholder="Ingresa tu teléfono"
+                        name="telefono"
+                      />
+                      <label htmlFor="telefono">Número sin prefijo</label>
+                      <ErrorMessage
+                        name="telefono"
+                        component={(props) => (
+                          <Error message={props.children} />
+                        )}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <Field
+                      type="text"
+                      className="form-control"
+                      name="email"
+                      placeholder="Ingrese your email"
+                    />
+                    <label>Email</label>
+                    <ErrorMessage
+                      name="email"
+                      component={(props) => <Error message={props.children} />}
+                    />
+                  </div>
+                  <div className="form-floating mb-3">
+                    <Field
+                      as="textarea" // Usar "textarea" en lugar de "text-area"
+                      name="mensaje"
+                      className="form-control"
+                      placeholder="Ingrese el mensaje"
+                    />
+                    <label>Mensaje</label>
+                    <ErrorMessage
+                      name="mensaje"
+                      component={(props) => <Error message={props.children} />}
+                    />
+                  </div>
 
-                <button
-                  className="btn btn-primary btn-block w-100 mb-1"
-                  type="submit"
-                >
-                  Enviar
-                </button>
-              </Form>
-            </Formik>
-          </div>
-          <div
-            className="col-md-6 d-flex justify-content-center mt-5" 
-            style={{ flexDirection: "column" }}
-          >
-            <Redes />
+                  <button
+                    className="btn btn-primary btn-block w-100 mb-1"
+                    type="submit"
+                  >
+                    Enviar
+                  </button>
+                </Form>
+              </Formik>
+            </div>
+            <div
+              className="col-md-6 d-flex justify-content-center mt-5"
+              style={{ flexDirection: "column" }}
+            >
+              <Redes />
+            </div>
           </div>
         </div>
       </div>
