@@ -10,7 +10,7 @@ body {
 .landing-page {
     background-color: #e6e5e1;
     margin: 0 auto;
-    padding: 20px;
+
     background-size: cover;
     background-position: center;
     color: #000;
@@ -122,12 +122,20 @@ header h3{
 
 
 .background-1{
+    background-image: url('../assets/fondo_pantalla.jpg');
+        display: flex;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            align-items: center;
+        /* Centra la imagen en el contenedor */
+        /* height: 300px;
     border-radius: 2rem;
         padding: 3rem;
     background-image: linear-gradient(245deg,
                 hsl(48deg 9% 89%) 14%,
                 hsl(184deg 44% 82%) 91%,
-                hsl(186deg 70% 73%) 101%);
+                hsl(186deg 70% 73%) 101%); */
 }
 .icon{
     padding: 1rem;
@@ -167,5 +175,17 @@ header h3{
     .item-menu {
         color: rgb(245, 245, 245);
         font-size: 2rem;
+    }
+
+    .mobile{
+        padding-bottom: 3rem;
+            height: 100%;
+            display: flex;
+            /* height: 100%; */
+            flex-direction: column;
+            justify-content: flex-end;
+    }
+    .p-mobile{
+        display: none
     }
 }

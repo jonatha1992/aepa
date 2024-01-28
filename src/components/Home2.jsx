@@ -54,21 +54,30 @@ function Home2() {
       <div className="main">
         <section id="seccion1">
           <div className="container-fluid background-1">
-            <div className="container">
-              <div className="col-md-8 text-start">
+            <div className="container mobile">
+              <div className="col-md-6 text-start">
                 <h2
                   style={{
                     fontWeight: "bold",
-                    color: "var(--color1)",
+                    color: "var(--color3)",
                     textTransform: "uppercase",
+                    webkitTextStroke: "1px #dee2e6",
+                    fontSize: "3rem",
                   }}
                 >
                   Bievenidos a AEPA
                 </h2>
-                <h2 style={{ fontWeight: "bold", textTransform: "uppercase" }}>
+                <h2
+                  style={{
+                    fontWeight: "bold",
+                    textTransform: "uppercase",
+                    color: "var(--color3)",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   eleva tu carrera, transforma la atencion medica
                 </h2>
-                <p>
+                <p className="p-mobile">
                   Tu plataforma integral de formacion para el personal de salud.
                 </p>
               </div>
