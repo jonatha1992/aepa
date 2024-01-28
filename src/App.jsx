@@ -14,7 +14,7 @@ import {
 
 import Layout from "./pages/Layout";
 import DashbordAlumnos from "./components/DashbordAlumnos";
-// import DashboardAlumnosLayout from "./pages/DashbordAlumnosLayout";
+import AltaCurso from "./components/FormAltaCurso";
 import MisCursos from "./components/MisCursos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +22,7 @@ import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import Home from "./components/Home";
 import UnidadesCursos from "./components/UnidadesCursos";
+import HomeNew from "./components/Home2";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -49,6 +50,8 @@ function App() {
         <Route path="/admin" element={<AltaContenido />} />
         <Route path="/Alumnos" element={<DashbordAlumnos />} />
         <Route path="/miscursos" element={<MisCursos />} />
+        <Route path="/altacurso" element={<AltaCurso />} />
+        <Route path="/homenew" element={<HomeNew />} />
         <Route
           path="/unidades/:cursotitle/:cursoid"
           element={<UnidadesCursos />}
