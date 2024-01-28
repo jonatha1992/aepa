@@ -188,4 +188,8 @@ header h3{
     .p-mobile{
         display: none
     }
+
+    .icon{
+        width: 80%;
+    }
 }
