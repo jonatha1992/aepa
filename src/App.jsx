@@ -23,7 +23,7 @@ import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import Home from "./components/Home";
 import UnidadesCursos from "./components/UnidadesCursos";
-import HomeNew from "./components/Home2";
+import Home2 from "./components/Home2";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -55,6 +55,7 @@ function App() {
           path="/unidades/:cursotitle/:cursoid"
           element={<UnidadesCursos />}
         />
+        <Route path="/homenew" element={<Home2 />} />
         <Route path="/registro" element={<Registro />} />
       </Routes>
       {/* </div> */}
