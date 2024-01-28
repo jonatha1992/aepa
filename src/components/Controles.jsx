@@ -44,6 +44,7 @@ const FormikDatePicker = ({ name, label, ...otherProps }) => (
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                     className="m-3"
+                    inputFormat="dd/MM/YYYY"
                     {...field}
                     {...otherProps}
                     label={label}
