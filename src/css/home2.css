@@ -122,6 +122,8 @@ header h3{
 
 
 .background-1{
+    border-radius: 2rem;
+        padding: 3rem;
     background-image: linear-gradient(245deg,
                 hsl(48deg 9% 89%) 14%,
                 hsl(184deg 44% 82%) 91%,
