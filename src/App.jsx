@@ -9,8 +9,9 @@ import {
   Register,
   Dashbord,
   AltaContenido,
+  Anuncio,
   Registro,
-} from "../src/pages";
+} from "./pages";
 
 import Layout from "./pages/Layout";
 import DashbordAlumnos from "./components/DashbordAlumnos";
@@ -50,8 +51,6 @@ function App() {
         <Route path="/admin" element={<AltaContenido />} />
         <Route path="/Alumnos" element={<DashbordAlumnos />} />
         <Route path="/miscursos" element={<MisCursos />} />
-        <Route path="/altacurso" element={<AltaCurso />} />
-        <Route path="/homenew" element={<HomeNew />} />
         <Route
           path="/unidades/:cursotitle/:cursoid"
           element={<UnidadesCursos />}

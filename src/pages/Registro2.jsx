@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Button, Stepper, Step, StepLabel, Box } from "@mui/material";
 import {
-    FormikTextField,
-    FormikSelectField,
-    FormikDatePicker,
-} from "../components/Controles";
-
+    TextField,
+    Button,
+    Stepper,
+    Step,
+    StepLabel,
+    Box,
+} from "@mui/material";
+import {
+    countries,
+    countiesCode,
+    defaultPais,
+    defaultCodigo,
+} from "../security/Tools.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../css/registro.css";
@@ -39,7 +46,7 @@ const validationSchema = Yup.object().shape({
         .required("El correo electrónico es obligatorio"),
 });
 
-const Registro = () => {
+const Registro2 = () => {
     const [activeStep, setActiveStep] = useState(0);
     const isLastStep = activeStep === steps.length - 1;
 
@@ -63,9 +70,6 @@ const Registro = () => {
             actions.setSubmitting(false);
         }
     };
-
-    // Puedes crear componentes similares para otros tipos de campos si es necesario.
-
     return (
         <div className="container">
             <ToastContainer autoClose={2000} />
@@ -80,19 +84,9 @@ const Registro = () => {
 
             <Formik
                 initialValues={{
-                    nombre_completo: "Jonathan Gabriel Correa ",
-                    DNI: "371261545",
-                    fecha_nacimiento: "",
-                    pais: "",
-                    provincia: "",
-                    calle: "",
-                    numero: "",
-                    dept: "",
-                    piso: "",
-                    localidad: "",
-                    codigo_postal: "",
-                    telefono: "",
-                    email: "",
+                    nombre_completo: "",
+                    s,
+                    // Define más valores iniciales aquí
                 }}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
@@ -100,14 +94,16 @@ const Registro = () => {
                 {({ isSubmitting }) => (
                     <Form>
                         {activeStep === 0 && (
-                            <DatosPersonales
-                                FormikTextField={FormikTextField}
-                                FormikDatePicker={FormikDatePicker}
-                            />
+                            <Box>
+                                <FormikTextField
+                                    name="nombre_completo"
+                                    label="Nombre Completo"
+                                />
+                                {/* Más campos para 'Datos Personales' */}
+                            </Box>
                         )}
-                        {activeStep === 0 && (
-                            <DatosContacto FormikTextField={FormikTextField} />
-                        )}
+                        {/* Repite para otros pasos */}
+
                         <Box>
                             <Button
                                 disabled={activeStep === 0}
@@ -130,28 +126,5 @@ const Registro = () => {
         </div>
     );
 };
-export default Registro;
 
-const DatosPersonales = ({ FormikTextField, FormikDatePicker }) => {
-    return (
-        <Box>
-            <FormikTextField name="nombre_completo" label="Nombre Completo" />
-            <FormikTextField name="DNI" label="DNI" />
-            <FormikDatePicker
-                name="fecha_nacimiento"
-                label="Fecha de Nacimiento"
-                type="date"
-            />
-            {/* Agrega aquí más campos de datos personales si es necesario */}
-        </Box>
-    );
-};
-
-const DatosContacto = ({ FormikTextField, FormikSelectField, countries }) => {
-    return (
-        <Box>
-            <FormikTextField name="email" label="Correo Electrónico" />
-            <FormikTextField name="telefono" label="Teléfono" />
-        </Box>
-    );
-};
+export default Registro2;

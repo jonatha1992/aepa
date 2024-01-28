@@ -1,40 +1,67 @@
-// InputField.jsx
+import { MenuItem, TextField } from "@mui/material";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { Field, ErrorMessage } from "formik";
-import { Error } from "./Error.jsx";
-
-const InputField = ({ className, type, name, placeholder, label }) => (
-  <div className={className}>
-    <Field
-      type={type}
-      className="form-control"
-      name={name}
-      placeholder={placeholder}
-    />
-    <label htmlFor={name}>{label}</label>
-    <ErrorMessage
-      name={name}
-      component={(props) => <Error message={props.children} />}
-    />
-  </div>
-);
-
-// SelectField.jsx
-
-const SelectField = ({ className, name, label, options }) => (
-  <div className={className}>
-    <Field as="select" className="form-control" name={name}>
-      {options.map((option, index) => (
-        <option key={index} value={option.value}>
-          {option.label}
-        </option>
-      ))}
+const FormikTextField = ({ name, label, ...otherProps }) => (
+    <Field name={name}>
+        {({ field, meta }) => (
+            <TextField
+                className="m-3"
+                {...field}
+                {...otherProps}
+                label={label}
+                error={meta.touched && Boolean(meta.error)}
+                helperText={meta.touched && meta.error}
+            />
+        )}
     </Field>
-    <label htmlFor={name}>{label}</label>
-    <ErrorMessage
-      name={name}
-      component={(props) => <Error message={props.children} />}
-    />
-  </div>
 );
 
-export { InputField, SelectField };
+const FormikSelectField = ({ name, label, options, ...otherProps }) => (
+    <Field name={name}>
+        {({ field, form }) => (
+            <TextField
+                select
+                {...field}
+                {...otherProps}
+                label={label}
+                error={form.touched[name] && Boolean(form.errors[name])}
+                helperText={form.touched[name] && form.errors[name]}
+            >
+                {options.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                    </MenuItem>
+                ))}
+            </TextField>
+        )}
+    </Field>
+);
+
+const FormikDatePicker = ({ name, label, ...otherProps }) => (
+    <Field name={name}>
+        {({ field, form }) => (
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                    className="m-3"
+                    {...field}
+                    {...otherProps}
+                    label={label}
+                    value={field.value || null}
+                    onChange={(value) => form.setFieldValue(name, value)}
+                    renderInput={(params) => (
+                        <TextField
+                            {...params}
+                            error={
+                                form.touched[name] && Boolean(form.errors[name])
+                            }
+                            helperText={form.touched[name] && form.errors[name]}
+                        />
+                    )}
+                />
+            </LocalizationProvider>
+        )}
+    </Field>
+);
+
+export { FormikTextField, FormikSelectField, FormikDatePicker };
