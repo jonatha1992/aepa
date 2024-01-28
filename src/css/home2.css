@@ -88,7 +88,6 @@ a:hover {
 .main section {
     display: flex;
         height: 100vh;
-        margin-bottom: 20px;
         padding: 20px;
         background: rgb(230, 229, 225);
         border-radius: 8px;
@@ -136,6 +135,33 @@ header h3{
                 hsl(48deg 9% 89%) 14%,
                 hsl(184deg 44% 82%) 91%,
                 hsl(186deg 70% 73%) 101%); */
+}
+
+.background-2 {
+    background-image: url('../assets/fondo_panta.jpg');
+    display: flex;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+
+.background-3 {
+    background-image: url('../assets/nuestros_servicios.jpg');
+    display: flex;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+
+.background-4 {
+    background-image: url('../assets/fondo_panta.jpg');
+    display: flex;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
 }
 .icon{
     padding: 1rem;
