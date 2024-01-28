@@ -1,45 +1,27 @@
+import React, { useState } from "react";
 import { Formik, Form } from "formik";
-import {
-    InputField,
-    SelectField,
-    DatePickerField,
-    CheckboxField,
-} from "../components/Controles.jsx";
 import * as Yup from "yup";
-import { useRef } from "react";
-import { countries as countriesList } from "countries-list";
+import { Button, Stepper, Step, StepLabel, Box } from "@mui/material";
+import {
+    FormikTextField,
+    FormikSelectField,
+    FormikDatePicker,
+} from "../components/Controles";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../css/registro.css";
 
-const countryCode = "+54";
-const countryName = "Argentina";
+const steps = [
+    "Datos Personales",
+    "Datos de Contacto",
+    "Nivel de Formación",
+    "Institución",
+];
 
-const countries = Object.keys(countriesList).map((code) => {
-    const country = countriesList[code];
-    return {
-        label: `${country.name}`,
-        value: country.name,
-    };
-});
+import { countries } from "../security/Tools";
 
-const countiesCode = Object.keys(countriesList).map((code) => {
-    const countieCode = countriesList[code];
-    return {
-        label: `${countieCode.name} (+${countieCode.phone})`,
-        value: `+${countieCode.phone}`,
-    };
-});
-
-const defaultCountry =
-    countries.find(
-        (country) =>
-            country.codeValue === countryCode ||
-            country.nameValue === countryName
-    ) || countries[0];
-
-const defaultCodigo = defaultCountry.codeValue;
-const defaultPais = defaultCountry.nameValue;
+console.log(countries);
 
 const validationSchema = Yup.object().shape({
     nombre_completo: Yup.string().required("El nombre es obligatorio"),
@@ -62,264 +44,123 @@ const validationSchema = Yup.object().shape({
 });
 
 const Registro = () => {
-    const formRef = useRef();
+    const [activeStep, setActiveStep] = useState(0);
+    const isLastStep = activeStep === steps.length - 1;
 
-    const handleSubmit = async (
-        values,
-        { setSubmitting, resetForm, setErrors }
-    ) => {
-        setErrors({});
-        try {
-            console.log(values);
-            toast.success("¡El formulario se envió con éxito!");
-        } catch (error) {
-            console.log(error.text);
-            toast.error("¡Hubo un error al enviar el formulario!");
-        }
-
-        setSubmitting(true);
-        resetForm();
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
+    const handleSubmit = (values, actions) => {
+        if (isLastStep) {
+            // Procesa la información del formulario
+            console.log(values);
+            toast.success("Formulario enviado con éxito!");
+            actions.resetForm();
+        } else {
+            handleNext();
+            actions.setTouched({});
+            actions.setSubmitting(false);
+        }
+    };
+
+    // Puedes crear componentes similares para otros tipos de campos si es necesario.
+
     return (
-        <>
-            <div className="container ">
-                <div className="row ">
-                    <ToastContainer
-                        autoClose={2000}
-                        className="toast-container"
-                        style={{
-                            position: "relative",
-                            top: "0",
-                            zIndex: "9999",
-                        }}
-                    />
+        <div className="container">
+            <ToastContainer autoClose={2000} />
+            <h1 className="text-center">Inscripciasda</h1>
+            <Stepper activeStep={activeStep} alternativeLabel>
+                {steps.map((label) => (
+                    <Step key={label}>
+                        <StepLabel>{label}</StepLabel>
+                    </Step>
+                ))}
+            </Stepper>
 
-                    <h1 className="text-center h1 mb-2 text-black">
-                        Inscripción
-                    </h1>
-                    <div className=" p-3 rounded-5 form-registro ">
-                        <Formik
-                            initialValues={{
-                                nombre_completo: "",
-                                DNI: "",
-                                fecha_nacimiento: "",
-                                pais: defaultPais,
-                                provincia: "",
-                                localidad: "",
-                                calle: "",
-                                numero: "",
-                                dept: "",
-                                piso: "",
-                                codigo_postal: "",
-                                codigo_tel: defaultCodigo,
-                                telefono: "",
-                                email: "",
-                            }}
-                            validationSchema={validationSchema}
-                            onSubmit={handleSubmit}
-                            validateOnSubmit={true}
-                            validateOnChange={false}
-                            validateOnBlur={false}
-                        >
-                            <Form
-                                className=" container  text-black   "
-                                ref={formRef}
+            <Formik
+                initialValues={{
+                    nombre_completo: "Jonathan Gabriel Correa",
+                    DNI: "371261545",
+                    fecha_nacimiento: "29/12/1992",
+                    pais: "",
+                    provincia: "",
+                    calle: "",
+                    numero: "",
+                    dept: "",
+                    piso: "",
+                    localidad: "",
+                    codigo_postal: "",
+                    telefono: "",
+                    email: "",
+                }}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+            >
+                {({ isSubmitting }) => (
+                    <Form>
+                        {activeStep === 0 && (
+                            <DatosPersonales
+                                FormikTextField={FormikTextField}
+                                FormikDatePicker={FormikDatePicker}
+                            />
+                        )}
+                        {activeStep === 1 && (
+                            <DatosContacto FormikTextField={FormikTextField} />
+                        )}
+
+                        {activeStep === 2 && (
+                            <DatosContacto FormikTextField={FormikTextField} />
+                        )}
+                        <Box>
+                            <Button
+                                disabled={activeStep === 0}
+                                onClick={handleBack}
                             >
-                                <div className="d-flex ">
-                                    <section className=" col-md-6">
-                                        <h1 className="start h2 mb-2 text-white">
-                                            Datos Personales
-                                        </h1>
-                                        <div className="row justify-content-between">
-                                            {/* nombre completo */}
-                                            <InputField
-                                                className="form-floating  mb-1 p-1  col-md-3"
-                                                type="text"
-                                                name="nombre_completo"
-                                                placeholder="Nombre Completo"
-                                                label="Nombre Completo"
-                                            />
+                                Atrás
+                            </Button>
+                            <Button
+                                type="submit"
+                                disabled={isSubmitting}
+                                variant="contained"
+                                color="primary"
+                            >
+                                {isLastStep ? "Enviar" : "Siguiente"}
+                            </Button>
+                        </Box>
+                    </Form>
+                )}
+            </Formik>
+        </div>
+    );
+};
+export default Registro;
 
-                                            {/* DNI */}
-                                            <InputField
-                                                className="form-floating  mb-1 p-1 col-md-2 col-6"
-                                                type="text"
-                                                name="DNI"
-                                                placeholder="DNI"
-                                                label="DNI"
-                                            />
-                                            {/* Fecha de Nacimiento */}
-                                            <DatePickerField
-                                                className="form-floating mb-1 p-1  col-md-2 col-6"
-                                                type="date"
-                                                name="fecha_nacimiento"
-                                                placeholder="fecha nacimiento"
-                                                label="Fecha Nacimiento"
-                                            />
-
-                                            {/* Pais */}
-                                            <SelectField
-                                                className="form-floating  mb-1 p-1  col-md-2 col-6 "
-                                                name="pais"
-                                                placeholder="pais"
-                                                label="Pais"
-                                                options={countries}
-                                            />
-                                        </div>
-                                        <div className="row justify-content-between ">
-                                            {/* Provincia */}
-                                            <InputField
-                                                className="form-floating  mb-1 p-1  col-md-3 col-6"
-                                                type="text"
-                                                name="provincia"
-                                                placeholder="provincia"
-                                                label="Provincia"
-                                            />
-                                            {/* Localidad */}
-                                            <InputField
-                                                className="form-floating  mb-1 p-1 col-md-2 col-6"
-                                                type="text"
-                                                name="localidad"
-                                                placeholder="localidad"
-                                                label="Localidad"
-                                            />
-                                            {/* Calle */}
-                                            <InputField
-                                                className="form-floating  mb-1 p-1 col-md-3 col-6"
-                                                type="text"
-                                                name="calle"
-                                                placeholder="calle"
-                                                label="Calle"
-                                            />
-
-                                            {/* Numero */}
-                                            <InputField
-                                                className="form-floating  mb-1 p-1 col-md-1 col-3"
-                                                name="numero"
-                                                placeholder="numero"
-                                                label="Numero"
-                                            />
-                                            {/* Departamento */}
-                                            <InputField
-                                                className="form-floating  mb-1 p-1 col-md-1 col-2"
-                                                type="text"
-                                                name="dept"
-                                                placeholder="departamento"
-                                                label="Dept."
-                                            />
-                                            {/* Piso */}
-                                            <InputField
-                                                className="form-floating  mb-1 p-1 col-md-1 col-2"
-                                                type="text"
-                                                name="piso"
-                                                placeholder="piso"
-                                                label="Piso"
-                                            />
-                                            {/* Código Postal */}
-                                            <InputField
-                                                className="form-floating mb-1 p-1 col-md-1 col-3"
-                                                type="text"
-                                                name="codigo_postal"
-                                                placeholder="Código Postal"
-                                                label="CP"
-                                            />
-                                        </div>
-                                        <div className="row justify-content-between">
-                                            {/* Código Telefono */}
-                                            <SelectField
-                                                className="form-floating mb-1 p-1 col-md-3 col-5"
-                                                name="codigo_tel"
-                                                label="Cód. Teléfono"
-                                                options={countiesCode} // Asegúrate de tener esta lista disponible
-                                            />
-
-                                            {/* Teléfono */}
-                                            <InputField
-                                                className="form-floating mb-1 p-1 col-md-3 col-7"
-                                                type="text"
-                                                name="telefono"
-                                                placeholder="Teléfono"
-                                                label="Teléfono"
-                                            />
-
-                                            {/* Email */}
-                                            <InputField
-                                                className="form-floating mb-1 p-1 col-md-6 col-12"
-                                                type="email"
-                                                name="email"
-                                                placeholder="Correo Electrónico"
-                                                label="Correo Electrónico"
-                                            />
-                                        </div>
-                                    </section>
-                                    <section className=" col-md-4">
-                                        <h1 className=" h2 mb-2 text-white ">
-                                            Nivel de Formacion
-                                        </h1>
-                                        <div className="d-flex flex-column">
-                                            <CheckboxField
-                                                className="form-check"
-                                                name="Estudiante"
-                                                label="Estudiante de Enfermeria tercer año en curso"
-                                            />
-                                            <CheckboxField
-                                                className="form-check"
-                                                name="Enfermero"
-                                                label="Enfermero/a"
-                                            />
-                                            <CheckboxField
-                                                className="form-check"
-                                                name="Licenciado"
-                                                label="Licenciado en enfermerÍa"
-                                            />
-                                            <CheckboxField
-                                                className=" form-check"
-                                                name="Magister"
-                                                label="Magister en enfermerÍa"
-                                            />
-                                            <CheckboxField
-                                                className=" form-check   "
-                                                name="Doctorado"
-                                                label="Doctorado en enfermerÍa"
-                                            />
-                                        </div>
-                                    </section>
-                                    <section className="col-md-4">
-                                        <h1 className="h2 mb-2  text-white">
-                                            Nivel de Formacion
-                                        </h1>
-
-                                        <InputField
-                                            className="form-floating mb-1 p-1 col-12"
-                                            name="Institucion"
-                                            placeholder="Institucion"
-                                            label="Institución"
-                                        />
-                                        <InputField
-                                            className="form-floating mb-1 p-1 col-12"
-                                            name="Puesto"
-                                            placeholder="Puesto"
-                                            label="Puesto que ocupa en la Instutución"
-                                        />
-                                    </section>
-                                </div>
-
-                                <div className="row justify-content-center">
-                                    <button
-                                        className="btn btn-primary  mb-1 col-12 col-md-3"
-                                        type="submit"
-                                    >
-                                        Registrarse
-                                    </button>
-                                </div>
-                            </Form>
-                        </Formik>
-                    </div>
-                </div>
-            </div>
-        </>
+const DatosPersonales = ({ FormikTextField, FormikDatePicker }) => {
+    return (
+        <Box>
+            <FormikTextField name="nombre_completo" label="Nombre Completo" />
+            <FormikTextField name="DNI" label="DNI" />
+            <FormikDatePicker
+                name="fecha_nacimiento"
+                label="Fecha de Nacimiento"
+                type="date"
+            />
+            {/* Agrega aquí más campos de datos personales si es necesario */}
+        </Box>
     );
 };
 
-export default Registro;
+const DatosContacto = ({ FormikTextField, FormikSelectField, countries }) => {
+    return (
+        <Box>
+            <FormikSelectField name="pais" label="Pais" options={countries} />
+            <FormikTextField name="email" label="Correo Electrónico" />
+            <FormikTextField name="telefono" label="Teléfono" />
+        </Box>
+    );
+};
