@@ -19,6 +19,10 @@ const steps = [
     "Institución",
 ];
 
+import { countries } from "../security/Tools";
+
+console.log(countries);
+
 const validationSchema = Yup.object().shape({
     nombre_completo: Yup.string().required("El nombre es obligatorio"),
     DNI: Yup.string().required("El número es obligatorio"),
@@ -80,9 +84,9 @@ const Registro = () => {
 
             <Formik
                 initialValues={{
-                    nombre_completo: "Jonathan Gabriel Correa ",
+                    nombre_completo: "Jonathan Gabriel Correa",
                     DNI: "371261545",
-                    fecha_nacimiento: "",
+                    fecha_nacimiento: "29/12/1992",
                     pais: "",
                     provincia: "",
                     calle: "",
@@ -105,7 +109,11 @@ const Registro = () => {
                                 FormikDatePicker={FormikDatePicker}
                             />
                         )}
-                        {activeStep === 0 && (
+                        {activeStep === 1 && (
+                            <DatosContacto FormikTextField={FormikTextField} />
+                        )}
+
+                        {activeStep === 2 && (
                             <DatosContacto FormikTextField={FormikTextField} />
                         )}
                         <Box>
@@ -150,6 +158,7 @@ const DatosPersonales = ({ FormikTextField, FormikDatePicker }) => {
 const DatosContacto = ({ FormikTextField, FormikSelectField, countries }) => {
     return (
         <Box>
+            <FormikSelectField name="pais" label="Pais" options={countries} />
             <FormikTextField name="email" label="Correo Electrónico" />
             <FormikTextField name="telefono" label="Teléfono" />
         </Box>

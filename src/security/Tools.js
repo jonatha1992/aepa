@@ -28,3 +28,5 @@ const defaultCountry =
 
 const defaultCodigo = defaultCountry.codeValue;
 const defaultPais = defaultCountry.nameValue;
+
+export { countries, countiesCode, defaultCodigo, defaultPais };
