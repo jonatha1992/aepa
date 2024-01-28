@@ -1,4 +1,5 @@
 /* src/home2.css */
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -10,11 +11,9 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-image: url('tu-imagen-de-fondo.jpg');
     background-size: cover;
     background-position: center;
     color: #000;
-    /* Color del texto principal */
 }
 
 header {
@@ -25,17 +24,10 @@ header {
     text-transform: uppercase;
 }
 
-header h3 {
-    font-size: 2em;
-    color: #000;
-    /* Color del texto del encabezado */
-}
 
 .navbarstyle {
     display: flex;
     height: 100%;
-    /* position: absolute; */
-    /* top: 150px; */
     align-items: flex-end;
     flex-direction: column;
     justify-content: space-between;
@@ -48,24 +40,60 @@ header h3 {
 
 .navbarstyle li {
     margin-right: 20px;
+    position: relative;
+    color: black;
 }
 
 .navbarstyle a {
+    font-weight: bold;
+    font-size: 14px;
     text-decoration: none;
+    color: black;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbarstyle a::before {
+    color: var(--color1);
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    /* Altura del subrayado */
+    bottom: 0;
+    left: 50%;
+    /* Posición inicial en el centro */
+    background-color: #12b0b4;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.navbarstyle li:hover a::before {
+    color: var(--color1);
+    width: 100%;
+    /* Ancho del subrayado al pasar el mouse */
+    left: 0;
+    /* Posición final, para centrar el subrayado */
+}
+a:hover {
+    color: var(--color1);
 }
 
 .menu-icon {
     display: none;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: #346084;
 }
 
-main section {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
+.main section {
+    display: flex;
+        height: 100vh;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
 }
 
 footer {
@@ -76,10 +104,23 @@ footer {
     color: #fff;
 }
 
-
 .item-menu {
     color: rgb(56, 61, 66);
     font-size: 1rem;
+}
+
+header h3{
+    padding: 0.5rem;
+        font-size: 1rem;
+        text-align: start;
+        color: black;
+}
+
+.icon{
+    padding: 1rem;
+    width: 40%;
+    display: flex;
+    align-items: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -89,7 +130,6 @@ footer {
         top: 60px;
         left: 0;
         width: 100%;
-        /* Cambia el ancho al 100% */
         background-color: #333;
         display: none;
         text-align: center;
@@ -104,9 +144,7 @@ footer {
         margin: 0;
         padding: 15px;
         width: 100%;
-        /* Añade esta propiedad para que los elementos ocupen todo el ancho */
         box-sizing: border-box;
-        /* Añade esta propiedad para incluir el padding en el ancho total */
     }
 
     .menu-icon {
