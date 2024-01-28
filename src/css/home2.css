@@ -8,7 +8,7 @@ body {
 }
 
 .landing-page {
-    max-width: 800px;
+    background-color: #e6e5e1;
     margin: 0 auto;
     padding: 20px;
     background-size: cover;
@@ -90,7 +90,7 @@ a:hover {
         height: 100vh;
         margin-bottom: 20px;
         padding: 20px;
-        background: rgba(255, 255, 255, 0.8);
+        background: rgb(230, 229, 225);
         border-radius: 8px;
         justify-content: center;
         align-items: center;
@@ -109,6 +109,10 @@ footer {
     font-size: 1rem;
 }
 
+
+.main{
+    background: rgb(230, 229, 225)
+}
 header h3{
     padding: 0.5rem;
         font-size: 1rem;
@@ -116,6 +120,13 @@ header h3{
         color: black;
 }
 
+
+.background-1{
+    background-image: linear-gradient(245deg,
+                hsl(48deg 9% 89%) 14%,
+                hsl(184deg 44% 82%) 91%,
+                hsl(186deg 70% 73%) 101%);
+}
 .icon{
     padding: 1rem;
     width: 40%;
