@@ -1,4 +1,5 @@
 /* src/home2.css */
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -7,35 +8,26 @@ body {
 }
 
 .landing-page {
-    max-width: 800px;
+    background-color: #e6e5e1;
     margin: 0 auto;
-    padding: 20px;
-    background-image: url('tu-imagen-de-fondo.jpg');
+
     background-size: cover;
     background-position: center;
     color: #000;
-    /* Color del texto principal */
 }
 
 header {
-    background-color: transparent;
-    color: #000;
-    padding: 10px;
-    text-align: center;
-    text-transform: uppercase;
+    background-color: #deececd4;
+        color: #000;
+        padding: 0px;
+        text-align: center;
+        text-transform: uppercase;
 }
 
-header h3 {
-    font-size: 2em;
-    color: #000;
-    /* Color del texto del encabezado */
-}
 
 .navbarstyle {
     display: flex;
     height: 100%;
-    /* position: absolute; */
-    /* top: 150px; */
     align-items: flex-end;
     flex-direction: column;
     justify-content: space-between;
@@ -48,24 +40,59 @@ header h3 {
 
 .navbarstyle li {
     margin-right: 20px;
+    position: relative;
+    color: black;
 }
 
 .navbarstyle a {
+    font-weight: bold;
+    font-size: 14px;
     text-decoration: none;
+    color: black;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbarstyle a::before {
+    color: var(--color1);
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    /* Altura del subrayado */
+    bottom: 0;
+    left: 50%;
+    /* Posición inicial en el centro */
+    background-color: #12b0b4;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.navbarstyle li:hover a::before {
+    color: var(--color1);
+    width: 100%;
+    /* Ancho del subrayado al pasar el mouse */
+    left: 0;
+    /* Posición final, para centrar el subrayado */
+}
+a:hover {
+    color: var(--color1);
 }
 
 .menu-icon {
     display: none;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: #346084;
 }
 
-main section {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
+.main section {
+    display: flex;
+        /* height: 100vh; */
+        /* padding: 20px; */
+        background: rgb(230, 229, 225);
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
 }
 
 footer {
@@ -76,12 +103,142 @@ footer {
     color: #fff;
 }
 
-
 .item-menu {
     color: rgb(56, 61, 66);
     font-size: 1rem;
 }
 
+
+.main{
+    background: rgb(230, 229, 225)
+}
+header h3{
+    padding: 0.5rem;
+        font-size: 1rem;
+        text-align: start;
+        color: black;
+}
+
+
+.background-1{
+    background-image: url('../assets/fondo_pantalla.jpg');
+        display: flex;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            align-items: center;
+        /* Centra la imagen en el contenedor */
+        /* height: 300px;
+    border-radius: 2rem;
+        padding: 3rem;
+    background-image: linear-gradient(245deg,
+                hsl(48deg 9% 89%) 14%,
+                hsl(184deg 44% 82%) 91%,
+                hsl(186deg 70% 73%) 101%); */
+}
+
+.background-2 {
+    background-image: url('../assets/fondo_panta.jpg');
+
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+
+.background-3 {
+    background-image: url('../assets/nuestros_servicios.jpg');
+    display: flex;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+
+.background-4 {
+    background-image: url('../assets/fondo_panta.jpg');
+    display: flex;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+.icon{
+    padding: 1rem;
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.item-curso{
+    height: 50vh;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+}
+
+.item-curso:nth-child(even) {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+
+.unidades {
+    margin-top: 1rem;
+        max-height: 60%;
+        /* Asegúrate de que no haya una altura máxima establecida en otro lugar */
+        overflow: overlay;
+        scrollbar-gutter: stable;
+}
+
+.unidades::-webkit-scrollbar {
+    display: none;
+    /*Para que scrollbar-gutter funcione la barra de scroll debe existir*/
+    background-color: transparent;
+}
+
+/* .unidades:hover::-webkit-scrollbar {
+    display: initial;
+} */
+
+.unidades::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+/* .unidades:hover::-webkit-scrollbar-thumb {
+    background-color: #09C;
+} */
+.unidades ul{
+    overflow: hidden;
+    text-align: start;
+    margin-left: -1rem;
+}
+
+.descripcion-unidades{
+    line-height: 1;
+            margin-bottom: 0;
+            font-size: 14px;
+}
+
+.container-seccion2{
+    padding: 6rem 5rem 0px;
+            padding-bottom: 0;
+}
+
+.info-encabezado{
+    font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+
+}
+
+
+.on-demand{
+    text-transform: uppercase;
+
+}
 @media only screen and (max-width: 768px) {
     .navbarstyle ul {
         flex-direction: column;
@@ -89,7 +246,6 @@ footer {
         top: 60px;
         left: 0;
         width: 100%;
-        /* Cambia el ancho al 100% */
         background-color: #333;
         display: none;
         text-align: center;
@@ -104,9 +260,7 @@ footer {
         margin: 0;
         padding: 15px;
         width: 100%;
-        /* Añade esta propiedad para que los elementos ocupen todo el ancho */
         box-sizing: border-box;
-        /* Añade esta propiedad para incluir el padding en el ancho total */
     }
 
     .menu-icon {
@@ -117,4 +271,47 @@ footer {
         color: rgb(245, 245, 245);
         font-size: 2rem;
     }
+
+    .mobile{
+        padding-bottom: 3rem;
+            height: 100%;
+            display: flex;
+            /* height: 100%; */
+            flex-direction: column;
+            justify-content: flex-end;
+    }
+    .p-mobile{
+        display: none
+    }
+
+    .icon{
+        width: 80%;
+    }
+
+    .descripcion-unidades{
+        margin-bottom: 0;
+            font-size: 22px;
+    line-height: 1.5;
+    }
+
+    .info-cursos{
+        font-size: 1.5rem;
+        text-align: start;
+        line-height: 1.3;
+    }
+    .background-2 {
+        height: 250vh;
+    }
+
+    .info-encabezado{
+        font-size: 1.5rem;
+    }
+    .item-curso{
+        padding: 4rem;
+        height: 60vh;
+    }
+        .on-demand {
+            font-size: 2rem;
+    
+        }
 }
