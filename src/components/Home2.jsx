@@ -42,8 +42,208 @@ function Home2() {
 
       <section id="seccion2">
         <div className="container-fluid background-2">
-          <h2>Sección 2</h2>
-          <p>Contenido de la segunda sección.</p>
+          <div className="container container-seccion2">
+            <div>
+              <h1 className="on-demand">cursos on demand</h1>
+              <p className="info-cursos">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                eligendi magni mollitia id ratione illo unde soluta pariatur
+                tempora, expedita odio? Earum ipsum nobis dolor, officia illo
+                neque ex recusandae!
+              </p>
+            </div>
+            <div className="row">
+              <div className="col-md-4 item-curso" style={{}}>
+                <div className="info">
+                  <div
+                    className="d-flex flex-column "
+                    style={{
+                      width: "60%",
+                      textAlign: "start",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <h2 className="info-encabezado">
+                      cuidados criticos neonatales
+                    </h2>
+                    <h2 className="info-encabezado">$20.000</h2>
+                  </div>
+                  <div style={{ width: "40%" }}>
+                    <img src="" alt="" />
+                  </div>
+                </div>
+                <div className="unidades">
+                  <ul className="mi-lista" style={{ overflow: "hidden" }}>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  style={{
+                    width: "80%",
+                    marginTop: "1rem",
+                    padding: "4px",
+                  }}
+                >
+                  INCRIBIRME
+                </button>
+              </div>
+              <div className="col-md-4 item-curso" style={{}}>
+                <div className="info">
+                  <div
+                    className="d-flex flex-column "
+                    style={{
+                      width: "60%",
+                      textAlign: "start",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <h2 className="info-encabezado">
+                      cuidados criticos neonatales
+                    </h2>
+                    <h2 className="info-encabezado">$20.000</h2>
+                  </div>
+                  <div style={{ width: "40%" }}>
+                    <img src="" alt="" />
+                  </div>
+                </div>
+                <div className="unidades">
+                  <ul className="mi-lista" style={{ overflow: "hidden" }}>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  style={{
+                    width: "80%",
+                    marginTop: "1rem",
+                    padding: "4px",
+                  }}
+                >
+                  INCRIBIRME
+                </button>
+              </div>
+              <div className="col-md-4 item-curso" style={{}}>
+                <div className="info">
+                  <div
+                    className="d-flex flex-column "
+                    style={{
+                      width: "60%",
+                      textAlign: "start",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <h2 className="info-encabezado">
+                      cuidados criticos neonatales
+                    </h2>
+                    <h2 className="info-encabezado">$20.000</h2>
+                  </div>
+                  <div style={{ width: "40%" }}>
+                    <img src="" alt="" />
+                  </div>
+                </div>
+                <div className="unidades">
+                  <ul className="mi-lista" style={{ overflow: "hidden" }}>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                    <li>
+                      <p className="descripcion-unidades">
+                        <strong>Elemento 1:</strong> Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  style={{
+                    width: "80%",
+                    marginTop: "1rem",
+                    padding: "4px",
+                  }}
+                >
+                  INCRIBIRME
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section id="seccion3">

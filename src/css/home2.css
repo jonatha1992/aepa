@@ -17,11 +17,11 @@ body {
 }
 
 header {
-    background-color: transparent;
-    color: #000;
-    padding: 10px;
-    text-align: center;
-    text-transform: uppercase;
+    background-color: #deececd4;
+        color: #000;
+        padding: 0px;
+        text-align: center;
+        text-transform: uppercase;
 }
 
 
@@ -87,8 +87,8 @@ a:hover {
 
 .main section {
     display: flex;
-        height: 100vh;
-        padding: 20px;
+        /* height: 100vh; */
+        /* padding: 20px; */
         background: rgb(230, 229, 225);
         border-radius: 8px;
         justify-content: center;
@@ -139,7 +139,7 @@ header h3{
 
 .background-2 {
     background-image: url('../assets/fondo_panta.jpg');
-    display: flex;
+
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -170,6 +170,75 @@ header h3{
     align-items: center;
 }
 
+.item-curso{
+    height: 50vh;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+}
+
+.item-curso:nth-child(even) {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+
+.unidades {
+    margin-top: 1rem;
+        max-height: 60%;
+        /* Asegúrate de que no haya una altura máxima establecida en otro lugar */
+        overflow: overlay;
+        scrollbar-gutter: stable;
+}
+
+.unidades::-webkit-scrollbar {
+    display: none;
+    /*Para que scrollbar-gutter funcione la barra de scroll debe existir*/
+    background-color: transparent;
+}
+
+/* .unidades:hover::-webkit-scrollbar {
+    display: initial;
+} */
+
+.unidades::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+/* .unidades:hover::-webkit-scrollbar-thumb {
+    background-color: #09C;
+} */
+.unidades ul{
+    overflow: hidden;
+    text-align: start;
+    margin-left: -1rem;
+}
+
+.descripcion-unidades{
+    line-height: 1;
+            margin-bottom: 0;
+            font-size: 14px;
+}
+
+.container-seccion2{
+    padding: 6rem 5rem 0px;
+            padding-bottom: 0;
+}
+
+.info-encabezado{
+    font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+
+}
+
+
+.on-demand{
+    text-transform: uppercase;
+
+}
 @media only screen and (max-width: 768px) {
     .navbarstyle ul {
         flex-direction: column;
@@ -218,4 +287,31 @@ header h3{
     .icon{
         width: 80%;
     }
+
+    .descripcion-unidades{
+        margin-bottom: 0;
+            font-size: 22px;
+    line-height: 1.5;
+    }
+
+    .info-cursos{
+        font-size: 1.5rem;
+        text-align: start;
+        line-height: 1.3;
+    }
+    .background-2 {
+        height: 250vh;
+    }
+
+    .info-encabezado{
+        font-size: 1.5rem;
+    }
+    .item-curso{
+        padding: 4rem;
+        height: 60vh;
+    }
+        .on-demand {
+            font-size: 2rem;
+    
+        }
 }
