@@ -1,15 +1,17 @@
 import { countries as countriesList } from "countries-list";
+import { Country, State } from "country-state-city";
+// const countries = Object.keys(countriesList).map((code) => {
+//     const country = countriesList[code];
+//     return {
+//         label: `${country.name}`,
+//         value: country.name,
+//     };
+// });
 
-const countryCode = "+54";
-const countryName = "Argentina";
-
-const countries = Object.keys(countriesList).map((code) => {
-    const country = countriesList[code];
-    return {
-        label: `${country.name}`,
-        value: country.name,
-    };
-});
+const countries = Country.getAllCountries().map(({ isoCode, name }) => ({
+    label: name,
+    value: isoCode,
+}));
 
 const countiesCode = Object.keys(countriesList).map((code) => {
     const countieCode = countriesList[code];
@@ -19,14 +21,4 @@ const countiesCode = Object.keys(countriesList).map((code) => {
     };
 });
 
-const defaultCountry =
-    countries.find(
-        (country) =>
-            country.codeValue === countryCode ||
-            country.nameValue === countryName
-    ) || countries[0];
-
-const defaultCodigo = defaultCountry.codeValue;
-const defaultPais = defaultCountry.nameValue;
-
-export { countries, countiesCode, defaultCodigo, defaultPais };
+export { countries, countiesCode };
