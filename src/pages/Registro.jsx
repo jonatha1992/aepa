@@ -19,9 +19,9 @@ const steps = [
     "Institución",
 ];
 
-import { countries } from "../security/Tools";
-
-console.log(countries);
+import { countries, countiesCode } from "../security/Tools";
+const defaultCode = { label: "Argentina (+54)", value: "+54" };
+const defaultCountry = { label: "Argentina", value: "AR" };
 
 const validationSchema = Yup.object().shape({
     nombre_completo: Yup.string().required("El nombre es obligatorio"),
@@ -33,7 +33,7 @@ const validationSchema = Yup.object().shape({
     provincia: Yup.string().required("La provincia o estado es obligatorio"),
     calle: Yup.string().required("La calle es obligatoria"),
     numero: Yup.string().required("El número es obligatorio"),
-    dept: Yup.string(),
+    depto: Yup.string(),
     piso: Yup.string(),
     localidad: Yup.string().required("La localidad es obligatoria"),
     codigo_postal: Yup.string().required("El código postal es obligatorio"),
@@ -49,6 +49,7 @@ const Registro = () => {
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        console.log(activeStep);
     };
 
     const handleBack = () => {
@@ -57,7 +58,6 @@ const Registro = () => {
 
     const handleSubmit = (values, actions) => {
         if (isLastStep) {
-            // Procesa la información del formulario
             console.log(values);
             toast.success("Formulario enviado con éxito!");
             actions.resetForm();
@@ -73,7 +73,7 @@ const Registro = () => {
     return (
         <div className="container">
             <ToastContainer autoClose={2000} />
-            <h1 className="text-center">Inscripciasda</h1>
+            <h1 className="text-center">Inscripcion de Socios</h1>
             <Stepper activeStep={activeStep} alternativeLabel>
                 {steps.map((label) => (
                     <Step key={label}>
@@ -84,9 +84,9 @@ const Registro = () => {
 
             <Formik
                 initialValues={{
-                    nombre_completo: "Jonathan Gabriel Correa",
-                    DNI: "371261545",
-                    fecha_nacimiento: "29/12/1992",
+                    nombre_completo: "",
+                    DNI: "",
+                    fecha_nacimiento: "",
                     pais: "",
                     provincia: "",
                     calle: "",
@@ -102,21 +102,12 @@ const Registro = () => {
                 onSubmit={handleSubmit}
             >
                 {({ isSubmitting }) => (
-                    <Form>
-                        {activeStep === 0 && (
-                            <DatosPersonales
-                                FormikTextField={FormikTextField}
-                                FormikDatePicker={FormikDatePicker}
-                            />
-                        )}
-                        {activeStep === 1 && (
-                            <DatosContacto FormikTextField={FormikTextField} />
-                        )}
+                    <Form className="container d-flex flex-column align-items-center ">
+                        {activeStep === 0 && <DatosPersonales />}
+                        {activeStep === 1 && <DatosContacto />}
 
-                        {activeStep === 2 && (
-                            <DatosContacto FormikTextField={FormikTextField} />
-                        )}
-                        <Box>
+                        {activeStep === 2 && <h1>Nivel de Formación</h1>}
+                        <Box className="mt-3">
                             <Button
                                 disabled={activeStep === 0}
                                 onClick={handleBack}
@@ -128,6 +119,7 @@ const Registro = () => {
                                 disabled={isSubmitting}
                                 variant="contained"
                                 color="primary"
+                                onClick={handleNext}
                             >
                                 {isLastStep ? "Enviar" : "Siguiente"}
                             </Button>
@@ -140,27 +132,50 @@ const Registro = () => {
 };
 export default Registro;
 
-const DatosPersonales = ({ FormikTextField, FormikDatePicker }) => {
+const DatosPersonales = () => {
     return (
-        <Box>
-            <FormikTextField name="nombre_completo" label="Nombre Completo" />
-            <FormikTextField name="DNI" label="DNI" />
+        <Box className="mt-4 col-12 col-md-4 d-flex flex-wrap ">
+            <FormikTextField
+                className="m-2  col-12"
+                name="nombre_completo"
+                label="Nombre Completo"
+            />
+            <FormikTextField className="m-2  col-12" name="DNI" label="DNI" />
             <FormikDatePicker
+                className="m-2  col-12"
                 name="fecha_nacimiento"
                 label="Fecha de Nacimiento"
                 type="date"
             />
-            {/* Agrega aquí más campos de datos personales si es necesario */}
+            <FormikSelectField
+                className="m-2  col-12"
+                name="pais"
+                label="Pais"
+                type="select"
+                options={countries}
+            />
+            <FormikSelectField
+                className="m-2  col-12"
+                name="provincia"
+                label="Provincia/Estado"
+                type="select"
+                options={countries}
+            />
         </Box>
     );
 };
 
-const DatosContacto = ({ FormikTextField, FormikSelectField, countries }) => {
+const DatosContacto = () => {
     return (
-        <Box>
-            <FormikSelectField name="pais" label="Pais" options={countries} />
-            <FormikTextField name="email" label="Correo Electrónico" />
-            <FormikTextField name="telefono" label="Teléfono" />
+        <Box className="mt-5 col-6">
+            <FormikTextField name="localidad" label="Localidad" />
+            <FormikTextField name="calle" label="Calle" />
+            <FormikTextField name="numero" label="Número" />
+            <FormikTextField name="depto" label="Depto*" />
+            <FormikTextField name="piso" label="Piso*" />
+            <FormikTextField name="codigo_postal" label="CP" />
+            <FormikTextField name="telefono" label="Télefono" />
+            <FormikTextField name="email" label="Email" />
         </Box>
     );
 };
