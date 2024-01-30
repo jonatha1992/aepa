@@ -307,8 +307,10 @@ header h3{
         font-size: 1.5rem;
     }
     .item-curso{
-        padding: 4rem;
-        height: 60vh;
+        margin-bottom: 4rem;
+            padding: 4rem;
+            height: 60vh;
+            padding-top: 0;
     }
         .on-demand {
             font-size: 2rem;
