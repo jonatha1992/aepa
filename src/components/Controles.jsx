@@ -1,4 +1,11 @@
-import { MenuItem, TextField, Select, InputLabel } from "@mui/material";
+import {
+    MenuItem,
+    TextField,
+    Select,
+    InputLabel,
+    FormControlLabel,
+    Checkbox,
+} from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import moment from "moment";
 import "moment/locale/es";
@@ -76,4 +83,24 @@ const FormikDatePicker = ({ name, label, ...otherProps }) => (
         )}
     </Field>
 );
-export { FormikTextField, FormikSelectField, FormikDatePicker };
+
+const FormikCheckbox = ({ name, label, ...otherProps }) => (
+    <Field name={name}>
+        {({ field, form }) => (
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        {...field}
+                        {...otherProps}
+                        checked={field.value}
+                        onChange={(event) => {
+                            form.setFieldValue(name, event.target.checked);
+                        }}
+                    />
+                }
+                label={label}
+            />
+        )}
+    </Field>
+);
+export { FormikTextField, FormikSelectField, FormikDatePicker, FormikCheckbox };
