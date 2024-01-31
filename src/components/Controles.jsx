@@ -5,6 +5,7 @@ import {
     InputLabel,
     FormControlLabel,
     Checkbox,
+    Radio,
 } from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import moment from "moment";
@@ -103,4 +104,31 @@ const FormikCheckbox = ({ name, label, ...otherProps }) => (
         )}
     </Field>
 );
-export { FormikTextField, FormikSelectField, FormikDatePicker, FormikCheckbox };
+
+const FormikRadioButton = ({ name, label, value, ...otherProps }) => (
+    <Field name={name}>
+        {({ field, form }) => (
+            <FormControlLabel
+                control={
+                    <Radio
+                        {...field}
+                        {...otherProps}
+                        value={value}
+                        checked={field.value === value}
+                        onChange={(event) => {
+                            form.setFieldValue(name, event.target.value);
+                        }}
+                    />
+                }
+                label={label}
+            />
+        )}
+    </Field>
+);
+export {
+    FormikTextField,
+    FormikSelectField,
+    FormikDatePicker,
+    FormikCheckbox,
+    FormikRadioButton,
+};
