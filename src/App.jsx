@@ -24,6 +24,7 @@ import { useAuth } from "../src/context/AuthContext";
 import Home from "./components/Home";
 import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
+import Pay from "./components/Pay";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -39,7 +40,7 @@ function App() {
     <Layout>
       {/* <div className="container" style={{ marginTop: "220px", color: "white" }}> */}
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Home2 />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -51,11 +52,11 @@ function App() {
         <Route path="/admin" element={<AltaContenido />} />
         <Route path="/Alumnos" element={<DashbordAlumnos />} />
         <Route path="/miscursos" element={<MisCursos />} />
+        <Route path="/pay" element={<Pay />} />
         <Route
           path="/unidades/:cursotitle/:cursoid"
           element={<UnidadesCursos />}
         />
-        <Route path="/homenew" element={<Home2 />} />
         <Route path="/registro" element={<Registro />} />
       </Routes>
       {/* </div> */}
