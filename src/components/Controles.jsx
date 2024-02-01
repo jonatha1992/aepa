@@ -1,12 +1,24 @@
-import { MenuItem, TextField } from "@mui/material";
+import {
+    MenuItem,
+    TextField,
+    Select,
+    InputLabel,
+    FormControlLabel,
+    Checkbox,
+    Radio,
+} from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import moment from "moment";
+import "moment/locale/es";
+moment.locale("de");
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { Field, ErrorMessage } from "formik";
+import { FormControl, FormHelperText } from "@mui/material";
+
 const FormikTextField = ({ name, label, ...otherProps }) => (
     <Field name={name}>
         {({ field, meta }) => (
             <TextField
-                className="m-3"
                 {...field}
                 {...otherProps}
                 label={label}
@@ -20,36 +32,44 @@ const FormikTextField = ({ name, label, ...otherProps }) => (
 const FormikSelectField = ({ name, label, options, ...otherProps }) => (
     <Field name={name}>
         {({ field, form }) => (
-            <TextField
-                select
-                {...field}
-                {...otherProps}
-                label={label}
+            <FormControl
                 error={form.touched[name] && Boolean(form.errors[name])}
-                helperText={form.touched[name] && form.errors[name]}
+                {...otherProps}
             >
-                {options.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                    </MenuItem>
-                ))}
-            </TextField>
+                <InputLabel id={`${name}-label`}>{label}</InputLabel>
+                <Select
+                    labelId={`${name}-label`}
+                    id={name}
+                    {...field}
+                    label={label}
+                >
+                    {options.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                        </MenuItem>
+                    ))}
+                </Select>
+                {form.touched[name] && form.errors[name] && (
+                    <FormHelperText>{form.errors[name]}</FormHelperText>
+                )}
+            </FormControl>
         )}
     </Field>
 );
-
 const FormikDatePicker = ({ name, label, ...otherProps }) => (
     <Field name={name}>
         {({ field, form }) => (
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider
+                dateAdapter={AdapterMoment}
+                adapterLocale="es"
+            >
                 <DatePicker
-                    className="m-3"
-                    inputFormat="dd/MM/YYYY"
                     {...field}
-                    {...otherProps}
                     label={label}
-                    value={field.value || null}
+                    format="DD/MM/YYYY"
+                    value={field.value ? moment(field.value) : null}
                     onChange={(value) => form.setFieldValue(name, value)}
+                    {...otherProps}
                     renderInput={(params) => (
                         <TextField
                             {...params}
@@ -65,4 +85,50 @@ const FormikDatePicker = ({ name, label, ...otherProps }) => (
     </Field>
 );
 
-export { FormikTextField, FormikSelectField, FormikDatePicker };
+const FormikCheckbox = ({ name, label, ...otherProps }) => (
+    <Field name={name}>
+        {({ field, form }) => (
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        {...field}
+                        {...otherProps}
+                        checked={field.value}
+                        onChange={(event) => {
+                            form.setFieldValue(name, event.target.checked);
+                        }}
+                    />
+                }
+                label={label}
+            />
+        )}
+    </Field>
+);
+
+const FormikRadioButton = ({ name, label, value, ...otherProps }) => (
+    <Field name={name}>
+        {({ field, form }) => (
+            <FormControlLabel
+                control={
+                    <Radio
+                        {...field}
+                        {...otherProps}
+                        value={value}
+                        checked={field.value === value}
+                        onChange={(event) => {
+                            form.setFieldValue(name, event.target.value);
+                        }}
+                    />
+                }
+                label={label}
+            />
+        )}
+    </Field>
+);
+export {
+    FormikTextField,
+    FormikSelectField,
+    FormikDatePicker,
+    FormikCheckbox,
+    FormikRadioButton,
+};

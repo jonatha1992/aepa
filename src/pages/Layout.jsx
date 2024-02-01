@@ -3,6 +3,8 @@ import React from "react";
 import Header2 from "../components/Header2";
 import Contact from "../pages/Contact";
 import { useLocation } from "react-router-dom";
+import "../css/home2.css";
+import Header3 from "../components/Header3";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -15,9 +17,13 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {/* <Header2 /> */}
-      <main style={{ color: "black" }}>{children}</main>
-      {showContact && <Contact />}
+      <div className="landing-page">
+        <Header3></Header3>
+        <div className="main">
+          <main style={{ color: "black" }}>{children}</main>
+        </div>
+        {showContact && <Contact />}
+      </div>
     </>
   );
 };
