@@ -49,15 +49,19 @@ function App() {
                 <Route path="/talleres" element={<Talleres />} />
                 <Route path="/socios" element={<Socios />} />
                 <Route path="/Dashbord" element={<Dashbord />} />
-                <Route path="/admin" element={<AltaContenido />} />
-                <Route path="/Alumnos" element={<DashbordAlumnos />} />
-                <Route path="/miscursos" element={<MisCursos />} />
-                <Route path="/pay" element={<Pay />} />
-                <Route
-                    path="/unidades/:cursotitle/:cursoid"
-                    element={<UnidadesCursos />}
-                />
+
                 <Route path="/registro" element={<Registro />} />
+
+                <Route element={<ProtectedRoute isAllowed={!!User} />}>
+                    <Route path="/admin" element={<AltaContenido />} />
+                    <Route path="/Alumnos" element={<DashbordAlumnos />} />
+                    <Route
+                        path="/unidades/:cursotitle/:cursoid"
+                        element={<UnidadesCursos />}
+                    />
+                    <Route path="/miscursos" element={<MisCursos />} />
+                    <Route path="/pay" element={<Pay />} />
+                </Route>
             </Routes>
             {/* </div> */}
             {/* <div className=" bg-info">{<Cursos />}</div> */}
