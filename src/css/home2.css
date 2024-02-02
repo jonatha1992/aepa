@@ -110,7 +110,8 @@ footer {
 
 
 .main{
-    background: rgb(230, 229, 225)
+        min-height: 100vh;
+        background: rgb(230, 229, 225);
 }
 header h3{
     padding: 0.5rem;
@@ -223,8 +224,12 @@ header h3{
 }
 
 .container-seccion2{
-    padding: 6rem 5rem 0px;
-            padding-bottom: 0;
+    height: 100%;
+        display: flex;
+        padding: 6rem 5rem 0px;
+        padding-bottom: 0;
+        flex-direction: column;
+        justify-content: space-evenly;
 }
 
 .info-encabezado{

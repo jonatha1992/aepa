@@ -15,7 +15,7 @@ function Home2() {
                   fontWeight: "bold",
                   color: "var(--color3)",
                   textTransform: "uppercase",
-                  webkitTextStroke: "1px #dee2e6",
+                  WebkitTextStroke: "1px #dee2e6",
                   fontSize: "3rem",
                 }}
               >
