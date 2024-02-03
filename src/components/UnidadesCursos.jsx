@@ -4,8 +4,8 @@ import { ContenidoXCurso } from "../firebase.js";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import LinkIcon from "@mui/icons-material/Link";
 
-const UnidadesCursos = () => {
-  const { cursotitle, cursoid } = useParams();
+const UnidadesCursos = (props) => {
+  const { cursotitle, cursoid } = props;
   const [contenido, setContenido] = useState([]);
   const [openUnidad, setOpenUnidad] = useState(null);
 
