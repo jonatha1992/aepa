@@ -172,7 +172,10 @@ header h3{
 }
 
 .item-curso{
-    height: 50vh;
+    display: flex;
+        height: 50vh;
+        flex-direction: column;
+        justify-content: space-around;
 }
 
 .info{
@@ -312,7 +315,7 @@ header h3{
         font-size: 1.5rem;
     }
     .item-curso{
-        margin-bottom: 4rem;
+        /* margin-bottom: 4rem; */
             padding: 4rem;
             height: 60vh;
             padding-top: 0;
@@ -321,4 +324,8 @@ header h3{
             font-size: 2rem;
     
         }
+
+    .accion button{
+        margin-top:3rem
+    }
 }

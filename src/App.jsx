@@ -25,6 +25,8 @@ import Home from "./components/Home";
 import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
 import Pay from "./components/Pay";
+import ListaCursos from "./components/ListaCursos";
+import DashbordAlumnosLayout from "./pages/DashbordAlumnosLayout";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -51,10 +53,11 @@ function App() {
         <Route path="/Dashbord" element={<Dashbord />} />
 
         <Route path="/registro" element={<Registro />} />
+        <Route path="/listacurso" element={<ListaCursos />} />
 
         <Route element={<ProtectedRoute isAllowed={!!User} />}>
           <Route path="/admin" element={<AltaContenido />} />
-          <Route path="/Alumnos" element={<DashbordAlumnos />} />
+          <Route path="/Alumnos" element={<DashbordAlumnosLayout />} />
           <Route
             path="/unidades/:cursotitle/:cursoid"
             element={<UnidadesCursos />}

@@ -1,16 +1,19 @@
-// Archivo: DashboardAlumnosLayout.js
+// Importa los componentes necesarios de react-responsive
+import { useMediaQuery } from "react-responsive";
+import DashbordAlumnos from "../components/DashbordAlumnos";
+import DashbordAlumnosDesktop from "../components/DashbordAlumnosDesktop";
 
-import React from "react";
+const DashbordAlumnosLayout = () => {
+  // Define las condiciones para dispositivos móviles y de escritorio
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
-const DashboardAlumnosLayout = ({ children }) => {
   return (
-    <>
-      <div className="dashboard-container" style={{ color: "black" }}>
-        {children}
-      </div>
-      {/* Otros elementos comunes del dashboard, como el pie de página, etc. */}
-    </>
+    <div>
+      {isMobile && <DashbordAlumnos />}
+      {isDesktop && <DashbordAlumnosDesktop />}
+    </div>
   );
 };
 
-export default DashboardAlumnosLayout;
+export default DashbordAlumnosLayout;

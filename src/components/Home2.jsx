@@ -106,15 +106,18 @@ function Home2() {
                     </li>
                   </ul>
                 </div>
-                <button
-                  style={{
-                    width: "80%",
-                    marginTop: "1rem",
-                    padding: "4px",
-                  }}
+                <div
+                  className="accion d-flex justify-content-center"
+                  style={{}}
                 >
-                  INCRIBIRME
-                </button>
+                  <button
+                    style={{
+                      width: "80%",
+                    }}
+                  >
+                    INCRIBIRME
+                  </button>
+                </div>
               </div>
               <div className="col-md-4 item-curso" style={{}}>
                 <div className="info">
@@ -169,15 +172,18 @@ function Home2() {
                     </li>
                   </ul>
                 </div>
-                <button
-                  style={{
-                    width: "80%",
-                    marginTop: "1rem",
-                    padding: "4px",
-                  }}
+                <div
+                  className="accion d-flex justify-content-center"
+                  style={{}}
                 >
-                  INCRIBIRME
-                </button>
+                  <button
+                    style={{
+                      width: "80%",
+                    }}
+                  >
+                    INCRIBIRME
+                  </button>
+                </div>
               </div>
               <div className="col-md-4 item-curso" style={{}}>
                 <div className="info">
@@ -232,15 +238,18 @@ function Home2() {
                     </li>
                   </ul>
                 </div>
-                <button
-                  style={{
-                    width: "80%",
-                    marginTop: "1rem",
-                    padding: "4px",
-                  }}
+                <div
+                  className="accion d-flex justify-content-center"
+                  style={{}}
                 >
-                  INCRIBIRME
-                </button>
+                  <button
+                    style={{
+                      width: "80%",
+                    }}
+                  >
+                    INCRIBIRME
+                  </button>
+                </div>
               </div>
             </div>
           </div>
