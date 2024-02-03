@@ -6,7 +6,6 @@ import {
     FormikTextField,
     FormikSelectField,
     FormikDatePicker,
-    FormikCheckbox,
     FormikRadioButton,
 } from "../components/Controles";
 
@@ -309,7 +308,7 @@ const DatosNivelDeFormacion = () => {
             />
             {values.nivel === "Otro" && (
                 <FormikTextField
-                    className="m-2"
+                    className="m-2  col-12"
                     name="nivel_otro"
                     label="Especifique Otro"
                 />
