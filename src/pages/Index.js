@@ -1,5 +1,5 @@
 // src/pages/index.js
-export { default as Nosotros } from "./Nosotros";
+/* export { default as Nosotros } from "../components/Nosotros"; */
 export { default as Registro } from "./Registro";
 export { default as CursosPage } from "./CursosPage";
 export { default as Talleres } from "./Talleres";
