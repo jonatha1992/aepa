@@ -5,12 +5,13 @@ import {
     CursosPage,
     Talleres,
     Socios,
-    Login,
+    // Login,
     Register,
     Dashbord,
     AltaContenido,
     Anuncio,
     Registro,
+    Login2,
 } from "./pages";
 
 import Layout from "./pages/Layout";
@@ -45,7 +46,7 @@ function App() {
                 <Route index element={<Home2 />} />
                 <Route path="/Home" element={<Home />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login2 />} />
                 <Route path="/nosotros" element={<Nosotros />} />
                 <Route path="/cursos" element={<CursosPage />} />
                 {/* <Route path="/talleres" element={<Talleres />} /> */}
@@ -57,14 +58,8 @@ function App() {
 
                 <Route element={<ProtectedRoute isAllowed={!!User} />}>
                     <Route path="/admin" element={<AltaContenido />} />
-                    <Route
-                        path="/Alumnos"
-                        element={<DashbordAlumnosLayout />}
-                    />
-                    <Route
-                        path="/unidades/:cursotitle/:cursoid"
-                        element={<UnidadesCursos />}
-                    />
+                    <Route path="/Alumnos" element={<DashbordAlumnosLayout />} />
+                    <Route path="/unidades/:cursotitle/:cursoid" element={<UnidadesCursos />} />
                     <Route path="/miscursos" element={<MisCursos />} />
                     <Route path="/pay" element={<Pay />} />
                 </Route>

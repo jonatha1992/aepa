@@ -1,0 +1,43 @@
+/* Estilos para el contenedor principal */
+.container-login {
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Estilos para el contenedor de video */
+.video-container {
+    max-width: 500px; /* Limita el tamaño máximo del vídeo */
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Estilos para el video */
+.video-responsive {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 400px; /* Ajusta el ancho máximo del formulario */
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container-login {
+        margin: 3rem auto;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .video-container,
+    .form-container {
+        width: 90%;
+        max-width: none;
+    }
+}
