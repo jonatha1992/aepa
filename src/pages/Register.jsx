@@ -24,31 +24,20 @@ const Register = () => {
         });
     };
 
-    // Manejador de envío del formulario
+    // Manejador de envío del formulario este  voy a ver si se guardo
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         try {
-            const result = await signup(
-                newUser.email,
-                newUser.password,
-                newUser.displayName
-            );
+            const result = await signup(newUser.email, newUser.password, newUser.displayName);
             newUser.uid = result.user.uid;
             await agregarUser(newUser);
             navigate("/login");
         } catch (error) {
-            if (
-                newUser.email === "" ||
-                newUser.password === "" ||
-                newUser.displayName === ""
-            ) {
+            if (newUser.email === "" || newUser.password === "" || newUser.displayName === "") {
                 setError("Todos los campos son obligatorios");
             }
-            if (
-                error.code === "auth/internal-error" ||
-                error.code === "auth/invalid-email"
-            ) {
+            if (error.code === "auth/internal-error" || error.code === "auth/invalid-email") {
                 setError("Correo Invalido");
             }
             if (error.code === "auth/email-already-in-use") {
@@ -74,10 +63,7 @@ const Register = () => {
                 {Error && <Alert message={Error} />}
                 <div className="sign-in-container m-4">
                     <form className="mx-auto col-lg-12" onSubmit={handleSubmit}>
-                        <h1
-                            className="text-center mb-4"
-                            style={{ color: "white" }}
-                        >
+                        <h1 className="text-center mb-4" style={{ color: "white" }}>
                             Signup your Account
                         </h1>
                         <div className="form-floating mb-3">
@@ -113,9 +99,7 @@ const Register = () => {
                             />
                             <label>Password</label>
                         </div>
-                        <button className="btn btn-primary btn-lg col-5">
-                            Register
-                        </button>
+                        <button className="btn btn-primary btn-lg col-5">Register</button>
                     </form>
                 </div>
             </div>

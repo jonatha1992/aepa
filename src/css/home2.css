@@ -170,11 +170,11 @@ header h3 {
     align-items: center;
 }
 
-.item-curso{
+.item-curso {
     display: flex;
-        height: 50vh;
-        flex-direction: column;
-        justify-content: space-around;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .info {
@@ -309,19 +309,18 @@ header h3 {
     .info-encabezado {
         font-size: 1.5rem;
     }
-    .item-curso{
+    .item-curso {
         /* margin-bottom: 4rem; */
-            padding: 4rem;
-            height: 60vh;
-            padding-top: 0;
+        padding: 4rem;
+        height: 60vh;
+        padding-top: 0;
     }
-        .on-demand {
-            font-size: 2rem;
-    
-        }
+    .on-demand {
+        font-size: 2rem;
+    }
 
-    .accion button{
-        margin-top:3rem
+    .accion button {
+        margin-top: 3rem;
     }
 
 }
