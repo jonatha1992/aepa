@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "../css/home2.css";
 import { Link } from "react-router-dom";
+import Nosotros from "../components/Nosotros";
 
 function Home2() {
   return (
@@ -257,8 +258,7 @@ function Home2() {
       </section>
       <section id="seccion3">
         <div className="container-fluid background-3">
-          <h2>Sección 3</h2>
-          <p>Contenido de la tercera sección.</p>
+          <Nosotros />
         </div>
       </section>
       <section id="seccion4">

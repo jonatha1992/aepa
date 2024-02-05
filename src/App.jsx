@@ -1,17 +1,16 @@
 import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
 import {
-    Nosotros,
+    /* Nosotros, */
     CursosPage,
     Talleres,
     Socios,
-    // Login,
+    Login,
     Register,
     Dashbord,
     AltaContenido,
     Anuncio,
     Registro,
-    Login2,
 } from "./pages";
 
 import Layout from "./pages/Layout";
@@ -46,7 +45,7 @@ function App() {
                 <Route index element={<Home2 />} />
                 <Route path="/Home" element={<Home />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login2 />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="/nosotros" element={<Nosotros />} />
                 <Route path="/cursos" element={<CursosPage />} />
                 {/* <Route path="/talleres" element={<Talleres />} /> */}
