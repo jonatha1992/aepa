@@ -1,16 +1,17 @@
 import { useAuth } from "../context/AuthContext";
 import { AlumnosContext } from "../context/AlumnoContext";
 /* import "../css/dashbordAlumnosdesktop.css"; */ // Actualiza la referencia al nuevo archivo CSS
-import { Home, Settings, AutoStories } from "@mui/icons-material";
+import { Settings, AutoStories } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import MisCursos from "../components/MisCursos";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MiPerfil from "./MiPerfil";
+import Box from "@mui/material/Box";
 
 const FeatureGrid = () => {
   const { User } = useAuth();
@@ -54,6 +55,7 @@ const FeatureGrid = () => {
             <h3 style={{ textAlign: "start", color: "#606468" }}>
               Bienvenido {User.displayName}.
             </h3>
+
             <List>
               {features.map((feature, index) => (
                 <ListItem
