@@ -1,10 +1,11 @@
 /* Estilos para el contenedor principal */
 .container-login {
-    margin: 2rem auto;
+    margin: 6rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 /* Estilos para el contenedor de video */
@@ -30,9 +31,8 @@
 /* Estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
     .container-login {
-        margin: 3rem auto;
+        margin: 6rem auto;
         flex-direction: column;
-        justify-content: flex-start;
     }
 
     .video-container,
