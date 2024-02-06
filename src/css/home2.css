@@ -25,13 +25,24 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+
+.login-icon{
+    padding: 1rem;
+}
+
+.header-action {
+    display: flex;
+    display: flex;
+        align-items: baseline;
+}
 .navbarstyle {
     display: flex;
     height: 100%;
     align-items: flex-end;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
+
 
 .navbarstyle ul {
     list-style: none;
@@ -322,5 +333,11 @@ header h3 {
     .accion button {
         margin-top: 3rem;
     }
+
+        .header-action {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+        }
 
 }

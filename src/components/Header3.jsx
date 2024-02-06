@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function Header3() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [shouldShowMenu, setShouldShowMenu] = useState(true);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -11,10 +13,18 @@ export default function Header3() {
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
   };
+
+  console.log(window.location.pathname);
+
+  useEffect(() => {
+    // Verificar la URL actual y ocultar el menú si es diferente a "/"
+    setShouldShowMenu(window.location.pathname == "/");
+  }, [window.location.pathname]);
+
   return (
     <header>
       <div>
-        <Link to="/#seccion1" className="icon">
+        <Link to="/" className="icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30"
@@ -28,26 +38,34 @@ export default function Header3() {
           <h3>asociacion de enfermeria pediatrica argentina</h3>
         </Link>
       </div>
-
-      <div className="menu-icon" onClick={toggleMobileMenu}>
-        ☰
+      <div className="header-action">
+        {shouldShowMenu && (
+          <>
+            <div className="menu-icon" onClick={toggleMobileMenu}>
+              ☰
+            </div>
+            <nav className="navbarstyle">
+              <ul className={isMobileMenuOpen ? "menu-open" : ""}>
+                <li onClick={closeMobileMenu}>
+                  <a href="#seccion1">Inicio</a>
+                </li>
+                <li onClick={closeMobileMenu}>
+                  <a href="#seccion2">Cursos</a>
+                </li>
+                <li onClick={closeMobileMenu}>
+                  <a href="#seccion3">Nosotros</a>
+                </li>
+                <li onClick={closeMobileMenu}>
+                  <a href="#seccion4">Anuncios y eventos</a>
+                </li>
+              </ul>
+            </nav>
+          </>
+        )}
+        <div className="login-icon">
+          <AccountCircleIcon sx={{ fontSize: "3rem" }} />
+        </div>
       </div>
-      <nav className="navbarstyle">
-        <ul className={isMobileMenuOpen ? "menu-open" : ""}>
-          <li onClick={closeMobileMenu}>
-            <a href="#seccion1">Inicio</a>
-          </li>
-          <li onClick={closeMobileMenu}>
-            <a href="#seccion2">Cursos</a>
-          </li>
-          <li onClick={closeMobileMenu}>
-            <a href="#seccion3">Nosotros</a>
-          </li>
-          <li onClick={closeMobileMenu}>
-            <a href="#seccion4">Anuncios y eventos</a>
-          </li>
-        </ul>
-      </nav>
     </header>
   );
 }

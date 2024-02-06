@@ -42,7 +42,7 @@ const FeatureGrid = () => {
 
   return (
     <>
-      <div className="container-fluid" style={{ paddingTop: "6rem" }}>
+      <div className="container-fluid" style={{ paddingTop: "5rem" }}>
         <div className="row" style={{ minHeight: "100vh" }}>
           <div
             className="col-3"
@@ -52,7 +52,13 @@ const FeatureGrid = () => {
               background: "var(--color5)",
             }}
           >
-            <h3 style={{ textAlign: "start", color: "#606468" }}>
+            <h3
+              style={{
+                textAlign: "start",
+                color: "#606468",
+                paddingTop: "2rem",
+              }}
+            >
               Bienvenido {User.displayName}.
             </h3>
 
