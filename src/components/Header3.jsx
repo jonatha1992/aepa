@@ -14,8 +14,6 @@ export default function Header3() {
     setMobileMenuOpen(false);
   };
 
-  console.log(window.location.pathname);
-
   useEffect(() => {
     // Verificar la URL actual y ocultar el menú si es diferente a "/"
     setShouldShowMenu(window.location.pathname == "/");
