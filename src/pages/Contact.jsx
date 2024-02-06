@@ -18,30 +18,21 @@ const countries = Object.keys(countriesList).map((code) => ({
 }));
 
 // Encuentra el valor que corresponde a Argentina (+54)
-const defaultCountryValue =
-    countries.find((country) => country.value === "+54")?.value ||
-    countries[0].value;
+const defaultCountryValue = countries.find((country) => country.value === "+54")?.value || countries[0].value;
 
 const validationSchema = Yup.object().shape({
     nombre: Yup.string().required("El nombre es obligatorio"),
     telefono: Yup.string()
         .required("El número es obligatorio")
-        .test("valido", "Número de teléfono no válido", (value) =>
-            validarNumeroTelefono(value)
-        ),
-    email: Yup.string()
-        .email("El correo no es válido")
-        .required("El correo es obligatorio"),
+        .test("valido", "Número de teléfono no válido", (value) => validarNumeroTelefono(value)),
+    email: Yup.string().email("El correo no es válido").required("El correo es obligatorio"),
     mensaje: Yup.string().required("El mensaje es obligatorio"),
 });
 
 const Contact = () => {
     const formRef = useRef();
 
-    const handleSubmit = async (
-        values,
-        { setSubmitting, resetForm, setErrors }
-    ) => {
+    const handleSubmit = async (values, { setSubmitting, resetForm, setErrors }) => {
         setErrors({});
         const phoneNumber = `${values.country}${values.telefono}`;
         try {
@@ -67,7 +58,7 @@ const Contact = () => {
 
     return (
         <>
-            <div className="container-footer">
+            <div className="container-footer ">
                 <div className="container">
                     <div className="row row-footer ">
                         <ToastContainer
@@ -94,13 +85,8 @@ const Contact = () => {
                                 validateOnChange={false}
                                 validateOnBlur={false}
                             >
-                                <Form
-                                    className=" col-lg-9 col-sm-12  fs-6 "
-                                    ref={formRef}
-                                >
-                                    <h1 className="text-center h1 mb-2 ">
-                                        Contacto
-                                    </h1>
+                                <Form className=" col-lg-9 col-sm-12  fs-6 " ref={formRef}>
+                                    <h1 className="text-center h1 mb-2 ">Contacto</h1>
                                     <div className="form-floating mb-3  ">
                                         <Field
                                             type="text"
@@ -111,36 +97,19 @@ const Contact = () => {
                                         <label>Nombre Completo</label>
                                         <ErrorMessage
                                             name="nombre"
-                                            component={(props) => (
-                                                <Error
-                                                    message={props.children}
-                                                />
-                                            )}
+                                            component={(props) => <Error message={props.children} />}
                                         />
                                     </div>
                                     <div className="  d-flex justify-content-between mb-3 ">
                                         <div className="form-floating col-4 ">
-                                            <Field
-                                                as="select"
-                                                name="country"
-                                                className="form-select "
-                                            >
-                                                {countries.map(
-                                                    (country, index) => (
-                                                        <option
-                                                            key={index}
-                                                            value={
-                                                                country.value
-                                                            }
-                                                        >
-                                                            {country.label}
-                                                        </option>
-                                                    )
-                                                )}
+                                            <Field as="select" name="country" className="form-select ">
+                                                {countries.map((country, index) => (
+                                                    <option key={index} value={country.value}>
+                                                        {country.label}
+                                                    </option>
+                                                ))}
                                             </Field>
-                                            <label htmlFor="country">
-                                                Codigo
-                                            </label>
+                                            <label htmlFor="country">Codigo</label>
                                         </div>
                                         <div className="form-floating col-7">
                                             <Field
@@ -149,16 +118,10 @@ const Contact = () => {
                                                 placeholder="Ingresa tu teléfono"
                                                 name="telefono"
                                             />
-                                            <label htmlFor="telefono">
-                                                Número sin prefijo
-                                            </label>
+                                            <label htmlFor="telefono">Número sin prefijo</label>
                                             <ErrorMessage
                                                 name="telefono"
-                                                component={(props) => (
-                                                    <Error
-                                                        message={props.children}
-                                                    />
-                                                )}
+                                                component={(props) => <Error message={props.children} />}
                                             />
                                         </div>
                                     </div>
@@ -172,11 +135,7 @@ const Contact = () => {
                                         <label>Email</label>
                                         <ErrorMessage
                                             name="email"
-                                            component={(props) => (
-                                                <Error
-                                                    message={props.children}
-                                                />
-                                            )}
+                                            component={(props) => <Error message={props.children} />}
                                         />
                                     </div>
                                     <div className="form-floating mb-3">
@@ -189,18 +148,11 @@ const Contact = () => {
                                         <label>Mensaje</label>
                                         <ErrorMessage
                                             name="mensaje"
-                                            component={(props) => (
-                                                <Error
-                                                    message={props.children}
-                                                />
-                                            )}
+                                            component={(props) => <Error message={props.children} />}
                                         />
                                     </div>
 
-                                    <button
-                                        className="btn btn-primary btn-block w-100 mb-1"
-                                        type="submit"
-                                    >
+                                    <button className="btn btn-primary btn-block w-100 mb-1" type="submit">
                                         Enviar
                                     </button>
                                 </Form>
