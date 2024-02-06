@@ -11,14 +11,7 @@ const Layout = ({ children }) => {
 
     // Decide si mostrar o no el componente Contact
     const showContact =
-        ![
-            "/Alumnos",
-            "/admin",
-            "/registro",
-            "/miscursos",
-            "/homenew",
-            "/login",
-        ].includes(location.pathname) &&
+        !["/Alumnos", "/admin", "/registro", "/miscursos", "/homenew", "/login"].includes(location.pathname) &&
         !location.pathname.startsWith("/unidades/");
 
     return (

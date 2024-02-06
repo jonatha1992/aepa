@@ -110,7 +110,7 @@ const Registro = () => {
     // Puedes crear componentes similares para otros tipos de campos si es necesario.
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-5 background-3 ">
             <ToastContainer autoClose={2000} />
             <h1 className="text-center h2">Datos de Registro</h1>
             <Stepper activeStep={activeStep} alternativeLabel>
