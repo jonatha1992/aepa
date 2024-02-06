@@ -6,105 +6,105 @@ import { Alert } from "../components/Alert";
 import { agregarUser, getUser } from "../controllers/controllerUser";
 
 const Login = () => {
-    const { login, loginWithGoogle, resetPassword, setUser } = useAuth();
-    const [Error, setError] = useState(null);
-    const [Form, setForm] = useState({
-        email: "",
-        password: "",
+  const { login, loginWithGoogle, resetPassword, setUser } = useAuth();
+  const [Error, setError] = useState(null);
+  const [Form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...Form,
+      [name]: value,
     });
+  };
 
-    const navigate = useNavigate();
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setForm({
-            ...Form,
-            [name]: value,
-        });
-    };
+  // Manejador de envío del formulario
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      const userCredential = await login(Form.email, Form.password);
 
-    // Manejador de envío del formulario
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError("");
-        try {
-            const userCredential = await login(Form.email, Form.password);
+      if (userCredential.user.emailVerified) {
+        setUser(await getUser(userCredential.user.uid));
+        navigate("/");
+      } else {
+        setError("El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión.");
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
-            if (userCredential.user.emailVerified) {
-                setUser(await getUser(userCredential.user.uid));
-                navigate("/");
-            } else {
-                setError("El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión.");
-            }
-        } catch (error) {
-            setError(error.message);
-        }
-    };
+  // const handleGoogleSignin = async () => {
+  //     try {
+  //         var result = await loginWithGoogle();
+  //         await agregarUser(result.user);
+  //         setUser(await getUser(result.user.uid));
+  //         navigate("/");
+  //     } catch (error) {
+  //         setError(error.message);
+  //     }
+  // };
 
-    const handleGoogleSignin = async () => {
-        try {
-            var result = await loginWithGoogle();
-            await agregarUser(result.user);
-            setUser(await getUser(result.user.uid));
-            navigate("/");
-        } catch (error) {
-            setError(error.message);
-        }
-    };
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    if (!Form.email) return setError("Write an email to reset password");
+    try {
+      await resetPassword(Form.email);
+      setError("We sent you an email. Check your inbox");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  return (
+    <>
+      <div className="container d-flex justify-content-center ">
+        <div className="sign-in-container m-4">
+          {Error && <Alert message={Error} />}
+          <form className="mx-auto col-lg-12" onSubmit={handleSubmit}>
+            <h1 className="text-center mb-4" style={{ color: "white" }}>
+              Log Into your Account
+            </h1>
+            <div className="form-floating mb-3">
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter your email"
+                name="email"
+                value={Form.email}
+                onChange={handleChange}
+              />
+              <label>Email address</label>
+            </div>
 
-    const handleResetPassword = async (e) => {
-        e.preventDefault();
-        if (!Form.email) return setError("Write an email to reset password");
-        try {
-            await resetPassword(Form.email);
-            setError("We sent you an email. Check your inbox");
-        } catch (error) {
-            setError(error.message);
-        }
-    };
-    return (
-        <>
-            <div className="container d-flex justify-content-center ">
-                <div className="sign-in-container m-4">
-                    {Error && <Alert message={Error} />}
-                    <form className="mx-auto col-lg-12" onSubmit={handleSubmit}>
-                        <h1 className="text-center mb-4" style={{ color: "white" }}>
-                            Log Into your Account
-                        </h1>
-                        <div className="form-floating mb-3">
-                            <input
-                                type="email"
-                                className="form-control"
-                                placeholder="Enter your email"
-                                name="email"
-                                value={Form.email}
-                                onChange={handleChange}
-                            />
-                            <label>Email address</label>
-                        </div>
-
-                        <div className="form-floating mb-4">
-                            <input
-                                type="password"
-                                className="form-control"
-                                placeholder="********"
-                                name="password"
-                                value={Form.password}
-                                onChange={handleChange}
-                            />
-                            <label>Password</label>
-                        </div>
-                        <div className="d-flex justify-content-between">
-                            <button className="btn btn-primary btn-lg w-50">Login</button>
-                            <a
-                                className="d-inline-block align-baseline fw-bold fs-6 text-primary hover-primary"
-                                href="#!"
-                                onClick={handleResetPassword}
-                            >
-                                Forgot Password?
-                            </a>
-                        </div>
-                    </form>
-                    {/* <button
+            <div className="form-floating mb-4">
+              <input
+                type="password"
+                className="form-control"
+                placeholder="********"
+                name="password"
+                value={Form.password}
+                onChange={handleChange}
+              />
+              <label>Password</label>
+            </div>
+            <div className="d-flex justify-content-between">
+              <button className="btn btn-primary btn-lg w-50">Login</button>
+              <a
+                className="d-inline-block align-baseline fw-bold fs-6 text-primary hover-primary"
+                href="#!"
+                onClick={handleResetPassword}
+              >
+                Forgot Password?
+              </a>
+            </div>
+          </form>
+          {/* <button
                         onClick={handleGoogleSignin}
                         className="btn btn-outline-secondary d-flex align-items-center justify-content-center w-100 my-3"
                     >
@@ -120,16 +120,16 @@ const Login = () => {
                         </svg>
                         Google login
                     </button> */}
-                    <p className="mt-4 mb-0 fs-7 px-3 d-flex justify-content-between">
-                        Don't have an account?
-                        <Link to="/register" className="text-primary hover-primary ">
-                            Register
-                        </Link>
-                    </p>
-                </div>
-            </div>
-        </>
-    );
+          <p className="mt-4 mb-0 fs-7 px-3 d-flex justify-content-between">
+            Don't have an account?
+            <Link to="/register" className="text-primary hover-primary ">
+              Register
+            </Link>
+          </p>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Login;

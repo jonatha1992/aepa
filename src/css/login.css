@@ -23,7 +23,6 @@
 
 /* Estilos para el contenedor del formulario */
 .form-container {
-    margin-top: 2rem;
     width: 100%;
     max-width: 400px; /* Ajusta el ancho máximo del formulario */
 }
