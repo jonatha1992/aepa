@@ -1,7 +1,7 @@
 import "../css/menu.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import Cursos from "./Cursos";
+import Cursos from "../components/Cursos";
 
 export default function Menu() {
   const { User } = useAuth();
