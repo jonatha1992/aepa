@@ -110,16 +110,18 @@ const Registro = () => {
     // Puedes crear componentes similares para otros tipos de campos si es necesario.
 
     return (
-        <div className="container mt-5 background-3 ">
+        <div className=" mt-5 p-5 background-registro  ">
             <ToastContainer autoClose={2000} />
-            <h1 className="text-center h2">Datos de Registro</h1>
-            <Stepper activeStep={activeStep} alternativeLabel>
-                {steps.map((label) => (
-                    <Step key={label}>
-                        <StepLabel>{label}</StepLabel>
-                    </Step>
-                ))}
-            </Stepper>
+            <h1 className="text-center h2 mb-5 mt-5">Datos de Registro</h1>
+            <div className="container">
+                <Stepper activeStep={activeStep} alternativeLabel>
+                    {steps.map((label) => (
+                        <Step key={label}>
+                            <StepLabel>{label}</StepLabel>
+                        </Step>
+                    ))}
+                </Stepper>
+            </div>
 
             <Formik
                 initialValues={{
