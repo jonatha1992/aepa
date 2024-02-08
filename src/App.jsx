@@ -1,16 +1,17 @@
 import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
 import {
-  CursosPage,
-  Talleres,
-  Socios,
-  Dashbord,
-  AltaContenido,
-  Anuncio,
-  Login,
-  Registro,
-  DashbordAlumnosLayout,
-  Layout,
+    CursosPage,
+    Talleres,
+    Socios,
+    Dashbord,
+    AltaContenido,
+    Anuncio,
+    Login,
+    Registro,
+    DashbordAlumnosLayout,
+    Layout,
+    Contact2,
 } from "./pages";
 
 import MisCursos from "./components/MisCursos";
@@ -24,41 +25,39 @@ import Pay from "./components/Pay";
 import ListaCursos from "./components/ListaCursos";
 
 function App() {
-  const { logout, User, setuUser } = useAuth();
-  const navigate = useNavigate();
+    const { logout, User, setuUser } = useAuth();
+    const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    await logout();
-    setuUser(null);
-    navigate("/login");
-  };
+    const handleLogout = async () => {
+        await logout();
+        setuUser(null);
+        navigate("/login");
+    };
 
-  return (
-    <Layout>
-      {/* <div className="container" style={{ marginTop: "220px", color: "white" }}> */}
-      <Routes>
-        <Route index element={<Home2 />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cursos" element={<CursosPage />} />
-        <Route path="/Dashbord" element={<Dashbord />} />
+    return (
+        <Layout>
+            {/* <div className="container" style={{ marginTop: "220px", color: "white" }}> */}
+            <Routes>
+                <Route index element={<Home2 />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/cursos" element={<CursosPage />} />
+                <Route path="/Dashbord" element={<Dashbord />} />
+                <Route path="/Contact2" element={<Contact2 />} />
 
-        <Route path="/registro" element={<Registro />} />
-        <Route path="/listacurso" element={<ListaCursos />} />
+                <Route path="/registro" element={<Registro />} />
+                <Route path="/listacurso" element={<ListaCursos />} />
 
-        <Route element={<ProtectedRoute isAllowed={!!User} />}>
-          <Route path="/admin" element={<AltaContenido />} />
-          <Route path="/Alumnos" element={<DashbordAlumnosLayout />} />
-          <Route
-            path="/unidades/:cursotitle/:cursoid"
-            element={<UnidadesCursos />}
-          />
-          <Route path="/miscursos" element={<MisCursos />} />
-          <Route path="/pay" element={<Pay />} />
-        </Route>
-      </Routes>
-      {/* </div> */}
-      {/* <div className=" bg-info">{<Cursos />}</div> */}
-    </Layout>
-  );
+                <Route element={<ProtectedRoute isAllowed={!!User} />}>
+                    <Route path="/admin" element={<AltaContenido />} />
+                    <Route path="/Alumnos" element={<DashbordAlumnosLayout />} />
+                    <Route path="/unidades/:cursotitle/:cursoid" element={<UnidadesCursos />} />
+                    <Route path="/miscursos" element={<MisCursos />} />
+                    <Route path="/pay" element={<Pay />} />
+                </Route>
+            </Routes>
+            {/* </div> */}
+            {/* <div className=" bg-info">{<Cursos />}</div> */}
+        </Layout>
+    );
 }
 export default App;

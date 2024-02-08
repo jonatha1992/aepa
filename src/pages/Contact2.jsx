@@ -10,6 +10,7 @@ import { useRef } from "react";
 import { countries as countriesList } from "countries-list";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Formkiktextfield } from "../components/Controles";
 
 // Obtener la lista de países con sus prefijos telefónicos
 const countries = Object.keys(countriesList).map((code) => ({
@@ -100,6 +101,7 @@ const Contact = () => {
                                             component={(props) => <Error message={props.children} />}
                                         />
                                     </div>
+                                    <Formkiktextfield />
                                     <div className="  d-flex justify-content-between mb-3 ">
                                         <div className="form-floating col-4 ">
                                             <Field as="select" name="country" className="form-select ">
