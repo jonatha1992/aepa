@@ -1,4 +1,14 @@
-.boton{
+.boton {
     background-color: var(--color1);
-    color: '#fff', 
+    color: "#fff";
+}
+
+.background-registro {
+    background-image: url("../assets/fondo_panta.jpg");
+    min-height: 100vh; /* Esto asegurará que el fondo cubra al menos toda la altura de la ventana del navegador */
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;;
 }
