@@ -22,6 +22,7 @@ import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
 import Pay from "./components/Pay";
 import ListaCursos from "./components/ListaCursos";
+import Inscripcion from "./pages/Inscripcion.jsx";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -40,6 +41,7 @@ function App() {
         <Route index element={<Home2 />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cursos" element={<CursosPage />} />
+        <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
         <Route path="/Dashbord" element={<Dashbord />} />
 
         <Route path="/registro" element={<Registro />} />

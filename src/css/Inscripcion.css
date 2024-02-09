@@ -1,0 +1,46 @@
+.fondo-panta{
+    background-image: url("../assets/fondo_panta.jpg");
+    background-size: cover;
+        background-position: center;
+}
+
+.fondo-panta{
+    padding-top:80px;
+    text-align:start;
+    padding-bottom:80px;
+}
+
+.body-inscripcion {
+    padding:15px;
+    font-size: 18px;
+}
+.header-inscripcion{
+    position: sticky;
+            top: 3rem;
+            background: var(--color1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+}
+
+.contenedor-imagen-curso img{
+    height: 8rem;
+   
+}
+@media only screen and (max-width: 768px) {
+.header-inscripcion {
+        
+        top: 6rem;
+
+    }
+
+.fondo-panta{
+    padding-top:130px
+}
+.body-inscripcion {
+    padding-top: 2rem
+}
+.contenedor-imagen-curso img {
+    max-width: 8rem;
+}
+}

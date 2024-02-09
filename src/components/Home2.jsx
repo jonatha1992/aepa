@@ -111,13 +111,15 @@ function Home2() {
                   className="accion d-flex justify-content-center"
                   style={{}}
                 >
-                  <button
-                    style={{
-                      width: "80%",
-                    }}
-                  >
-                    INCRIBIRME
-                  </button>
+                  <Link to="/inscripcion/poxSpo7snZxVQqEEemL4">
+                    <button
+                      style={{
+                        width: "80%",
+                      }}
+                    >
+                      INCRIBIRME
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="col-md-4 item-curso" style={{}}>
