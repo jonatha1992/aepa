@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "../css/home2.css";
 import { Link } from "react-router-dom";
 import Nosotros from "../components/Nosotros";
+import Anuncio from "../pages/Anuncio";
 
 function Home2() {
   return (
@@ -111,15 +112,13 @@ function Home2() {
                   className="accion d-flex justify-content-center"
                   style={{}}
                 >
-                  <Link to="/inscripcion/poxSpo7snZxVQqEEemL4">
-                    <button
-                      style={{
-                        width: "80%",
-                      }}
-                    >
-                      INCRIBIRME
-                    </button>
-                  </Link>
+                  <button
+                    style={{
+                      width: "80%",
+                    }}
+                  >
+                    INCRIBIRME
+                  </button>
                 </div>
               </div>
               <div className="col-md-4 item-curso" style={{}}>

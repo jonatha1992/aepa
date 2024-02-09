@@ -10,6 +10,7 @@ import { useRef } from "react";
 import { countries as countriesList } from "countries-list";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Formkiktextfield } from "../components/Controles";
 
 // Obtener la lista de países con sus prefijos telefónicos
 const countries = Object.keys(countriesList).map((code) => ({
@@ -100,6 +101,7 @@ const Contact = () => {
                                             component={(props) => <Error message={props.children} />}
                                         />
                                     </div>
+                                    <Formkiktextfield />
                                     <div className="  d-flex justify-content-between mb-3 ">
                                         <div className="form-floating col-4 ">
                                             <Field as="select" name="country" className="form-select ">
@@ -140,9 +142,7 @@ const Contact = () => {
                                     </div>
                                     <div className="form-floating mb-3">
                                         <Field
-                                            type="textarea"
-                                            as="textarea"
-                                            rows="3"
+                                            as="textarea" // Usar "textarea" en lugar de "text-area"
                                             name="mensaje"
                                             className="form-control"
                                             placeholder="Ingrese el mensaje"
@@ -154,10 +154,7 @@ const Contact = () => {
                                         />
                                     </div>
 
-                                    <button
-                                        className="btn btn-primary fw-bold text-uppercase btn-block w-100 mb-1"
-                                        type="submit"
-                                    >
+                                    <button className="btn btn-primary btn-block w-100 mb-1" type="submit">
                                         Enviar
                                     </button>
                                 </Form>
