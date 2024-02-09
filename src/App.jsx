@@ -11,7 +11,6 @@ import {
     Registro,
     DashbordAlumnosLayout,
     Layout,
-    Contact2,
 } from "./pages";
 
 import MisCursos from "./components/MisCursos";
@@ -40,13 +39,10 @@ function App() {
             <Routes>
                 <Route index element={<Home2 />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/cursos" element={<CursosPage />} />
+                <Route path="/cursos" element={<CursosPage />} />A
                 <Route path="/Dashbord" element={<Dashbord />} />
-                <Route path="/Contact2" element={<Contact2 />} />
-
                 <Route path="/registro" element={<Registro />} />
                 <Route path="/listacurso" element={<ListaCursos />} />
-
                 <Route element={<ProtectedRoute isAllowed={!!User} />}>
                     <Route path="/admin" element={<AltaContenido />} />
                     <Route path="/Alumnos" element={<DashbordAlumnosLayout />} />

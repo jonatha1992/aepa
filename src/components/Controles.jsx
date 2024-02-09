@@ -9,20 +9,7 @@ import { FormControl, FormHelperText } from "@mui/material";
 import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
 /* En tu archivo CSS (e.g., styles.css) */
-const FormikTextareaAutosize = ({ name, ariaLabel, ...otherProps }) => (
-    <Field name={name}>
-        {({ field, form }) => (
-            <TextareaAutosize
-                {...field}
-                {...otherProps}
-                aria-label={ariaLabel}
-                onChange={(event) => {
-                    form.setFieldValue(name, event.target.value);
-                }}
-            />
-        )}
-    </Field>
-);
+
 const FormikTextField = ({ name, label, ...otherProps }) => (
     <Field name={name}>
         {({ field, meta }) => (
@@ -118,11 +105,4 @@ const FormikRadioButton = ({ name, label, value, ...otherProps }) => (
         )}
     </Field>
 );
-export {
-    FormikTextField,
-    FormikSelectField,
-    FormikDatePicker,
-    FormikCheckbox,
-    FormikRadioButton,
-    FormikTextareaAutosize,
-};
+export { FormikTextField, FormikSelectField, FormikDatePicker, FormikCheckbox, FormikRadioButton };

@@ -140,7 +140,9 @@ const Contact = () => {
                                     </div>
                                     <div className="form-floating mb-3">
                                         <Field
-                                            as="textarea" // Usar "textarea" en lugar de "text-area"
+                                            type="textarea"
+                                            as="textarea"
+                                            rows="3"
                                             name="mensaje"
                                             className="form-control"
                                             placeholder="Ingrese el mensaje"
@@ -152,7 +154,10 @@ const Contact = () => {
                                         />
                                     </div>
 
-                                    <button className="btn btn-primary btn-block w-100 mb-1" type="submit">
+                                    <button
+                                        className="btn btn-primary fw-bold text-uppercase btn-block w-100 mb-1"
+                                        type="submit"
+                                    >
                                         Enviar
                                     </button>
                                 </Form>
