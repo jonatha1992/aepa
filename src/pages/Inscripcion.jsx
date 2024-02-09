@@ -68,6 +68,13 @@ export default function Inscripcion() {
     return <p>Cargando curso...</p>;
   }
 
+  const customization = {
+    visual: {
+      buttonBackground: "black",
+      buttonHeight: "68px",
+    },
+  };
+
   return (
     <div
       className="fondo-panta"
@@ -76,10 +83,14 @@ export default function Inscripcion() {
       <div className="header-inscripcion">
         <div className="info-inscripcion" style={{ padding: "1.5rem" }}>
           <h2>{curso.title}</h2>
-          <h3>{curso.price}</h3>
-          <Button onClick={handleBuy} disabled={loading}>
+          <h3>${curso.price} ARS</h3>
+          <button
+            className="boton-inscripcion"
+            onClick={handleBuy}
+            disabled={loading}
+          >
             Comprar Curso
-          </Button>
+          </button>
         </div>
         <div className="contenedor-imagen-curso" style={{ padding: "1rem" }}>
           <img src={curso.image} alt="" />
@@ -124,7 +135,10 @@ export default function Inscripcion() {
 
             {/* Componente Wallet */}
             <div style={{ marginTop: "20px" }}>
-              <Wallet initialization={{ preferenceId }} />
+              <Wallet
+                initialization={{ preferenceId }}
+                customization={customization}
+              />
             </div>
           </div>
         </Modal>
@@ -140,14 +154,10 @@ export default function Inscripcion() {
           <li>5</li>
           <li>6</li>
         </ul>
-        <h2 style={{ paddingTop: "3rem", fontWeight: "900" }}>
-          ¿A quién va dirigido este curso?
-        </h2>
+        <h2 style={{}}>¿A quién va dirigido este curso?</h2>
         <hr />
         <div>{curso.targetAudience}</div>
-        <h2 style={{ paddingTop: "3rem", fontWeight: "900" }}>
-          ¿Por qué elegir este curso?
-        </h2>
+        <h2 style={{}}>¿Por qué elegir este curso?</h2>
         <hr />
         <div>{curso.objectives}</div>
       </div>
