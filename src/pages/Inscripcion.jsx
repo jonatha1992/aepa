@@ -76,10 +76,7 @@ export default function Inscripcion() {
   };
 
   return (
-    <div
-      className="fondo-panta"
-      style={{ paddingTop: "80px", textAlign: "start", paddingBottom: "80px" }}
-    >
+    <div className="fondo-panta" style={{}}>
       <div className="header-inscripcion">
         <div className="info-inscripcion" style={{ padding: "1.5rem" }}>
           <h2>{curso.title}</h2>
