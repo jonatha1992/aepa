@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import Nosotros from "../components/Nosotros";
 import Anuncio from "../pages/Anuncio";
 
+import neo from "../assets/cuidados neo.jpg";
+import ped from "../assets/cuidados ped.jpg";
+import farma from "../assets/farmaco.jpg";
+
 function Home2() {
   return (
     <>
@@ -71,7 +75,7 @@ function Home2() {
                     <h2 className="info-encabezado">$20.000</h2>
                   </div>
                   <div style={{ width: "40%" }}>
-                    <img src="" alt="" />
+                    <img className="img-curso-landing" src={neo} alt="" />
                   </div>
                 </div>
                 <div className="unidades">
@@ -112,13 +116,20 @@ function Home2() {
                   className="accion d-flex justify-content-center"
                   style={{}}
                 >
-                  <button
+                  <Link
+                    to="/inscripcion/poxSpo7snZxVQqEEemL4"
                     style={{
                       width: "80%",
                     }}
                   >
-                    INCRIBIRME
-                  </button>
+                    <button
+                      style={{
+                        width: "100%",
+                      }}
+                    >
+                      INCRIBIRME
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="col-md-4 item-curso" style={{}}>
@@ -137,7 +148,7 @@ function Home2() {
                     <h2 className="info-encabezado">$20.000</h2>
                   </div>
                   <div style={{ width: "40%" }}>
-                    <img src="" alt="" />
+                    <img className="img-curso-landing" src={ped} alt="" />
                   </div>
                 </div>
                 <div className="unidades">
@@ -178,13 +189,20 @@ function Home2() {
                   className="accion d-flex justify-content-center"
                   style={{}}
                 >
-                  <button
+                  <Link
+                    to="/inscripcion/poxSpo7snZxVQqEEemL4"
                     style={{
                       width: "80%",
                     }}
                   >
-                    INCRIBIRME
-                  </button>
+                    <button
+                      style={{
+                        width: "100%",
+                      }}
+                    >
+                      INCRIBIRME
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="col-md-4 item-curso" style={{}}>
@@ -203,7 +221,7 @@ function Home2() {
                     <h2 className="info-encabezado">$20.000</h2>
                   </div>
                   <div style={{ width: "40%" }}>
-                    <img src="" alt="" />
+                    <img className="img-curso-landing" src={farma} alt="" />
                   </div>
                 </div>
                 <div className="unidades">
@@ -244,13 +262,20 @@ function Home2() {
                   className="accion d-flex justify-content-center"
                   style={{}}
                 >
-                  <button
+                  <Link
+                    to="/inscripcion/poxSpo7snZxVQqEEemL4"
                     style={{
                       width: "80%",
                     }}
                   >
-                    INCRIBIRME
-                  </button>
+                    <button
+                      style={{
+                        width: "100%",
+                      }}
+                    >
+                      INCRIBIRME
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
