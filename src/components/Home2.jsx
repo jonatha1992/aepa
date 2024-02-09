@@ -64,7 +64,7 @@ function Home2() {
                   <div
                     className="d-flex flex-column "
                     style={{
-                      width: "60%",
+                      width: "50%",
                       textAlign: "start",
                       fontWeight: "bold",
                     }}
@@ -137,7 +137,7 @@ function Home2() {
                   <div
                     className="d-flex flex-column "
                     style={{
-                      width: "60%",
+                      width: "50%",
                       textAlign: "start",
                       fontWeight: "bold",
                     }}
@@ -210,7 +210,6 @@ function Home2() {
                   <div
                     className="d-flex flex-column "
                     style={{
-                      width: "60%",
                       textAlign: "start",
                       fontWeight: "bold",
                     }}
@@ -220,7 +219,7 @@ function Home2() {
                     </h2>
                     <h2 className="info-encabezado">$20.000</h2>
                   </div>
-                  <div style={{ width: "40%" }}>
+                  <div style={{}}>
                     <img className="img-curso-landing" src={farma} alt="" />
                   </div>
                 </div>
