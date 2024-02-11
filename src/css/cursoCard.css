@@ -1,0 +1,61 @@
+.curso-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 280px; /* Ajusta según tus necesidades */
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white; /* Fondo blanco para la tarjeta */
+}
+
+.curso-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos horizontalmente */
+    background-color: var(--color5); /* Fondo azul para la parte inferior */
+    color: black; /* Texto blanco para la parte inferior */
+}
+
+.curso-card-title {
+    font-size: 1.5em;
+    color: #333; /* Color oscuro para el título */
+    margin: 16px 0 8px; /* Espaciado alrededor del título */
+    text-align: center;
+}
+
+.curso-card-price {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-bottom: 16px; /* Espaciado debajo del precio */
+    text-align: center;
+}
+
+.curso-card-author,
+.curso-card-duration,
+.curso-card-start {
+    font-size: 1em;
+    margin: 4px 0; /* Espaciado uniforme para los elementos de la lista */
+    padding: 0 20px; /* Padding horizontal para alinear con el título */
+}
+
+.curso-btn {
+    padding: 12px 20px;
+    width: calc(100% - 40px); /* Ajusta el ancho para tener en cuenta el padding */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0; /* Botón sin bordes redondeados */
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto; /* Alinea el botón al final */
+    transition: background-color 0.3s;
+}
+
+.curso-btn:hover {
+    background-color: #0056b3;
+    box-shadow: none; /* Elimina cualquier sombra al pasar el mouse */
+}
