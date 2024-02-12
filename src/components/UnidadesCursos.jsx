@@ -59,85 +59,87 @@ const UnidadesCursos = (props) => {
 
   return (
     <>
-      <h2
-        style={{
-          background: "white",
-          color: "#606468",
-          textAlign: "start",
-          textTransform: "uppercase",
-          padding: "10px",
-          borderRadius: "5px",
-        }}
-      >
-        {cursotitle}
-      </h2>
-      <div style={{ color: "black", background: "#5d809d" }}>
-        {/* Renderiza las unidades utilizando el acordeón de React */}
-        {Object.entries(arbolUnidadesTipos).map(([numero, tipos]) => (
-          <div key={numero}>
-            <button
-              onClick={() => handleToggleUnidad(numero)}
-              style={{
-                width: "100%",
-                background: "#5d809d",
-                color: "white",
-                fontSize: "1.5rem",
-                marginBottom: "5px",
-                borderRadius: "5px",
-                padding: "5px",
-                cursor: "pointer",
-              }}
-            >
-              Unidad {numero}
-            </button>
-            {openUnidad === numero && (
-              <div
+      <div className="container" style={{ paddingTop: "8rem" }}>
+        <h2
+          style={{
+            background: "white",
+            color: "#606468",
+            textAlign: "start",
+            textTransform: "uppercase",
+            padding: "10px",
+            borderRadius: "5px",
+          }}
+        >
+          {cursotitle}
+        </h2>
+        <div style={{ color: "black", background: "#5d809d" }}>
+          {/* Renderiza las unidades utilizando el acordeón de React */}
+          {Object.entries(arbolUnidadesTipos).map(([numero, tipos]) => (
+            <div key={numero}>
+              <button
+                onClick={() => handleToggleUnidad(numero)}
                 style={{
-                  backgroundColor: "rgb(182 199 213)",
-                  paddingBottom: "0.5rem",
+                  width: "100%",
+                  background: "#5d809d",
+                  color: "white",
+                  fontSize: "1.5rem",
+                  marginBottom: "5px",
                   borderRadius: "5px",
+                  padding: "5px",
+                  cursor: "pointer",
                 }}
               >
-                {/* Renderiza los tipos únicos */}
-                {Object.entries(tipos).map(([tipo, titulos]) => (
-                  <div key={tipo} style={{ marginBottom: "10px" }}>
-                    <p className="encabezado-tipo">{tipo}</p>
-                    {/* Renderiza los títulos de cada tipo */}
-                    {titulos.map((titulo) => (
-                      <div key={titulo} className="titulo-contenido">
-                        <div
-                          className="d-flex flex-row align-items-center"
-                          style={{ width: "75%" }}
-                        >
-                          {tipo === "pdf" && (
-                            <PictureAsPdfIcon
-                              style={{
-                                width: "1.5em",
-                                height: "1.5em",
-                                marginRight: "5px",
-                              }}
-                            />
-                          )}
-                          {tipo === "link" && (
-                            <LinkIcon
-                              style={{
-                                width: "1.5em",
-                                height: "1.5em",
-                                marginRight: "5px",
-                              }}
-                            />
-                          )}
-                          <p>{titulo}</p>
+                Unidad {numero}
+              </button>
+              {openUnidad === numero && (
+                <div
+                  style={{
+                    backgroundColor: "rgb(182 199 213)",
+                    paddingBottom: "0.5rem",
+                    borderRadius: "5px",
+                  }}
+                >
+                  {/* Renderiza los tipos únicos */}
+                  {Object.entries(tipos).map(([tipo, titulos]) => (
+                    <div key={tipo} style={{ marginBottom: "10px" }}>
+                      <p className="encabezado-tipo">{tipo}</p>
+                      {/* Renderiza los títulos de cada tipo */}
+                      {titulos.map((titulo) => (
+                        <div key={titulo} className="titulo-contenido">
+                          <div
+                            className="d-flex flex-row align-items-center"
+                            style={{ width: "75%" }}
+                          >
+                            {tipo === "pdf" && (
+                              <PictureAsPdfIcon
+                                style={{
+                                  width: "1.5em",
+                                  height: "1.5em",
+                                  marginRight: "5px",
+                                }}
+                              />
+                            )}
+                            {tipo === "link" && (
+                              <LinkIcon
+                                style={{
+                                  width: "1.5em",
+                                  height: "1.5em",
+                                  marginRight: "5px",
+                                }}
+                              />
+                            )}
+                            <p>{titulo}</p>
+                          </div>
+                          {/* Puedes agregar más detalles según sea necesario */}
                         </div>
-                        {/* Puedes agregar más detalles según sea necesario */}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

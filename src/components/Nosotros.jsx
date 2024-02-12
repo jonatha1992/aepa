@@ -6,7 +6,15 @@ import "../css/nosotros.css";
 export default function Nosotros() {
   return (
     <div className="container" style={{ marginTop: "6rem" }}>
-      <div className="row">
+      <div
+        className="row"
+        style={{
+          gap: "4rem",
+          display: "flex",
+          borderRadius: "2rem",
+          background: "rgba(241, 241, 241, 0.699)",
+        }}
+      >
         <div className="col-12 col-md-3 card-nosotros">
           <h1 className="card-title-nosotros ">Misión</h1>
           <p className="card-text ">
