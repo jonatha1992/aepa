@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 import { getCurso } from "../controllers/controllerCurso";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
-import { Modal, Backdrop, CircularProgress, Button } from "@mui/material";
+import { Modal, Backdrop, CircularProgress } from "@mui/material";
+import { useAuth } from "../context/AuthContext";
 
 export default function Inscripcion() {
+  const { User } = useAuth();
   const { cursoid } = useParams();
   const [curso, setCurso] = useState(null);
   const [preferenceId, setPreferenceId] = useState(null);
@@ -26,6 +28,8 @@ export default function Inscripcion() {
           title: "AEPA",
           price: curso.price,
           quantity: 1,
+          cursoid: cursoid,
+          uid: User.uid,
         }
       );
 
