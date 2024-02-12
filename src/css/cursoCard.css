@@ -1,36 +1,51 @@
 .curso-card {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    width: 280px; /* Ajusta según tus necesidades */
+    width: 100%; 
+    height: 100%;/* Ajusta según tus necesidades */
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white; /* Fondo blanco para la tarjeta */
+    flex: 12;
+    flex-wrap: wrap;
 }
 
 .curso-card-body {
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center; /* Centra los elementos horizontalmente */
-    background-color: var(--color5); /* Fondo azul para la parte inferior */
-    color: black; /* Texto blanco para la parte inferior */
+    color: black;
+    flex: 1;
+    background-color: #f8f9fa; /* Un color de fondo más suave para la parte inferior */
+    color: #495057; /
+    /* Texto blanco para la parte inferior */
 }
-
+.curso-card-img {
+    width: auto;
+    height: 200px;
+}
 .curso-card-title {
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5em;
     color: #333; /* Color oscuro para el título */
     margin: 16px 0 8px; /* Espaciado alrededor del título */
     text-align: center;
+    min-height: 54px;
+    font-weight: 600;
 }
 
 .curso-card-price {
-    font-size: 1.4em;
-    color: #007bff;
+    font-size: 2.4em;
     margin-bottom: 16px; /* Espaciado debajo del precio */
     text-align: center;
+    color: #27ae60; /* Un color distintivo para el precio */
+    font-weight: bold;
 }
 
 .curso-card-author,
@@ -47,15 +62,22 @@
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 0; /* Botón sin bordes redondeados */
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    margin-top: auto; /* Alinea el botón al final */
+    margin-top: 1rem; /* Alinea el botón al final */
     transition: background-color 0.3s;
+    border-radius: 10px;
 }
 
 .curso-btn:hover {
     background-color: #0056b3;
     box-shadow: none; /* Elimina cualquier sombra al pasar el mouse */
+}
+
+@media (max-width: 768px) {
+    .curso-card {
+        width: 100%; /* Las tarjetas ocupan todo el ancho en móviles */
+        margin: 10px 0; /* Menos margen en dispositivos móviles */
+    }
 }

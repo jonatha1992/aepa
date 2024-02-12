@@ -1,9 +1,7 @@
 .background-6 {
     padding: 20px;
     background-color: #f4f4f4;
-    margin-top: 5rem; /* Asume que esto es tu color de fondo deseado */
 }
-
 .container {
     display: flex;
     flex-direction: column;
@@ -40,4 +38,5 @@
     flex-wrap: wrap; /* Permite que los cards de cursos se ajusten y envuelvan según el ancho del contenedor */
     justify-content: center; /* Centra los cards de cursos */
     gap: 2rem; /* Espacio entre los cards de cursos */
+    padding-top: 0rem 5rem;
 }

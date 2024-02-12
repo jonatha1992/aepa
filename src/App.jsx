@@ -1,7 +1,6 @@
 import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
 import {
-    CursosPage,
     Talleres,
     Socios,
     Dashbord,
@@ -17,14 +16,13 @@ import MisCursos from "./components/MisCursos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
-import CardCurso from "../src/components/CardCurso.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
 import Pay from "./components/Pay";
 import ListaCursos from "./components/ListaCursos";
 import Inscripcion from "./pages/Inscripcion.jsx";
-import CursosSeccion from "./pages/CursosSeccion.jsx";
+import CursosSeccion from "./components/CursosSeccion.jsx";
 
 function App() {
     const { logout, User, setuUser } = useAuth();

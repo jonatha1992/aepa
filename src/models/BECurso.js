@@ -1,11 +1,14 @@
 export default class BECurso {
-    constructor(title, description, autora, precio, duracion, inicio, imageUrl) {
+    uid = 0;
+    constructor({ title, description, price, duration, author, start, imageUrl, clases, Workload }) {
         this.title = title;
-        this.description = description;
-        this.author = autora;
-        this.price = precio;
-        this.duracion = duracion;
-        this.start = inicio;
-        this.image = imageUrl; // Agregar una propiedad para la URL de la imagen
+        this.description = description || "Descripción predeterminada";
+        this.duration = duration;
+        this.author = author;
+        this.price = price;
+        this.classes = clases;
+        this.start = start;
+        this.imageUrl = imageUrl;
+        this.Workload = Workload || "Carga horaria";
     }
 }
