@@ -4,7 +4,6 @@ import "../css/cursoCard.css";
 import { Link } from "react-router-dom";
 
 function CardCurso({ Curso }) {
-    console.log(Curso);
     return (
         <div className="curso-card">
             <img className="curso-card-img" src={Curso.imageUrl} alt={Curso.title} />
