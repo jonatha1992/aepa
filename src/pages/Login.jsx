@@ -9,6 +9,7 @@ import "../css/login.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FormikTextField } from "../components/Controles";
+import { getUser } from "../controllers/controllerUser";
 
 // Ajustamos el esquema de validación para que sea dinámico
 // Definición de esquemas de validación separados
@@ -24,7 +25,7 @@ const recoverValidationSchema = Yup.object().shape({
 });
 
 const Login = () => {
-    const { login, resetPassword } = useAuth();
+    const { login, resetPassword, setUser } = useAuth();
     const [recuperar, setRecuperar] = useState(false);
 
     const navigate = useNavigate();
@@ -46,6 +47,7 @@ const Login = () => {
             try {
                 const userCredential = await login(values.email, values.password);
                 if (userCredential.user.emailVerified) {
+                    setUser(await getUser(userCredential.user.uid));
                     navigate("/");
                 } else {
                     toast.error(

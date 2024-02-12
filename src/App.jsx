@@ -1,7 +1,6 @@
 import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
 import {
-  CursosPage,
   Talleres,
   Socios,
   Dashbord,
@@ -23,6 +22,7 @@ import Home2 from "./components/Home2";
 import Pay from "./components/Pay";
 import ListaCursos from "./components/ListaCursos";
 import Inscripcion from "./pages/Inscripcion.jsx";
+import CursosSeccion from "./components/CursosSeccion.jsx";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -40,8 +40,8 @@ function App() {
       <Routes>
         <Route index element={<Home2 />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cursos" element={<CursosPage />} />
-
+        <Route path="/cursos" element={<CursosSeccion />} />
+        <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
         <Route path="/Dashbord" element={<Dashbord />} />
 
         <Route path="/registro" element={<Registro />} />

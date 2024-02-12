@@ -1,0 +1,42 @@
+.background-6 {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px; /* Asume un ancho máximo para el contenedor */
+    margin: auto; /* Centra el contenedor en la página */
+    text-align: center; /* Centra el texto del título y párrafo */
+}
+
+.cursos-titulo {
+    color: black;
+    background-color: var(--color5); /* Asume que deseas un fondo azul para el título */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    display: inline-block; /* Asume que quieres que el título tenga su propio bloque */
+    width: 100%; /* Hace que el título se expanda para llenar el ancho del contenedor */
+}
+
+.parrafo {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-family: sans-serif;
+    margin-bottom: 2rem;
+    width: 80%;
+    text-align: justify;
+    margin-left: auto; /* Centra el párrafo horizontalmente */
+    margin-right: auto;
+}
+
+.cursos-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los cards de cursos se ajusten y envuelvan según el ancho del contenedor */
+    justify-content: center; /* Centra los cards de cursos */
+    gap: 2rem; /* Espacio entre los cards de cursos */
+    padding-top: 0rem 5rem;
+}
