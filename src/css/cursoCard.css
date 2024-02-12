@@ -5,12 +5,11 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    width: 300px; 
+    width: auto; 
     height: auto;/* Ajusta según tus necesidades */
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white; /* Fondo blanco para la tarjeta */
-    flex: 1;
 }
 
 .curso-card-body {
@@ -33,7 +32,7 @@
     font-family: "Open Sans", sans-serif;
     font-size: 1.5em;
     color: #333; /* Color oscuro para el título */
-    margin: 16px 0 8px; /* Espaciado alrededor del título */
+    margin: 4px 0 8px; /* Espaciado alrededor del título */
     text-align: center;
     min-height: 54px;
     font-weight: 600;

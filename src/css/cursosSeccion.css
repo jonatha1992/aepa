@@ -2,14 +2,6 @@
     padding: 20px;
     background-color: #f4f4f4;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    max-width: 1200px; /* Asume un ancho máximo para el contenedor */
-    margin: auto; /* Centra el contenedor en la página */
-    text-align: center; /* Centra el texto del título y párrafo */
-    padding: auto;
-}
 
 .cursos-titulo {
     color: black;
@@ -32,12 +24,4 @@
     text-align: justify;
     margin-left: auto; /* Centra el párrafo horizontalmente */
     margin-right: auto;
-}
-
-.cursos-grid {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los cards de cursos se ajusten y envuelvan según el ancho del contenedor */
-    justify-content: center; /* Centra los cards de cursos */
-    gap: 2rem; /* Espacio entre los cards de cursos */
-    padding: 0rem 5rem;
 }

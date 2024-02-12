@@ -57,7 +57,7 @@ export default class CursosSeccion extends React.Component {
                         integral y actualizada.
                     </p>
                     {/* Lista de Cursos */}
-                    <div className="cursos-grid">
+                    <div className="row ">
                         <CardCurso Curso={cursoNeo} />
                         <CardCurso Curso={cursopediatrico} />
                         <CardCurso Curso={cursoFarmacologia} />
