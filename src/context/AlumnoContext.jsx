@@ -20,7 +20,7 @@ export function AlumnosContextProvider(props) {
     };
 
     fetchDataFromFirebase();
-  }, []);
+  }, [User]);
   return (
     <>
       <AlumnosContext.Provider
