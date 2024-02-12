@@ -8,6 +8,7 @@
     max-width: 1200px; /* Asume un ancho máximo para el contenedor */
     margin: auto; /* Centra el contenedor en la página */
     text-align: center; /* Centra el texto del título y párrafo */
+    padding: auto;
 }
 
 .cursos-titulo {
@@ -38,5 +39,5 @@
     flex-wrap: wrap; /* Permite que los cards de cursos se ajusten y envuelvan según el ancho del contenedor */
     justify-content: center; /* Centra los cards de cursos */
     gap: 2rem; /* Espacio entre los cards de cursos */
-    padding-top: 0rem 5rem;
+    padding: 0rem 5rem;
 }
