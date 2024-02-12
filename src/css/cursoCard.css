@@ -5,13 +5,11 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    width: 100%; 
-    height: 100%;/* Ajusta según tus necesidades */
+    width: auto; 
+    height: auto;/* Ajusta según tus necesidades */
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white; /* Fondo blanco para la tarjeta */
-    flex: 12;
-    flex-wrap: wrap;
 }
 
 .curso-card-body {
@@ -27,14 +25,14 @@
     /* Texto blanco para la parte inferior */
 }
 .curso-card-img {
-    width: auto;
+    width: 100%;
     height: 200px;
 }
 .curso-card-title {
     font-family: "Open Sans", sans-serif;
     font-size: 1.5em;
     color: #333; /* Color oscuro para el título */
-    margin: 16px 0 8px; /* Espaciado alrededor del título */
+    margin: 4px 0 8px; /* Espaciado alrededor del título */
     text-align: center;
     min-height: 54px;
     font-weight: 600;

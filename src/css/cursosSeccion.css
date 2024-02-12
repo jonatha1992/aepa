@@ -34,11 +34,3 @@
     margin-left: auto; /* Centra el párrafo horizontalmente */
     margin-right: auto;
 }
-
-.cursos-grid {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los cards de cursos se ajusten y envuelvan según el ancho del contenedor */
-    justify-content: center; /* Centra los cards de cursos */
-    gap: 2rem; /* Espacio entre los cards de cursos */
-    padding-top: 0rem 5rem;
-}
