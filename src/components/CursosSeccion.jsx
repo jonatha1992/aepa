@@ -4,7 +4,7 @@ import "../css/cursosSeccion.css";
 import BECurso from "../models/BECurso"; // Importa la clase Curso
 import neo from "../assets/cuidados neo.jpg";
 import pediatria from "../assets/cuidados ped.jpg";
-import farmacologia from "../assets/farmaco.jpg";
+import farmacologia from "../assets/Farma3.jpg";
 // Crear instancias de los modelos Curso
 const cursoNeo = new BECurso({
     title: "Cuidados Críticos Neonatales",

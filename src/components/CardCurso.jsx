@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 
 function CardCurso({ Curso }) {
     return (
-        <div className="col-12  col-sm-6 col-md-3">
+        <div className="col-12  col-md-4">
             <div className="curso-card ">
-                <img className="curso-card-img" src={Curso.imageUrl} alt={Curso.title} />
+                <div className="d-flex align-items-center  justify-content-evenly ">
+                    <h3 className=" curso-card-title">{Curso.title}</h3>
+                    <img className="curso-card-img" src={Curso.imageUrl} alt={Curso.title} />
+                </div>
                 <div className="curso-card-body">
-                    <h3 className="curso-card-title">{Curso.title}</h3>
                     {/* <h4 className="curso-card-price">{Curso.price}</h4> */}
                     <p className="curso-card-author">
                         <strong>Autor:</strong> {Curso.author}
