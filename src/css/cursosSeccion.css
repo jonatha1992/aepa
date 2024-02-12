@@ -2,6 +2,15 @@
     padding: 20px;
     background-color: #f4f4f4;
 }
+/* .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px; 
+    margin: auto; 
+    text-align: center; 
+} */
+
+/* no usar nombre de clases predefinidas por boostrap (modifica otros componentes */
 
 .cursos-titulo {
     color: black;

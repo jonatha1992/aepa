@@ -5,42 +5,42 @@ import secretario from "../assets/enf-sierra-jorge.png";
 import "../css/nosotros.css";
 export default function Nosotros() {
   return (
-    <div style={{ color: "black" }}>
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-4 card-nosotros">
-            <h1 className="card-title-nosotros ">Misión</h1>
-            <p className="card-text ">
-              Representar a todos los enfermeros que manifiesten compromiso por
-              trascender y defender la salud infanto juvenil, promoviendo el
-              avance profesional y fomentando el bienestar de la comunidad.
-            </p>
-          </div>
-          <div className="col-12 col-md-4 card-nosotros">
-            <h1 className="card-title-nosotros">Visión</h1>
-            <p className="card-text ">
-              Demostrar el liderazgo profesional, garantizando un actuar ético,
-              científico y humanístico, con equidad, justicia y profunda
-              humanización, hacia una sociedad en constantes cambios.
-            </p>
-          </div>
-          <div className="col-12 col-md-4 card-nosotros">
-            <h1 className="card-title-nosotros">Valores</h1>
-            <ul className="card-text ">
-              <li>Competencia profesional</li>
-              <li>Responsabilidad</li>
-              <li>Conocimiento</li>
-              <li>Igualdad</li>
-              <li>Respeto</li>
-              <li>Innovación</li>
-              <li>Equidad</li>
-              <li>Compromiso</li>
-            </ul>
-          </div>
+    <div className="container" style={{ marginTop: "6rem" }}>
+      <div className="row">
+        <div className="col-12 col-md-3 card-nosotros">
+          <h1 className="card-title-nosotros ">Misión</h1>
+          <p className="card-text ">
+            Representar a todos los enfermeros que manifiesten compromiso por
+            trascender y defender la salud infanto juvenil, promoviendo el
+            avance profesional y fomentando el bienestar de la comunidad.
+          </p>
+        </div>
+        <div className="col-12 col-md-3 card-nosotros">
+          <h1 className="card-title-nosotros">Visión</h1>
+          <p className="card-text ">
+            Demostrar el liderazgo profesional, garantizando un actuar ético,
+            científico y humanístico, con equidad, justicia y profunda
+            humanización, hacia una sociedad en constantes cambios.
+          </p>
+        </div>
+        <div className="col-12 col-md-3 card-nosotros">
+          <h1 className="card-title-nosotros">Valores</h1>
+          <ul className="card-text ">
+            <li>Competencia profesional</li>
+            <li>Responsabilidad</li>
+            <li>Conocimiento</li>
+            <li>Igualdad</li>
+            <li>Respeto</li>
+            <li>Innovación</li>
+            <li>Equidad</li>
+            <li>Compromiso</li>
+          </ul>
         </div>
       </div>
-      <h1 className="text-center my-4  h1">Quienes somos</h1>
-      <div className="row justify-content-center">
+      <div
+        className="row "
+        style={{ justifyContent: "space-evenly", marginTop: "5rem" }}
+      >
         <div className="col-lg-3 col-sm-12 ">
           <div className="card align-items-center">
             <img
@@ -56,7 +56,7 @@ export default function Nosotros() {
         </div>
 
         <div className="col-lg-3 col-sm-12">
-          <div className="card align-items-center ">
+          <div className="card align-items-center " style={{ padding: "1em" }}>
             <img
               src={vicepresidenta}
               className="card-img-top w-75"
@@ -83,6 +83,8 @@ export default function Nosotros() {
           </div>
         </div>
       </div>
+
+      {/*       <h1 className="text-center my-4  h1">Quienes somos</h1> */}
     </div>
   );
 }
