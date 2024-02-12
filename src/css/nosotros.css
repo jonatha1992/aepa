@@ -1,6 +1,6 @@
 .card-text {
     color: var(--aepa-texto);
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: start;
 }
 
@@ -21,8 +21,8 @@
         align-items: center;
         border-radius: 3rem;
         box-sizing: border-box;
-        padding: 2rem;
-        justify-content: space-around;
+        
+        
 }
 
 .contenedor-card-nostros {
