@@ -13,6 +13,7 @@ export default function Nosotros() {
           display: "flex",
           borderRadius: "2rem",
           background: "rgba(241, 241, 241, 0.699)",
+          justifyContent: "space-evenly",
         }}
       >
         <div className="col-12 col-md-3 card-nosotros">

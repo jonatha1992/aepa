@@ -281,7 +281,7 @@ header h3 {
 
     .navbarstyle ul.menu-open {
         display: flex;
-        top: 200px;
+        top: 120px;
     }
 
     .navbarstyle li {
