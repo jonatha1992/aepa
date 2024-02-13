@@ -5,8 +5,10 @@ import BECurso from "../models/BECurso"; // Importa la clase Curso
 import neo from "../assets/cuidados neo.jpg";
 import pediatria from "../assets/cuidados ped.jpg";
 import farmacologia from "../assets/Farma3.jpg";
+import SliderCursosLanding from "./SliderCursosLanding";
 // Crear instancias de los modelos Curso
-const cursoNeo = new BECurso({
+const cursos = [
+  {
     title: "Cuidados Críticos Neonatales",
     author: "Lic. A. Perelli",
     description: "Descripción del curso sobre cuidados críticos neponatales.",
@@ -16,9 +18,8 @@ const cursoNeo = new BECurso({
     imageUrl: neo,
     clases: "Jue: 16:30 - 19:00  hs",
     Workload: "50 hs",
-});
-
-const cursopediatrico = new BECurso({
+  },
+  {
     title: "Cuidados Críticos Pediátricos",
     description: "Descripción del curso sobre cuidados críticos pediátricos.",
     duration: "Duración: 3 meses (Abr/May/Jun)",
@@ -27,10 +28,9 @@ const cursopediatrico = new BECurso({
     price: "$25.000",
     clases: "Mie: 15:00 - 18:00  hs",
     imageUrl: pediatria,
-    Workload: "50 hs", // Asumiré que esto se refiere a una URL de imagen, reemplázalo con la URL real o variable correspondiente
-});
-
-const cursoFarmacologia = new BECurso({
+    Workload: "50 hs",
+  },
+  {
     title: "Farmacología",
     description: "Descripción del curso de farmacología.",
     duration: "Duración: 2 meses (Abr/May)",
@@ -39,31 +39,30 @@ const cursoFarmacologia = new BECurso({
     price: "$20.000",
     imageUrl: farmacologia,
     clases: "Mie: 15:00 - 18:00  hs",
-    Workload: "30 hs", /// Asumiré que esto se refiere a una URL de imagen, reemplázalo con la URL real o variable correspondiente
-});
+    Workload: "30 hs",
+  },
+];
 
 // Suponiendo que tienes otros cursos, podrías instanciarlos aquí también.
 
 export default class CursosSeccion extends React.Component {
-    render() {
-        return (
-            <div className="background-6 ">
-                <div className="container">
-                    <h1 className="cursos-titulo">CURSOS</h1>
-                    <p className="parrafo">
-                        Descubre una variedad de cursos especializados para licenciados en enfermería que buscan
-                        expandir su expertise y destrezas clínicas. Nuestros programas abarcan desde técnicas avanzadas
-                        en cuidados intensivos hasta innovaciones en salud pública, proporcionando una formación
-                        integral y actualizada.
-                    </p>
-                    {/* Lista de Cursos */}
-                    <div className="row ">
-                        <CardCurso Curso={cursoNeo} />
-                        <CardCurso Curso={cursopediatrico} />
-                        <CardCurso Curso={cursoFarmacologia} />
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="background-6 ">
+        <div className="container">
+          <h1 className="cursos-titulo">CURSOS</h1>
+          <p className="parrafo">
+            Descubre una variedad de cursos especializados para licenciados en
+            enfermería que buscan expandir su expertise y destrezas clínicas.
+            Nuestros programas abarcan desde técnicas avanzadas en cuidados
+            intensivos hasta innovaciones en salud pública, proporcionando una
+            formación integral y actualizada.
+          </p>
+          {/* Lista de Cursos */}
+
+          <SliderCursosLanding cursos={{ cursos }} />
+        </div>
+      </div>
+    );
+  }
 }
