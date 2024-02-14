@@ -1,12 +1,4 @@
-import {
-    MenuItem,
-    TextField,
-    Select,
-    InputLabel,
-    FormControlLabel,
-    Checkbox,
-    Radio,
-} from "@mui/material";
+import { MenuItem, TextField, Select, InputLabel, FormControlLabel, Checkbox, Radio } from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import moment from "moment";
 import "moment/locale/es";
@@ -14,6 +6,9 @@ moment.locale("de");
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { Field, ErrorMessage } from "formik";
 import { FormControl, FormHelperText } from "@mui/material";
+import { TextareaAutosize } from "@mui/base/TextareaAutosize";
+
+/* En tu archivo CSS (e.g., styles.css) */
 
 const FormikTextField = ({ name, label, ...otherProps }) => (
     <Field name={name}>
@@ -32,26 +27,16 @@ const FormikTextField = ({ name, label, ...otherProps }) => (
 const FormikSelectField = ({ name, label, options, ...otherProps }) => (
     <Field name={name}>
         {({ field, form }) => (
-            <FormControl
-                error={form.touched[name] && Boolean(form.errors[name])}
-                {...otherProps}
-            >
+            <FormControl error={form.touched[name] && Boolean(form.errors[name])} {...otherProps}>
                 <InputLabel id={`${name}-label`}>{label}</InputLabel>
-                <Select
-                    labelId={`${name}-label`}
-                    id={name}
-                    {...field}
-                    label={label}
-                >
+                <Select labelId={`${name}-label`} id={name} {...field} label={label}>
                     {options.map((option) => (
                         <MenuItem key={option.value} value={option.value}>
                             {option.label}
                         </MenuItem>
                     ))}
                 </Select>
-                {form.touched[name] && form.errors[name] && (
-                    <FormHelperText>{form.errors[name]}</FormHelperText>
-                )}
+                {form.touched[name] && form.errors[name] && <FormHelperText>{form.errors[name]}</FormHelperText>}
             </FormControl>
         )}
     </Field>
@@ -59,10 +44,7 @@ const FormikSelectField = ({ name, label, options, ...otherProps }) => (
 const FormikDatePicker = ({ name, label, ...otherProps }) => (
     <Field name={name}>
         {({ field, form }) => (
-            <LocalizationProvider
-                dateAdapter={AdapterMoment}
-                adapterLocale="es"
-            >
+            <LocalizationProvider dateAdapter={AdapterMoment} adapterLocale="es">
                 <DatePicker
                     {...field}
                     label={label}
@@ -73,9 +55,7 @@ const FormikDatePicker = ({ name, label, ...otherProps }) => (
                     renderInput={(params) => (
                         <TextField
                             {...params}
-                            error={
-                                form.touched[name] && Boolean(form.errors[name])
-                            }
+                            error={form.touched[name] && Boolean(form.errors[name])}
                             helperText={form.touched[name] && form.errors[name]}
                         />
                     )}
@@ -125,10 +105,4 @@ const FormikRadioButton = ({ name, label, value, ...otherProps }) => (
         )}
     </Field>
 );
-export {
-    FormikTextField,
-    FormikSelectField,
-    FormikDatePicker,
-    FormikCheckbox,
-    FormikRadioButton,
-};
+export { FormikTextField, FormikSelectField, FormikDatePicker, FormikCheckbox, FormikRadioButton };

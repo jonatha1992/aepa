@@ -1,137 +1,146 @@
-// Importa las dependencias necesarias
-import { useState } from "react";
+import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { Alert } from "../components/Alert";
-import { agregarUser, getUser } from "../controllers/controllerUser";
+import { Formik, Form } from "formik";
+import { Button, Box } from "@mui/material";
+import * as Yup from "yup";
+import videoSource from "../assets/video-aepa.mp4";
+import "../css/login.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FormikTextField } from "../components/Controles";
+import { getUser } from "../controllers/controllerUser";
+
+// Ajustamos el esquema de validación para que sea dinámico
+// Definición de esquemas de validación separados
+const loginValidationSchema = Yup.object().shape({
+    email: Yup.string().email("Correo electrónico no válido").required("El correo electrónico es obligatorio"),
+    password: Yup.string()
+        .required("La contraseña es obligatoria")
+        .min(6, "La contraseña debe tener al menos 6 caracteres"),
+});
+
+const recoverValidationSchema = Yup.object().shape({
+    email: Yup.string().email("Correo electrónico no válido").required("El correo electrónico es obligatorio"),
+});
 
 const Login = () => {
-  const { login, loginWithGoogle, resetPassword, setUser } = useAuth();
-  const [Error, setError] = useState(null);
-  const [Form, setForm] = useState({
-    email: "",
-    password: "",
-  });
+    const { login, resetPassword, setUser } = useAuth();
+    const [recuperar, setRecuperar] = useState(false);
 
-  const navigate = useNavigate();
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({
-      ...Form,
-      [name]: value,
-    });
-  };
+    const navigate = useNavigate();
 
-  // Manejador de envío del formulario
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    try {
-      const userCredential = await login(Form.email, Form.password);
+    const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+        setSubmitting(true);
+        if (recuperar) {
+            // Manejar recuperación de contraseña
+            try {
+                await resetPassword(values.email);
+                toast.success("Se ha enviado un correo para restablecer tu contraseña.", {
+                    onClose: () => setRecuperar(false),
+                });
+            } catch (error) {
+                toast.error(error.message);
+            }
+        } else {
+            // Manejar inicio de sesión
+            try {
+                const userCredential = await login(values.email, values.password);
+                if (userCredential.user.emailVerified) {
+                    setUser(await getUser(userCredential.user.uid));
+                    navigate("/");
+                } else {
+                    toast.error(
+                        "El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión."
+                    );
+                }
+            } catch (error) {
+                toast.error(error.message);
+            }
+        }
+        setSubmitting(false);
+        if (recuperar) resetForm(); // Limpia el formulario solo en modo recuperación
+    };
 
-      if (userCredential.user.emailVerified) {
-        setUser(await getUser(userCredential.user.uid));
-        navigate("/");
-      } else {
-        setError(
-          "El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión."
-        );
-      }
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
-  const handleGoogleSignin = async () => {
-    try {
-      var result = await loginWithGoogle();
-      await agregarUser(result.user);
-      setUser(await getUser(result.user.uid));
-      navigate("/");
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
-  const handleResetPassword = async (e) => {
-    e.preventDefault();
-    if (!Form.email) return setError("Write an email to reset password");
-    try {
-      await resetPassword(Form.email);
-      setError("We sent you an email. Check your inbox");
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-  return (
-    <>
-      <div className="container d-flex justify-content-center">
-        <div className="sign-in-container m-4">
-          {Error && <Alert message={Error} />}
-          <form className="mx-auto col-lg-12" onSubmit={handleSubmit}>
-            <h1 className="text-center mb-4" style={{ color: "white" }}>
-              Log Into your Account
-            </h1>
-            <div className="form-floating mb-3">
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Enter your email"
-                name="email"
-                value={Form.email}
-                onChange={handleChange}
-              />
-              <label>Email address</label>
+    return (
+        <>
+            <div className="background-login ">
+                <div className="container-login">
+                    <ToastContainer />
+                    <div className="video-container">
+                        <video className="video-responsive" src={videoSource} autoPlay loop muted></video>
+                    </div>
+                    <div className="form-container">
+                        <Formik
+                            initialValues={{
+                                email: "",
+                                password: "",
+                            }}
+                            validateOnBlur={false}
+                            validateOnChange={false}
+                            validationSchema={recuperar ? recoverValidationSchema : loginValidationSchema}
+                            onSubmit={handleSubmit}
+                        >
+                            {({ errors, touched, isSubmitting, resetForm }) => (
+                                <Form>
+                                    <Box className="mt-3">
+                                        <FormikTextField
+                                            fullWidth
+                                            name="email"
+                                            label="Email"
+                                            type="email"
+                                            error={touched.email && Boolean(errors.email)}
+                                            helperText={touched.email && errors.email}
+                                            // Formik's <Field> component should be used here if FormikTextField is adapted to handle props correctly
+                                        />
+                                        {!recuperar && (
+                                            <FormikTextField
+                                                fullWidth
+                                                name="password"
+                                                label="Password"
+                                                type="password"
+                                                margin="normal"
+                                                error={touched.password && Boolean(errors.password)}
+                                                helperText={touched.password && errors.password}
+                                                // Same as above, use <Field> if your custom FormikTextField can handle it
+                                            />
+                                        )}
+                                        <Button
+                                            className="d-inline-block align-baseline  fs-6 fw-bold  hover-primary mt-2"
+                                            type="submit"
+                                            variant="contained"
+                                            color="primary"
+                                            fullWidth
+                                            disabled={isSubmitting}
+                                        >
+                                            {recuperar ? "Enviar recuperación" : "Login"}
+                                        </Button>
+                                    </Box>
+                                    <Button
+                                        onClick={() => {
+                                            resetForm();
+                                            setRecuperar(!recuperar);
+                                        }}
+                                        className=" d-inline-block align-baseline fw-bold fs-6 text-primary hover-primary mt-2"
+                                    >
+                                        {recuperar ? "Volver al login" : "Recuperar password"}
+                                    </Button>
+                                </Form>
+                            )}
+                        </Formik>
+                        {!recuperar && (
+                            <p className="mt-4 mb-0 fs-7 px-3 d-flex justify-content-between">
+                                ¿No tienes cuenta?
+                                <Link to="/registro" className="text-primary hover-primary ">
+                                    Registrate
+                                </Link>
+                            </p>
+                        )}
+                    </div>
+                </div>
             </div>
-
-            <div className="form-floating mb-4">
-              <input
-                type="password"
-                className="form-control"
-                placeholder="********"
-                name="password"
-                value={Form.password}
-                onChange={handleChange}
-              />
-              <label>Password</label>
-            </div>
-            <div className="d-flex justify-content-between">
-              <button className="btn btn-primary btn-lg w-50">Login</button>
-              <a
-                className="d-inline-block align-baseline fw-bold fs-6 text-primary hover-primary"
-                href="#!"
-                onClick={handleResetPassword}
-              >
-                Forgot Password?
-              </a>
-            </div>
-          </form>
-          <button
-            onClick={handleGoogleSignin}
-            className="btn btn-outline-secondary d-flex align-items-center justify-content-center w-100 my-3"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-google m-2"
-              viewBox="0 0 16 16"
-            >
-              <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-            </svg>
-            Google login
-          </button>
-          <p className="mt-4 mb-0 fs-7 px-3 d-flex justify-content-between">
-            Don't have an account?
-            <Link to="/register" className="text-primary hover-primary ">
-              Register
-            </Link>
-          </p>
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 };
 
 export default Login;

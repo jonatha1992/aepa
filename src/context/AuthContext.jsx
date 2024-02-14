@@ -19,20 +19,14 @@ export const useAuth = () => {
 };
 
 export function AutoProvider({ children }) {
-  const [User, setUser] = useState({
-    uid: "eA3nn0o6daVJeB1MPQmYobDi5LK2",
-    avatar:
-      "https://lh3.googleusercontent.com/a/ACg8ocIXpsHW8zS-834NuQOj70zSSPdcX2hVxgCuNF7VbT7zeIc=s96-c",
-    rol: "user",
-    displayName: "Franco More",
-    email: "franco.more1758@gmail.com",
-  });
+  const [User, setUser] = useState(null);
   const signup = async (email, password) => {
     const credential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
+    console.log(credential);
     await sendEmailVerification(credential.user);
     return credential;
   };

@@ -26,9 +26,9 @@ const FeatureGrid = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{ paddingTop: "10rem" }}>
         <h3 style={{ textAlign: "start", color: "#606468" }}>
-          Bienvenido {User.displayName}.
+          Bienvenido {User.nombre_completo}.
         </h3>
         <div className="feature-grid">
           {features.map((feature, index) => (

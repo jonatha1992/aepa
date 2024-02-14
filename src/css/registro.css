@@ -1,40 +1,14 @@
-.form-registro {
-    background-color: var(--aepa-form); /* Fondo del cuerpo */
-    color: #333333; /* Texto principal */
+.boton {
+    background-color: var(--color1);
+    color: "#fff";
 }
 
-.btn-primary {
-    background-color: #0056b3; /* Color de fondo para botones de acción */
-    border-color: #0056b3; /* Borde del botón para que coincida con el fondo */
-}
-
-/* Para hover y focus en botones puedes usar un tono ligeramente más oscuro o más claro */
-.btn-primary:hover {
-    background-color: #004494;
-    border-color: #004494;
-}
-
-/* Clase adicional para colores de acento */
-.accent-color {
-    color: #d9534f; /* Este podría ser un rojo para errores o para llamar la atención */
-}
-
-/* Estilos Personalizados para los inputs */
-.date-picker {
-    border: 1px solid #000; /* Borde negro, ajusta el color según sea necesario */
-    border-radius: 0.25rem; /* Bordes redondeados levemente, similar a Bootstrap */
-    padding: 0.375rem 0.75rem; /* Espaciado interno, similar al de Bootstrap */
-    font-size: 1rem; /* Tamaño de fuente estándar de Bootstrap */
-    line-height: 1.5; /* Altura de línea estándar de Bootstrap */
-    background-color: #0a0a0a; /* Fondo blanco */
-    color: #495057; /* Color de texto estándar de Bootstrap */
-}
-
-/* Estilo para ícono de calendario (si usas Bootstrap Icons o FontAwesome) */
-.custom-input-icon {
-    position: absolute;
-    right: 0.75rem; /* Ajusta según el padding de tu input */
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none; /* Esto hace que el ícono no interfiera con el clic en el input */
+.background-registro {
+    background-image: url("../assets/fondo_panta.jpg");
+    min-height: 100vh; /* Esto asegurará que el fondo cubra al menos toda la altura de la ventana del navegador */
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;;
 }

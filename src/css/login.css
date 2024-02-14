@@ -1,0 +1,52 @@
+/* Estilos para el contenedor principal */
+.container-login {
+    padding-top : 7rem ;
+    padding-bottom: 1rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Estilos para el contenedor de video */
+.video-container {
+    max-width: 500px; /* Limita el tamaño máximo del vídeo */
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Estilos para el video */
+.video-responsive {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    width: 100%;
+    max-width: 400px; /* Ajusta el ancho máximo del formulario */
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container-login {
+        margin: 6rem auto;
+        flex-direction: column;
+    }
+
+    .video-container,
+    .form-container {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+.background-login {
+    background-image: url("../assets/fondo_panta.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}

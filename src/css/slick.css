@@ -1,0 +1,16 @@
+/* Estilos CSS en tu archivo de estilos global o componente específico */
+.slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    /* Asegura que las flechas estén sobre las diapositivas */
+}
+
+.slick-prev {
+    color: var(--color3);
+        left: -2.5rem;
+}
+
+.slick-next {
+    color: var(--color3);

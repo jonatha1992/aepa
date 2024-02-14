@@ -1,14 +1,31 @@
 import { db, doc, getDoc, setDoc, updateDoc } from "../firebase";
+import { getCountry, getState } from "../security/Tools";
 
 export async function agregarUser(user) {
     try {
         const userData = {
             uid: user.uid,
-            displayName: user.displayName,
-            email: user.email,
             rol: "user",
-            avatar: user.photoURL || "",
+            nombre_completo: user.nombre_completo,
+            DNI: user.DNI,
+            fecha_nacimiento: user.fecha_nacimiento,
+            pais: user.pais,
+            provincia: user.provincia,
+            localidad: user.localidad,
+            codigo_postal: user.codigo_postal,
+            calle: user.calle,
+            numero: user.numero,
+            dept: user.dept,
+            piso: user.piso,
+            telefono: user.telefono,
+            email: user.email,
+            nivel: user.nivel,
+            institucion: user.institucion,
+            puesto: user.puesto,
         };
+        if (!userData.uid) {
+            throw new Error("UID is required");
+        }
         await setDoc(doc(db, "users", userData.uid), userData);
         console.log("Usuario agregado exitosamente al Firestore");
     } catch (error) {
@@ -16,7 +33,6 @@ export async function agregarUser(user) {
         throw error;
     }
 }
-
 // export async function updateUser(user) {
 //     try {
 //         const userData = {

@@ -1,13 +1,13 @@
 .container-footer {
-    /* min-height: 100%; */
-    background-image: url("../assets/Contact-back.svg");
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.8;
-    padding: 0; /* Ajusta según sea necesario */
-    border: 0; /* Ajusta según sea necesario */
-    margin-top:4rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.8;
+        padding: 0;
+        border: 0;
+        padding-top: 4rem;
+        background-color: var(--color3);
+        padding-bottom:4rem;
 }
 .row-footer{
     flex-wrap:no-wrap
