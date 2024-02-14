@@ -19,10 +19,7 @@ import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
-import Pay from "./components/Pay";
-import ListaCursos from "./components/ListaCursos";
 import Inscripcion from "./pages/Inscripcion.jsx";
-import CursosSeccion from "./components/CursosSeccion.jsx";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -40,12 +37,10 @@ function App() {
       <Routes>
         <Route index element={<Home2 />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cursos" element={<CursosSeccion />} />
         <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
         <Route path="/Dashbord" element={<Dashbord />} />
 
         <Route path="/registro" element={<Registro />} />
-        <Route path="/listacurso" element={<ListaCursos />} />
 
         <Route element={<ProtectedRoute isAllowed={!!User} />}>
           <Route path="/admin" element={<AltaContenido />} />
@@ -56,11 +51,8 @@ function App() {
           />
           <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
           <Route path="/miscursos" element={<MisCursos />} />
-          <Route path="/pay" element={<Pay />} />
         </Route>
       </Routes>
-      {/* </div> */}
-      {/* <div className=" bg-info">{<Cursos />}</div> */}
     </Layout>
   );
 }

@@ -16,14 +16,13 @@ import Box from "@mui/material/Box";
 const FeatureGrid = () => {
   const { User } = useAuth();
   const { setActiveCourse } = useContext(AlumnosContext);
-  const [activeFeature, setActiveFeature] = useState(null);
 
   const features = [
     {
       name: "Mis Cursos",
       icon: <AutoStories fontSize="large" />,
       route: "/miscursos",
-      content: <MisCursos setActiveFeature={setActiveFeature} />,
+      content: <MisCursos />,
     },
     {
       name: "Perfil",
@@ -34,6 +33,9 @@ const FeatureGrid = () => {
     // Asegúrate de tener componentes o contenido correspondiente para cada elemento
     // Agrega más funcionalidades según sea necesario
   ];
+
+  // Cambia esta línea para establecer Miscursos como la característica por defecto
+  const [activeFeature, setActiveFeature] = useState(features[0]);
 
   const handleFeatureClick = (index) => {
     setActiveFeature(features[index]);
@@ -69,6 +71,17 @@ const FeatureGrid = () => {
                   key={index}
                   button
                   onClick={() => handleFeatureClick(index)}
+                  sx={{
+                    background:
+                      activeFeature.name == feature.name
+                        ? "var(--color2)"
+                        : "transparent",
+                    transition: "background 0.3s ease", // Agregamos una transición de 0.3 segundos
+                    "&:hover": {
+                      background: "var(--color2)", // Cambiar el color de fondo en el hover
+                      color: "white",
+                    },
+                  }}
                 >
                   <ListItemButton>
                     <ListItemIcon>{feature.icon}</ListItemIcon>

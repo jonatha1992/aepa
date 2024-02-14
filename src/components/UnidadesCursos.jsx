@@ -59,7 +59,7 @@ const UnidadesCursos = (props) => {
 
   return (
     <>
-      <div className="container" style={{ paddingTop: "8rem" }}>
+      <div className="container" style={{ paddingTop: "4rem" }}>
         <h2
           style={{
             background: "white",

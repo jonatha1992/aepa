@@ -15,7 +15,9 @@ export function AlumnosContextProvider(props) {
         const miscursos = await CursosInscriptos(User.uid);
         setCursos(miscursos);
       } catch (error) {
-        console.error("Error al obtener datos de Firebase:", error);
+        console.error(
+          "Error al obtener datos de Firebase: necesita logearse primero"
+        );
       }
     };
 

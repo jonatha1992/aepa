@@ -14,13 +14,14 @@
 
 .cursos-titulo {
     color: black;
-    background-color: var(--color5); /* Asume que deseas un fondo azul para el título */
+    background-color: var(--color5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-    display: inline-block; /* Asume que quieres que el título tenga su propio bloque */
-    width: 100%; /* Hace que el título se expanda para llenar el ancho del contenedor */
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 100%;
+    margin-top: 4rem;
 }
 
 .parrafo {
@@ -28,8 +29,8 @@
     font-size: 1rem;
     line-height: 1.6;
     font-family: sans-serif;
-    margin-bottom: 2rem;
-    width: 80%;
+    /* margin-bottom: 2rem;
+    width: 80%; */
     text-align: justify;
     margin-left: auto; /* Centra el párrafo horizontalmente */
     margin-right: auto;
