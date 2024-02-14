@@ -46,14 +46,14 @@ function Home2() {
             </section>
 
             <section id="seccion2">
-                <div className="container-fluid background-2">
-                    <CursosSeccion />
-                </div>
+                {/* <div className="container-fluid background-3"> */}
+                <CursosSeccion />
+                {/* </div> */}
             </section>
             <section id="seccion3">
-                <div className="container-fluid background-3">
-                    <Nosotros />
-                </div>
+                {/* <div className="container-fluid background-3"> */}
+                <Nosotros />
+                {/* </div> */}
             </section>
             <section id="seccion4">
                 <div className="container-fluid background-4">

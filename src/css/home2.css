@@ -171,7 +171,7 @@ header h3 {
 }
 
 .background-3 {
-    background-image: url("../assets/fondo_panta.jpg");
+    background-image: url("../assets/fondo_panta2.jpg");
     /* display: flex; */
     /* height: 100vh; */
     background-size: cover;
@@ -180,7 +180,7 @@ header h3 {
 }
 
 .background-4 {
-    background-image: url("../assets/fondo_panta.jpg");
+    background-image: url("../assets/fondo_panta2.jpg");
     display: flex;
     height: 100vh;
     background-size: cover;
