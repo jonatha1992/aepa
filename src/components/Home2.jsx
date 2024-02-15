@@ -57,8 +57,7 @@ function Home2() {
       </section>
       <section id="seccion4">
         <div className="container-fluid background-4">
-          <h2>Sección 4</h2>
-          <p>Contenido de la cuarta sección.</p>
+          <Anuncio />
         </div>
       </section>
     </>
