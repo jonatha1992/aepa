@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import Nosotros from "../components/Nosotros";
 import Anuncio from "../pages/Anuncio";
 
-import neo from "../assets/cuidados neo.jpg";
-import ped from "../assets/cuidados ped.jpg";
-import farma from "../assets/farmaco.jpg";
 import CursosSeccion from "./CursosSeccion";
 
 function Home2() {

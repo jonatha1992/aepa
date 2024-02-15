@@ -86,7 +86,7 @@ const Contact = () => {
                                 validateOnBlur={false}
                             >
                                 <Form className=" col-lg-9 col-sm-12  fs-6 " ref={formRef}>
-                                    <h1 className="text-center h1 mb-2 ">Contacto</h1>
+                                    <h1 className="text-center h1 mb-2 text-white ">Contacto</h1>
                                     <div className="form-floating mb-3  ">
                                         <Field
                                             type="text"

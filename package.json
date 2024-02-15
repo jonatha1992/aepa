@@ -24,7 +24,7 @@
     "bootstrap-icons": "^1.11.3",
     "countries-list": "^3.0.6",
     "country-state-city": "^3.2.1",
-    "date-fns": "^3.0.2-rc.1",
+    "date-fns": "^3.3.1",
     "dayjs": "^1.11.10",
     "emailjs": "^4.0.3",
     "firebase": "^10.7.1",
