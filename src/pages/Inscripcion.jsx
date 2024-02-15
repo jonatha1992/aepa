@@ -90,7 +90,7 @@ export default function Inscripcion() {
             onClick={handleBuy}
             disabled={loading}
           >
-            Comprar Curso
+            Inscribirme
           </button>
         </div>
         <div className="contenedor-imagen-curso" style={{ padding: "1rem" }}>

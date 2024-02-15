@@ -48,10 +48,10 @@ export default function Header3() {
                   <a href="#seccion1">Inicio</a>
                 </li>
                 <li onClick={closeMobileMenu}>
-                  <a href="#seccion2">Cursos</a>
+                  <a href="#seccion2">Nosotros</a>
                 </li>
                 <li onClick={closeMobileMenu}>
-                  <a href="#seccion3">Nosotros</a>
+                  <a href="#seccion3">Cursos</a>
                 </li>
                 <li onClick={closeMobileMenu}>
                   <a href="#seccion4">Anuncios y eventos</a>
