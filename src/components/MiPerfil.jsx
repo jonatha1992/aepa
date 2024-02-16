@@ -1,5 +1,8 @@
 import React from "react";
+import { useAuth } from "../context/AuthContext";
 
 export default function MiPerfil() {
-  return <div>MiPerfil</div>;
+    const { User } = useAuth();
+    console.log(User);
+    return <div>{User.email}</div>;
 }
