@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { useAuth } from "../context/AuthContext";
 
 export default function Header3() {
+  const { logout } = useAuth();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shouldShowMenu, setShouldShowMenu] = useState(true);
   const navigate = useNavigate();
@@ -15,6 +17,10 @@ export default function Header3() {
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
+  };
+
+  const handleLogout = async () => {
+    await logout();
   };
 
   useEffect(() => {
@@ -68,11 +74,7 @@ export default function Header3() {
               <AccountCircleIcon sx={{ fontSize: "3rem" }} />
               <ExitToAppIcon
                 sx={{ fontSize: "3rem", marginLeft: "10px", cursor: "pointer" }}
-                onClick={() => {
-                  // Agrega la lógica de logout aquí
-                  // Por ejemplo, puedes utilizar un estado para gestionar la autenticación
-                  console.log("Logout clicked");
-                }}
+                onClick={handleLogout}
               />
             </>
           ) : (
