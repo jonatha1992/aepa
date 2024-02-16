@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
 export default function Header3() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shouldShowMenu, setShouldShowMenu] = useState(true);
   const navigate = useNavigate();
+  const isAlumnosRoute = window.location.pathname === "/alumnos";
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -15,8 +18,7 @@ export default function Header3() {
   };
 
   useEffect(() => {
-    // Verificar la URL actual y ocultar el menú si es diferente a "/"
-    setShouldShowMenu(window.location.pathname == "/");
+    setShouldShowMenu(window.location.pathname === "/");
   }, [window.location.pathname]);
 
   return (
@@ -61,10 +63,24 @@ export default function Header3() {
           </>
         )}
         <div className="login-icon">
-          <AccountCircleIcon
-            sx={{ fontSize: "3rem" }}
-            onClick={() => navigate("/alumnos")}
-          />
+          {isAlumnosRoute ? (
+            <>
+              <AccountCircleIcon sx={{ fontSize: "3rem" }} />
+              <ExitToAppIcon
+                sx={{ fontSize: "3rem", marginLeft: "10px", cursor: "pointer" }}
+                onClick={() => {
+                  // Agrega la lógica de logout aquí
+                  // Por ejemplo, puedes utilizar un estado para gestionar la autenticación
+                  console.log("Logout clicked");
+                }}
+              />
+            </>
+          ) : (
+            <AccountCircleIcon
+              sx={{ fontSize: "3rem" }}
+              onClick={() => navigate("/alumnos")}
+            />
+          )}
         </div>
       </div>
     </header>
