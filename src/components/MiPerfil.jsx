@@ -4,7 +4,6 @@ import { FaUserCircle } from "react-icons/fa"; // Importa react-icons para usar 
 
 export default function MiPerfil() {
     const { User } = useAuth();
-    console.log(User);
 
     // Comprueba si hay un usuario antes de intentar acceder a sus propiedades
     if (!User) {
@@ -25,17 +24,34 @@ export default function MiPerfil() {
                         <FaUserCircle size="100px" className="text-secondary" />
                     </div>
                     <h4 className="card-title text-center mb-3">{User.nombre_completo}</h4>
-                    <h6 className="text-secondary fw-bold  m-0">
+                    <h6 className=" text-secondary fw-bold  mb-2">
                         Rol:
-                        <strong>{User.rol}</strong>
+                        <strong style={{ color: "var(--color3)" }} className="text-uppercase ">
+                            {" " + User.rol}
+                        </strong>
                     </h6>
-                    <h6 className="text-secondary fw-bold  m-0">
+                    <h6 className="text-secondary fw-bold  mb-2">
                         Email:
-                        <strong>{User.email}</strong>
+                        <strong style={{ color: "var(--color3)" }}>{" " + User.email}</strong>
                     </h6>
-
-                    <div className="d-grid">
-                        <a href="#editar" className="btn btn-primary rounded-pill">
+                    <h6 className="text-secondary fw-bold  mb-2">
+                        DNI:
+                        <strong style={{ color: "var(--color3)" }}>{" " + User.DNI}</strong>
+                    </h6>
+                    <h6 className=" text-secondary fw-bold  mb-2">
+                        Localidad:
+                        <strong style={{ color: "var(--color3)" }}>{" " + User.localidad}</strong>
+                    </h6>
+                    <h6 className="text-secondary fw-bold  mb-2">
+                        Telefono:
+                        <strong style={{ color: "var(--color3)" }}>{" " + User.telefono}</strong>
+                    </h6>
+                    <h6 className="text-secondary fw-bold  mb-2">
+                        Nivel:
+                        <strong style={{ color: "var(--color3)" }}>{" " + User.nivel}</strong>
+                    </h6>
+                    <div className="d-grid mt-3">
+                        <a href="#" className="btn btn-primary rounded-pill">
                             Editar Perfil
                         </a>
                     </div>

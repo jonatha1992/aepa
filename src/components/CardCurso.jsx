@@ -22,7 +22,7 @@ function CardCurso({ item }) {
                     <strong>Inicio:</strong> {item.start}
                 </p>
                 <p className="curso-card-start">
-                    <strong>Carga horaria:</strong> {item.Workload}
+                    <strong>Carga horaria:</strong> {item.workload}
                 </p>
                 <p className="curso-card-start">
                     <strong>Clases:</strong> {item.classes}
