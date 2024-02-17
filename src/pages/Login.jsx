@@ -75,8 +75,11 @@ const Login = () => {
       // Puedes redirigir a otra ruta si ya hay un usuario logeado
       setLoading(false);
       navigate("/alumnos");
+    } else {
+      const timeoutId = setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     }
-    setLoading(false);
   }, [User, navigate]);
 
   return (
