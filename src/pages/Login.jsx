@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
-import { Button, Box } from "@mui/material";
+import { Button, Box, Backdrop, CircularProgress } from "@mui/material";
 import * as Yup from "yup";
 import videoSource from "../assets/video-aepa.mp4";
 import "../css/login.css";
@@ -29,9 +29,9 @@ const recoverValidationSchema = Yup.object().shape({
 });
 
 const Login = () => {
-  const { login, resetPassword, setUser } = useAuth();
+  const { login, resetPassword, setUser, User } = useAuth();
   const [recuperar, setRecuperar] = useState(false);
-
+  const [loading, setLoading] = useState(true); // Estado para controlar la carga inicial
   const navigate = useNavigate();
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -69,8 +69,21 @@ const Login = () => {
     if (recuperar) resetForm(); // Limpia el formulario solo en modo recuperación
   };
 
+  useEffect(() => {
+    // Verificar si ya hay un usuario logeado al montar el componente
+    if (User) {
+      // Puedes redirigir a otra ruta si ya hay un usuario logeado
+      setLoading(false);
+      navigate("/alumnos");
+    }
+    setLoading(false);
+  }, [User, navigate]);
+
   return (
     <>
+      <Backdrop open={loading} style={{ zIndex: 9999 }}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <div className="background-login ">
         <div className="container-login">
           <ToastContainer />
