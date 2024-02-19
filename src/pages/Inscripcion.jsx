@@ -94,7 +94,7 @@ export default function Inscripcion() {
           </button>
         </div>
         <div className="contenedor-imagen-curso" style={{ padding: "1rem" }}>
-          <img src={curso.image} alt="" />
+          <img src={curso.imageUrl} alt="" />
         </div>
       </div>
 

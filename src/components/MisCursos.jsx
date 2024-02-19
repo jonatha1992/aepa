@@ -32,7 +32,7 @@ const MisCursos = () => {
               <div
                 className="blur-background"
                 style={{
-                  backgroundImage: `url(${curso.detalles.image})`,
+                  backgroundImage: `url(${curso.detalles.imageUrl})`,
                 }}
               >
                 <div className="content d-flex">
