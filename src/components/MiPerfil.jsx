@@ -50,11 +50,6 @@ export default function MiPerfil() {
                         Nivel:
                         <strong style={{ color: "var(--color3)" }}>{" " + User.nivel}</strong>
                     </h6>
-                    <div className="d-grid mt-3">
-                        <a href="#" className="btn btn-primary rounded-pill">
-                            Editar Perfil
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
