@@ -3,9 +3,11 @@ import presidenteImage from "../assets/lic-llanos-beatriz.png";
 import vicepresidenta from "../assets/lic-santini-maria.png";
 import secretario from "../assets/enf-sierra-jorge.png";
 import "../css/nosotros.css";
+
+
 export default function Nosotros() {
     return (
-        <div className="container-fluid background-6 " style={{ padding: "6rem" }}>
+        <div className="container-fluid background-6 " style={{ padding: "0rem" , marginTop: "120px",}}>
             <div>
                 <div
                     className="row"
@@ -83,3 +85,5 @@ export default function Nosotros() {
         </div>
     );
 }
+
+

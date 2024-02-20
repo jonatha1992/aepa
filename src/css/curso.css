@@ -112,6 +112,7 @@
   text-align: start;
   font-size: 1.5rem;
   margin-bottom: 10px;
+  color: "var(--color3)";
 }
 
 @media (max-width: 767px) {

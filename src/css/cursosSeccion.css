@@ -13,8 +13,8 @@
 /* no usar nombre de clases predefinidas por boostrap (modifica otros componentes */
 
 .cursos-titulo {
-    color: black;
-    background-color: var(--color5);
+    color: beige;
+    background-color: var(--color3);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -22,16 +22,23 @@
     display: inline-block;
     width: 100%;
     margin-top: 4rem;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .parrafo {
     color: #333;
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.6;
-    font-family: sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /* margin-bottom: 2rem;
     width: 80%; */
     text-align: justify;
     margin-left: auto; /* Centra el párrafo horizontalmente */
     margin-right: auto;
+    font-weight: bold;
+}
+
+.curso-card:hover{
+ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);  
 }

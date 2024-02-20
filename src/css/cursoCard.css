@@ -75,7 +75,8 @@
 }
 
 .curso-btn:hover {
-    background-color: #0056b3;
+    background-color: #00b33c;
+    color: #ddd;
     box-shadow: none; /* Elimina cualquier sombra al pasar el mouse */
 }
 

@@ -5,6 +5,8 @@ import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/slick.css";
+import { colors } from "@mui/material";
+import { blue } from "@mui/material/colors";
 
 function SliderCursosLanding({ cursos }) {
   const CustomPrevArrow = (props) => (

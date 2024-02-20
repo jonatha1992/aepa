@@ -10,7 +10,6 @@ body {
 .landing-page {
     background-color: #e6e5e1;
     margin: 0 auto;
-
     background-size: cover;
     background-position: center;
     color: #000;
@@ -144,7 +143,7 @@ header h3 {
     display: flex;
     height: 100vh;
     background-size: cover;
-    background-position: center;
+    background-position:center;
     align-items: center;
     /* Centra la imagen en el contenedor */
     /* height: 300px;
@@ -181,12 +180,24 @@ header h3 {
 
 .background-4 {
     background-image: url("../assets/fondo_panta2.jpg");
-    display: flex;
+
     height: 100vh;
     background-size: cover;
     background-position: center;
     align-items: center;
 }
+
+.background-5 {
+    background-image: url("../assets/fondo_panta2.jpg");
+  
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+
+
+
 .icon {
     padding: 1rem;
 
@@ -266,6 +277,14 @@ header h3 {
 
 .on-demand {
     text-transform: uppercase;
+}
+
+
+#seccion4{
+
+padding: 0%;
+background-image: url("../assets/fondo_panta2.jpg");
+
 }
 @media only screen and (max-width: 768px) {
     .navbarstyle ul {
@@ -360,4 +379,6 @@ header h3 {
     .container-seccion2 {
         padding: 3rem 1rem 0px;
     }
+
+    
 }

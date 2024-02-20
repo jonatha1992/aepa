@@ -1,0 +1,69 @@
+
+  
+  .eventos {
+
+    margin-top: 130px;
+    height: 100vh;
+    padding: 0%;
+    display: inline-block;
+    
+  
+  }
+
+
+ 
+  .eventoCard {
+    
+    display: flex;
+    
+    margin-top: 40px;
+
+    
+    
+  }
+  
+  .evento {
+
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin: 1px;
+    width: 30%;
+    height: 330px;
+    border: 2px solid blue;
+    padding: 3px;
+    margin-right: 20px;
+
+  }
+  
+  
+  .details {
+    text-align: left;
+  }
+  
+  .type {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: orangered;
+    margin-bottom: 5px;
+    font-style: italic;
+    
+  }
+  
+  .name {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+  
+  .date {
+    font-size: 1.2rem;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    color: blue;
+    font-weight: bold;
+
+  }
+  
+  .time {
+    font-size: 1rem;
+    font-weight: bold;
+  }
