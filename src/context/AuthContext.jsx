@@ -11,6 +11,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { auth } from "../firebase";
 const authContext = createContext();
+import { getUser } from "../controllers/controllerUser";
 
 export const useAuth = () => {
   const context = useContext(authContext);
@@ -48,6 +49,13 @@ export function AutoProvider({ children }) {
     const result = await signInWithPopup(auth, googleProvider);
     return result;
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, async (currentUser) => {
+      const userResult = await getUser(currentUser.uid);
+      setUser(userResult);
+    });
+  }, []);
 
   return (
     <authContext.Provider

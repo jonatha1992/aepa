@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { useAuth } from "../context/AuthContext";
 
 export default function Header3() {
+  const { logout } = useAuth();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shouldShowMenu, setShouldShowMenu] = useState(true);
   const navigate = useNavigate();
+  const isAlumnosRoute = window.location.pathname === "/alumnos";
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -14,9 +19,12 @@ export default function Header3() {
     setMobileMenuOpen(false);
   };
 
+  const handleLogout = async () => {
+    await logout();
+  };
+
   useEffect(() => {
-    // Verificar la URL actual y ocultar el menú si es diferente a "/"
-    setShouldShowMenu(window.location.pathname == "/");
+    setShouldShowMenu(window.location.pathname === "/");
   }, [window.location.pathname]);
 
   return (
@@ -48,10 +56,10 @@ export default function Header3() {
                   <a href="#seccion1">Inicio</a>
                 </li>
                 <li onClick={closeMobileMenu}>
-                  <a href="#seccion2">Cursos</a>
+                  <a href="#seccion2">Nosotros</a>
                 </li>
                 <li onClick={closeMobileMenu}>
-                  <a href="#seccion3">Nosotros</a>
+                  <a href="#seccion3">Cursos</a>
                 </li>
                 <li onClick={closeMobileMenu}>
                   <a href="#seccion4">Anuncios y eventos</a>
@@ -61,10 +69,20 @@ export default function Header3() {
           </>
         )}
         <div className="login-icon">
-          <AccountCircleIcon
-            sx={{ fontSize: "3rem" }}
-            onClick={() => navigate("/alumnos")}
-          />
+          {isAlumnosRoute ? (
+            <>
+              <AccountCircleIcon sx={{ fontSize: "3rem" }} />
+              <ExitToAppIcon
+                sx={{ fontSize: "3rem", marginLeft: "10px", cursor: "pointer" }}
+                onClick={handleLogout}
+              />
+            </>
+          ) : (
+            <AccountCircleIcon
+              sx={{ fontSize: "3rem" }}
+              onClick={() => navigate("/alumnos")}
+            />
+          )}
         </div>
       </div>
     </header>

@@ -22,12 +22,12 @@ function CardCurso({ item }) {
           <strong>Inicio:</strong> {item.start}
         </p>
         <p className="curso-card-start">
-          <strong>Carga horaria:</strong> {item.Workload}
+          <strong>Carga horaria:</strong> {item.workload}
         </p>
         <p className="curso-card-start">
-          <strong>Dias de Clases:</strong> {item.classes}
+          <strong>Clases:</strong> {item.classes}
         </p>
-        <Link to="/inscripcion/poxSpo7snZxVQqEEemL4" className="curso-btn">
+        <Link to={`/inscripcion/${item.id}`} className="curso-btn">
           VER MÁS
         </Link>
       </div>

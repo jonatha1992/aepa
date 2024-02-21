@@ -1,6 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = ({ isAllowed, redirectTo = "/login", children }) => {
+  console.log("logueado", isAllowed);
   if (!isAllowed) {
     return <Navigate to={redirectTo} replace />;
   }

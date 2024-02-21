@@ -2,23 +2,37 @@ import React from "react";
 import "./Anuncio.css"; // Asegúrate de que el path al archivo CSS es correcto
 
 export default function Anuncio() {
-    return (
-        <div className="card-container d-flex flex-wrap gap-5">
-            {/* Tarjeta de Anuncios */}
-            <div className="card card-anuncio">
-                <h2>Anuncio Especial</h2>
-                <p>
-                    22 de noviembre JORNADA ANUAL II Encuentro Multidisciplinario de Enfermería. Lic. Coronel Fabiana.
-                </p>
-                <p>50% descuentos en todos los cursos y talleres a socios activos</p>
-                <h3>DIPLOMATURA DE CUIDADOS CRÍTICOS PEDIÁTRICOS</h3>
-            </div>
+  return (
+    <div className="container-fluid  p-5">
+      <h2 className="text-center mb-4">EVENTOS Y ANUNCIOS</h2>
+      <h4 className="text-center mb-4">PRÓXIMOS INICIOS</h4>
 
-            {/* Tarjeta de Eventos */}
-            <div className="card card-evento">
-                <h2>Concierto de Verano</h2>
-                <p>Únete a nosotros para el concierto anual al aire libre este sábado 12 de junio.</p>
+      <div className="row justify-content-center">
+        <div className="col-md-5">
+          <div className="card h-100 shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title">III Encuentro de Neonatología</h5>
+              <p className="card-text">22 de marzo 10hs.</p>
+              <a href="#" className="btn btn-info w-100 mt-3">
+                MÁS INFORMACIÓN
+              </a>
             </div>
+          </div>
         </div>
-    );
+        <div className="col-md-5">
+          <div className="card h-100 shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title">
+                III Encuentro Multidisciplinario de Enfermería
+              </h5>
+              <p className="card-text">22 de Noviembre Jornada Anual</p>
+              <a href="#" className="btn btn-info w-100 mt-3">
+                MÁS INFORMACIÓN
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

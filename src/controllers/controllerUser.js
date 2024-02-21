@@ -1,6 +1,5 @@
 import { db, doc, getDoc, setDoc, updateDoc } from "../firebase";
-import { getCountry, getState } from "../security/Tools";
-
+import { getCountry, getState, convertFirebaseTimestampToDate } from "../security/Tools";
 export async function agregarUser(user) {
     try {
         const userData = {
@@ -48,7 +47,8 @@ export async function getUser(userId) {
     const userDocRef = doc(db, "users", userId);
     try {
         const userDoc = await getDoc(userDocRef);
-        console.log("Document data:", userDoc.data());
+        const resultado = convertFirebaseTimestampToDate(userDoc.data().fecha_nacimiento);
+        userDoc.data().fecha_nacimiento = resultado;
         if (!userDoc.exists()) {
             throw new Error("El documento del usuario no existe!");
         }

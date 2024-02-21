@@ -33,4 +33,20 @@ const countiesCode = Object.keys(countriesList).map((code) => {
     };
 });
 
-export { countries, countiesCode, getStates, getCountry, getState };
+function convertFirebaseTimestampToDate(timestamp) {
+    // Convertir a milisegundos
+    const dateInMilliseconds = timestamp.seconds * 1000;
+
+    // Crear el objeto Date
+    const date = new Date(dateInMilliseconds);
+
+    // Extraer día, mes y año
+    const day = date.getDate();
+    const month = date.getMonth() + 1; // Los meses empiezan en 0
+    const year = date.getFullYear();
+
+    // Formatear la fecha
+    return `${day < 10 ? "0" + day : day}/${month < 10 ? "0" + month : month}/${year}`;
+}
+
+export { countries, countiesCode, getStates, getCountry, getState, convertFirebaseTimestampToDate };
