@@ -35,11 +35,13 @@
     font-family: "Open Sans", sans-serif;
     font-size: 1.5em;
     color: #333; /* Color oscuro para el título */
-    margin: 18px 0 8px; /* Espaciado alrededor del título */
+    margin: 18px 2rem ; /* Espaciado alrededor del título */
     text-align: center;
     min-width:  60px;
     min-height: 54px;
     font-weight: 600;
+    justify-content: center;
+
 }
 
 .curso-card-price {

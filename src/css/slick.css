@@ -14,5 +14,15 @@
 }
 
 .slick-next {
-    color: var(--color3);
+    color: var(--color2);
+}
+.slick-prev:before,
+.slick-next:before {
+    font-family: "slick";
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0.75;
+    color: var(--aepa-azul);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
