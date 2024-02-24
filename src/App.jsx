@@ -5,7 +5,7 @@ import {
   Socios,
   Dashbord,
   AltaContenido,
-  Anuncio,
+  /*   Anuncio, */
   Login,
   Registro,
   DashbordAlumnosLayout,

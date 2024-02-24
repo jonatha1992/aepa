@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/Inscripcion.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getCurso } from "../controllers/controllerCurso";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
@@ -13,6 +13,7 @@ export default function Inscripcion() {
   const [curso, setCurso] = useState(null);
   const [preferenceId, setPreferenceId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Cambiado a useNavigate
 
   initMercadoPago("APP_USR-5a8b3fdb-e53a-40e2-82be-8f3c3e750fcc", {
     locale: "es-AR",
@@ -20,6 +21,13 @@ export default function Inscripcion() {
 
   const createPreference = async () => {
     try {
+      if (!User || !User.uid) {
+        console.log(
+          "El usuario no está autenticado. No se creará la preferencia."
+        );
+        navigate(`/login?from=/inscripcion/${cursoid}`);
+        return;
+      }
       setLoading(true);
       const response = await axios.post(
         "https://us-central1-aepa-86ed6.cloudfunctions.net/app/create_preference",
@@ -94,7 +102,7 @@ export default function Inscripcion() {
           </button>
         </div>
         <div className="contenedor-imagen-curso" style={{ padding: "1rem" }}>
-          <img src={curso.imageUrl} alt="" />
+          <img src={curso.image} alt="" />
         </div>
       </div>
 
