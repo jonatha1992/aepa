@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { Button, Box, Backdrop, CircularProgress } from "@mui/material";
 import * as Yup from "yup";
@@ -33,6 +33,7 @@ const Login = () => {
   const [recuperar, setRecuperar] = useState(false);
   const [loading, setLoading] = useState(true); // Estado para controlar la carga inicial
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     setSubmitting(true);
@@ -55,7 +56,13 @@ const Login = () => {
         const userCredential = await login(values.email, values.password);
         if (userCredential.user.emailVerified) {
           setUser(await getUser(userCredential.user.uid));
-          navigate("/alumnos");
+          const from = new URLSearchParams(location.search).get("from");
+
+          if (from) {
+            navigate(from);
+          } else {
+            navigate("/alumnos");
+          }
         } else {
           toast.error(
             "El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión."
