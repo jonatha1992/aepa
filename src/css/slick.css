@@ -4,13 +4,25 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
+
     /* Asegura que las flechas estén sobre las diapositivas */
 }
 
 .slick-prev {
     color: var(--color3);
-        left: -2.5rem;
+    left: -2.5rem;
 }
 
 .slick-next {
-    color: var(--color3);
+    color: var(--color2);
+}
+.slick-prev:before,
+.slick-next:before {
+    font-family: "slick";
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0.75;
+    color: var(--aepa-azul);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
