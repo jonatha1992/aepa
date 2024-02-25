@@ -2,12 +2,29 @@
   
   .eventos {
 
-    margin-top: 130px;
-    height: 100vh;
+    margin-top: 80px;
+    height: 130vh;
     padding: 0%;
     display: inline-block;
     
   
+  }
+
+  .eventos h1{
+
+    color: beige;
+    background-color: var(--color3); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 100%;
+    margin-top: 4rem;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+
   }
 
 
@@ -17,6 +34,7 @@
     display: flex;
     
     margin-top: 40px;
+ 
 
     
     
@@ -28,7 +46,7 @@
     border-radius: 5px;
     margin: 1px;
     width: 30%;
-    height: 330px;
+    height: 390px;
     border: 2px solid blue;
     padding: 3px;
     margin-right: 20px;
@@ -66,4 +84,24 @@
   .time {
     font-size: 1rem;
     font-weight: bold;
+  }
+
+  .btnInfo {
+
+    color: beige;
+    background-color: var(--color3); 
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+  
+
+  }
+
+  .imagenInfo{
+
+    width: 120px;
+    height: 120px;
+    border-color: blue;
+  
+
   }
