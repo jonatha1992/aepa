@@ -4,86 +4,50 @@ import vicepresidenta from "../assets/lic-santini-maria.png";
 import secretario from "../assets/enf-sierra-jorge.png";
 import "../css/nosotros.css";
 
-
 export default function Nosotros() {
     return (
-        <div className="container-fluid background-6 " style={{ padding: "0rem" , marginTop: "120px",}}>
-            <div>
-                <div
-                    className="row"
-                    style={{
-                        gap: "4rem",
-                        display: "flex",
-                        borderRadius: "2rem",
-                        background: "rgba(241, 241, 241, 0.699)",
-                        justifyContent: "space-evenly",
-                    }}
-                >
-                    <div className="col-12 col-md-3 card-nosotros">
-                        <h1 className="card-title-nosotros ">Misión</h1>
-                        <p className="card-text ">
-                            Representar a todos los enfermeros que manifiesten compromiso por trascender y defender la
-                            salud infanto juvenil, promoviendo el avance profesional y fomentando el bienestar de la
-                            comunidad.
-                        </p>
-                    </div>
-                    <div className="col-12 col-md-3 card-nosotros">
-                        <h1 className="card-title-nosotros">Visión</h1>
-                        <p className="card-text ">
-                            Demostrar el liderazgo profesional, garantizando un actuar ético, científico y humanístico,
-                            con equidad, justicia y profunda humanización, hacia una sociedad en constantes cambios.
-                        </p>
-                    </div>
-                    <div className="col-12 col-md-3 card-nosotros">
-                        <h1 className="card-title-nosotros">Valores</h1>
-                        <ul className="card-text ">
-                            <li>Competencia profesional</li>
-                            <li>Responsabilidad</li>
-                            <li>Conocimiento</li>
-                            <li>Igualdad</li>
-                            <li>Respeto</li>
-                            <li>Innovación</li>
-                            <li>Equidad</li>
-                            <li>Compromiso</li>
-                        </ul>
-                    </div>
+        <div className="container-fluid background-6 p-5">
+            <div className=" d-flex justify-content-between  mt-5 flex-wrap align-items-center align-content-center">
+                <div className=" mx-auto  col-12  col-lg-6  justify-content-center align-items-center ">
+                    <h4 className="titulo-nosotros ">¿Quienes somos?</h4>
+                    <p className="parrafo-nosotros ">
+                        La Asociacion de Enfermeria Pediatrica Argentina, AEPA. Nació para tener una voz unificada que representara a los
+                        enfermeros pediátricos en Argentina. Somos un equipo comprometidos, con una premisa: brindar la mejor atención
+                        posible a nuestros pacientes y sus familias, buscamos unificar y fortalecer la profesión.
+                    </p>
+                    <p className="parrafo-nosotros">
+                        Los tres colores, representan a las instituciones emblemáticas en nuestro país en la atencion pediatrica: El color
+                        Celeste al
+                        <strong style={{ color: "var(--aepa-azul)" }}> Hospital Ricardo Gutiérrez</strong>, Naranja al{" "}
+                        <strong style={{ color: "var(--aepa-naranja)" }}> Hospital Pedro de Elizalde </strong> y Violeta al
+                        <strong style={{ color: "var(--aepa-violeta)" }}> Hospital Juan Garrahan</strong>.
+                    </p>
                 </div>
-                <div className="row " style={{ justifyContent: "space-evenly", marginTop: "5rem" }}>
-                    <div className="col-lg-3 col-sm-12 ">
-                        <div className="card align-items-center">
-                            <img src={presidenteImage} className="card-img-top w-75" alt="Presidente" />
-                            <div className="card-body">
-                                <h3 className="card-title">Presidente</h3>
-                                <p className="card-text text-center">Lic. Llanos Beatriz</p>
-                            </div>
+                <div className=" row  col-12  col-lg-6 justify-content-center  ">
+                    <div className="imagen-organizacion col-12 col-sm-8 col-lg-8">
+                        <img src={presidenteImage} className=" w-50" alt="Presidente" />
+                        <div className="card-body">
+                            <h3 className="card-title">Presidente</h3>
+                            <p className="card-text text-center fw-bold">Lic. Llanos Beatriz</p>
+                        </div>
+                    </div>
+                    <div className="imagen-organizacion col-8 col-sm-6 col-lg-6 ">
+                        <img src={vicepresidenta} className=" w-50" alt="Vicepresidenta" />
+                        <div className="card-body">
+                            <h3 className="card-title">Vice Presidente</h3>
+                            <p className="card-text text-center fw-bold">Lic. Santini Maria</p>
                         </div>
                     </div>
 
-                    <div className="col-lg-3 col-sm-12">
-                        <div className="card align-items-center " style={{ padding: "1em" }}>
-                            <img src={vicepresidenta} className="card-img-top w-75" alt="Vicepresidenta" />
-                            <div className="card-body ">
-                                <h3 className="card-title">Vice Presidente</h3>
-                                <p className="card-text text-center">Lic. Santini Maria</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-12">
-                        <div className="card align-items-center">
-                            <img src={secretario} className="card-img-top w-75" alt="Secretario" />
-                            <div className="card-body">
-                                <h3 className="card-title">Secretario</h3>
-                                <p className="card-text text-center ">Enf. Sierra Jorge</p>
-                            </div>
+                    <div className=" imagen-organizacion  col-8 col-sm-6 col-lg-6">
+                        <img src={secretario} className=" w-50" alt="Secretario" />
+                        <div className="card-body">
+                            <h3 className="card-title">Secretario</h3>
+                            <p className="card-text text-center fw-bold ">Enf. Sierra Jorge</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/*       <h1 className="text-center my-4  h1">Quienes somos</h1> */}
         </div>
     );
 }
-
-

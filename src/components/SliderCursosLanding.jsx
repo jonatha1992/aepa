@@ -38,7 +38,7 @@ function SliderCursosLanding({ cursos }) {
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
