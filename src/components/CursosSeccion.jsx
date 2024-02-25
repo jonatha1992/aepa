@@ -31,7 +31,7 @@ export default class CursosSeccion extends React.Component {
         return (
             <div className="container-fluid background-6 ">
                 <div className="container ">
-                    <h1 className="cursos-titulo"> CAPASITATE CON NUESTROS CURSOS ⤵️</h1>
+                    <h1 className="cursos-titulo"> CAPACÍTATE CON NUESTROS CURSOS ⤵️</h1>
                     {/* <p className="parrafo">
                         Descubre una variedad de cursos especializados para licenciados en enfermería que buscan expandir su expertise y
                         destrezas clínicas. Nuestros programas abarcan desde técnicas avanzadas en cuidados intensivos hasta innovaciones en
