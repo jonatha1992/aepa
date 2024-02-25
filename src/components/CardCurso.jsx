@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function CardCurso({ item }) {
   return (
-    <Link to={`/inscripcion/${item.id}`} className="curso-btn">
+    <Link to={`/inscripcion/${item.id}`} className="">
       <div className="curso-card ">
         <div className="d-flex align-items-center   flex-column  justify-content-center ">
           <h3 className=" curso-card-title row   ">{item.title}</h3>
