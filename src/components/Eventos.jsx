@@ -5,21 +5,10 @@ import "../css/eventos.css";
 
 const Eventos = () => (
 
-
-
   <div className="eventos">
-    
-      <div className="ecol-md-1 text-start">
+     <div className="ecol-md-1 text-start">
         <h1>EVENTOS Y ANUNCIOS</h1>
         <h2>Próximos inicios</h2>
-         <div className="btn-opcion">
-          <button>mas info</button>
-          <button>mas info</button>
-          <button>mas info</button>
-          
-          </div>
-          
-          
       </div>
 
     <div className="eventoCard">

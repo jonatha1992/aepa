@@ -4,7 +4,6 @@ import "../css/home2.css";
 import { Link } from "react-router-dom";
 import Nosotros from "../components/Nosotros";
 import Anuncio from "../pages/Anuncio";
-
 import CursosSeccion from "./CursosSeccion";
 import Eventos from "../components/Eventos";
 
@@ -45,22 +44,14 @@ function Home2() {
                     </div>
                 </div>
             </section>
-
             <section id="seccion2">
-                {/* <div className="container-fluid background-3"> */}
                 <CursosSeccion />
-                {/* </div> */}
             </section>
             <section id="seccion3">
-                {/* <div className="container-fluid background-3"> */}
                 <Nosotros />
-                {/* </div> */}
             </section>
             <section id="seccion4">
-                <div className="container-fluid background-4">
-                    <h2>Sección 4</h2>
-                    <p>Contenido de la cuarta sección.</p>
-                </div>
+                <Eventos />
             </section>
         </>
     );
