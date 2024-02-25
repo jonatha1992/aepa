@@ -9,20 +9,25 @@
     font-size: 2rem;
     margin-bottom: 2rem;
 }
-
+.titulo-nosotros {
+    color: #333;
+    font-size: 2rem;
+    line-height: 1.6;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    /* margin-bottom: 2rem;
+    width: 80%; */
+    text-align: center;
+    margin-left: auto; /* Centra el párrafo horizontalmente */
+    margin-right: auto;
+    font-weight: bold;
+}
 .card-nosotros {
     background-color: rgba(241, 241, 241, 0.699);
-        /* width: 100%; */
-        /* height: 100%; */
-        /* max-width: 20rem; */
-        /* margin: 1rem; */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 3rem;
-        box-sizing: border-box;
-        
-        
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3rem;
+    box-sizing: border-box;
 }
 
 .contenedor-card-nostros {
@@ -31,4 +36,24 @@
     align-items: flex-start;
     justify-content: center;
     gap: 2rem;
+}
+
+.parrafo-nosotros {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    /* margin-bottom: 2rem;
+    width: 80%; */
+    text-align: justify;
+    margin-left: auto; /* Centra el párrafo horizontalmente */
+    margin-right: auto;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+.imagen-organizacion {
+    align-items: center;
+    margin-top: 1rem;
+    filter: drop-shadow(0 0 0.75rem #444141);
 }

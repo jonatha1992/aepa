@@ -47,14 +47,10 @@ function Home2() {
             </section>
 
             <section id="seccion2">
-                {/* <div className="container-fluid background-3"> */}
-                <CursosSeccion />
-                {/* </div> */}
+                <Nosotros />
             </section>
             <section id="seccion3">
-                {/* <div className="container-fluid background-3"> */}
-                <Nosotros />
-                {/* </div> */}
+                <CursosSeccion />
             </section>
             <section id="seccion4">
                 <Eventos />
