@@ -38,6 +38,15 @@ header {
     padding: 1rem;
 }
 
+.titulo-hero{
+    font-weight: bold;
+            color: var(--color3);
+            text-transform: uppercase;
+            -webkit-text-stroke: 2px #dee2e6;
+            font-size: 5rem;
+            margin-top: 60px;
+}
+
 .header-action {
     display: flex;
     display: flex;
@@ -297,6 +306,9 @@ background-image: url("../assets/fondo_panta2.jpg");
         display: none;
         text-align: center;
     }
+.titulo-hero {
+    font-size: 3rem;
+}
 
     .navbarstyle ul.menu-open {
         display: flex;
