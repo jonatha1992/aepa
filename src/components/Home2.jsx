@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "../css/home2.css";
 import { Link } from "react-router-dom";
 import Nosotros from "../components/Nosotros";
-import Anuncio from "../pages/Anuncio";
 
 import CursosSeccion from "./CursosSeccion";
 import Eventos from "../components/Eventos";
