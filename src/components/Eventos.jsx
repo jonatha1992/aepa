@@ -2,7 +2,7 @@ import React from "react";
 import "../css/eventos.css";
 import imagen1 from "../assets/neoevent.jpg";
 import imagen2 from "../assets/anuncio.jpg";
-
+import imagen3 from "../assets/logo-aepa.png";
 const Eventos = () => (
     <div className="eventos">
         <div className="encabezado">
@@ -32,9 +32,17 @@ const Eventos = () => (
                     <div className="name">III Encuentro Multidisciplinario de Enfermería</div>
                     <div className="date">22 de Noviembre</div>
                     <div className="time">Jornada Anual</div>
+                    
                    
                 </div>
+                
             </div>
+
+                     <div className="calendario" >
+                        <img className="calendar"src={imagen3} alt="imagen de anuncio" style={{ width: '90%', height: '350px', marginLeft: '70px', marginTop:'20px'}}/>
+                     </div>
+
+
         </div>
     </div>
 );
