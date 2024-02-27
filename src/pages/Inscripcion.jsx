@@ -219,7 +219,14 @@ export default function Inscripcion() {
         <div>{curso.targetAudience}</div>
         <h2 style={{}}>¿Por qué elegir este curso?</h2>
         <hr />
-        <div>{curso.objectives}</div>
+        <div>
+          A lo largo de este curso iras completando los siguientes objetivos:
+          <ul>
+            {curso.objetivos.map((objetivo, index) => (
+              <li key={index}>{objetivo}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
