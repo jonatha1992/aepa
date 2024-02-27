@@ -29,6 +29,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 500;
+    padding: 1.5rem
+}
+
+.acordeon-mui{
+    position: unset;
+    z-index:  unset;
+    width: 50%;
+    background: var(--color2)!important;
 }
 
 .contenedor-imagen-curso img{
@@ -36,14 +45,22 @@
    
 }
 
+.container-modulos{
+    display: flex;
+    flex-direction: column;
+
+}
+
 .boton-inscripcion{
     background-color: #4caf50;
         color: #fff;
-        padding: 10px 20px;
+        padding: 15px 20px;
         border: 2px solid var(--color2);
         box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    font-size: 1.5rem;
+        text-transform: uppercase;
 }
 
 
@@ -75,6 +92,13 @@
         top: 8rem;
 
     }
+.container-modulos {
+   align-items: center;
+
+}
+.acordeon-mui {
+    width: 100%;
+}
 
 .fondo-panta{
     padding-top:130px
@@ -84,5 +108,8 @@
 }
 .contenedor-imagen-curso img {
     max-width: 8rem;
+}
+.contenedor-imagen-curso  {
+    display: none;
 }
 }

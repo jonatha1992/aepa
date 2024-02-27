@@ -7,6 +7,9 @@ import axios from "axios";
 import { Modal, Backdrop, CircularProgress } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import { AlumnosContext } from "../context/AlumnoContext";
+import AcordeonUnidades from "../components/AcordeonUnidades";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
 
 export default function Inscripcion() {
   const { User } = useAuth();
@@ -92,7 +95,13 @@ export default function Inscripcion() {
   }, [cursoid]);
 
   if (!curso) {
-    return <p>Cargando curso...</p>;
+    return (
+      <Box sx={{ width: 300 }}>
+        <Skeleton />
+        <Skeleton animation="wave" />
+        <Skeleton animation={false} />
+      </Box>
+    );
   }
 
   const customization = {
@@ -105,19 +114,21 @@ export default function Inscripcion() {
   return (
     <div className="fondo-panta" style={{}}>
       <div className="header-inscripcion">
-        <div className="info-inscripcion" style={{ padding: "1.5rem" }}>
-          <h2>{curso.title}</h2>
-          <h3>${curso.price} ARS</h3>
+        <div className="d-flex flex-column">
+          <div className="info-inscripcion" style={{}}>
+            <h2>{curso.title}</h2>
+            <h3>${curso.price} ARS</h3>
+          </div>
           <button
             className="boton-inscripcion"
             onClick={handleBuy}
             disabled={loading}
           >
-            Inscribirme
+            Inscribirme ahora🔽
           </button>
         </div>
         <div className="contenedor-imagen-curso" style={{ padding: "1rem" }}>
-          <img src={curso.image} alt="" />
+          <img src={curso.imageUrl} alt="" />
         </div>
       </div>
 
@@ -202,14 +213,7 @@ export default function Inscripcion() {
 
       <div className="body-inscripcion">
         <p>{curso.description}</p>
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-        </ul>
+        <AcordeonUnidades cursoid={cursoid} />
         <h2 style={{}}>¿A quién va dirigido este curso?</h2>
         <hr />
         <div>{curso.targetAudience}</div>
