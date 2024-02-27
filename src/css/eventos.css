@@ -11,24 +11,39 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
     display: inline-block;
-    width: 100%;
+    width: 84%;
     margin-top: 4rem;
     font-size: 50px;
     font-weight: bold;
     text-align: center;
 }
 
+.eventos h2{
+
+    color: #333;
+    font-size:  20px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    text-align: justify;
+    font-weight: bold;
+    width: 80%;
+    margin-left: 10%;
+   
+}
+
 .eventoCard {
     display: flex;
-
     margin-top: 40px;
+    width: 80%;
+    justify-content: left;
+    margin-left: 10%;
+   
 }
 
 .evento {
     background-color: #f2f2f2;
     border-radius: 5px;
     margin: 1px;
-    width: 30%;
+    width: 20%;
     height: 390px;
     border: 2px solid blue;
     padding: 3px;
@@ -65,16 +80,3 @@
     font-weight: bold;
 }
 
-.btnInfo {
-    color: beige;
-    background-color: var(--color3);
-    font-weight: bold;
-    text-align: center;
-    border-radius: 2px;
-}
-
-.imagenInfo {
-    width: 120px;
-    height: 120px;
-    border-color: blue;
-}

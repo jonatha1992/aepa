@@ -1,6 +1,6 @@
 import { countries as countriesList } from "countries-list";
 import { Country, State } from "country-state-city";
-
+import { db, doc, getDoc, getDocs, addDoc, collection } from "../firebase";
 const countries = Country.getAllCountries().map(({ isoCode, name }) => ({
     label: name,
     value: isoCode,
@@ -49,4 +49,17 @@ function convertFirebaseTimestampToDate(timestamp) {
     return `${day < 10 ? "0" + day : day}/${month < 10 ? "0" + month : month}/${year}`;
 }
 
-export { countries, countiesCode, getStates, getCountry, getState, convertFirebaseTimestampToDate };
+async function agregarItemsModulo(pathModulo, itemsToBeAdded) {
+    try {
+        // Itera sobre el arreglo de ítems y agrega cada uno a la subcolección
+        for (const item of itemsToBeAdded) {
+            // Agrega el ítem a la subcolección
+            await addDoc(collection(db, pathModulo), item);
+        }
+        console.log("Todos los ítems han sido agregados a la subcolección.");
+    } catch (error) {
+        console.error("Error al agregar ítems:", error);
+    }
+}
+
+export { countries, countiesCode, getStates, getCountry, getState, convertFirebaseTimestampToDate, agregarItemsModulo };
