@@ -1,9 +1,9 @@
-.eventos {
-    height: 130vh;
+.evento {
+    height: 100vh;
     display: inline-block;
 }
 
-.eventos h1 {
+.evento h1 {
     color: beige;
     background-color: var(--color3);
     padding: 20px;
@@ -17,66 +17,31 @@
     font-weight: bold;
     text-align: center;
 }
-
-.eventos h2{
-
-    color: #333;
-    font-size:  20px;
+.evento p {
+    color: #b4c1e1;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    text-align: justify;
-    font-weight: bold;
-    width: 80%;
-    margin-left: 10%;
-   
+}
+.evento-titulo {
+    color: #333;
+    font-size: 20px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }
 
-.eventoCard {
-    display: flex;
-    margin-top: 40px;
-    width: 80%;
-    justify-content: left;
-    margin-left: 10%;
-   
+.event-section {
+    background: linear-gradient(to right, #008080, #00ced1);
+    color: white;
+    padding: 50px;
+    width: 75%;
 }
-
-.evento {
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    margin: 1px;
-    width: 20%;
-    height: 390px;
-    border: 2px solid blue;
-    padding: 3px;
-    margin-right: 20px;
+.event-image {
+    background-size: cover;
+    background-position: center;
+    filter: drop-shadow(0 0 0.75rem #444141);
 }
-
-.details {
-    text-align: left;
-}
-
-.type {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: orangered;
-    margin-bottom: 5px;
-    font-style: italic;
-}
-
-.name {
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-}
-
-.date {
-    font-size: 1.2rem;
-    margin-top: 9px;
-    margin-bottom: 9px;
-    color: blue;
+.evento-fecha {
+    font-size: 2rem;
+    margin-top: 1rem;
     font-weight: bold;
 }
-
-.time {
-    font-size: 1rem;
-    font-weight: bold;
-}
-

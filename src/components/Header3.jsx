@@ -62,7 +62,7 @@ export default function Header3() {
                                     <a href="#seccion3">Cursos</a>
                                 </li>
                                 <li onClick={closeMobileMenu}>
-                                    <a href="#seccion4">Anuncios y eventos</a>
+                                    <a href="#seccion4">Eventos</a>
                                 </li>
                                 <li onClick={closeMobileMenu}>
                                     <a href="#contacto">Contacto</a>
