@@ -2,38 +2,13 @@ import React from "react";
 import Slider from "react-slick";
 import "../css/eventos.css";
 import imagen1 from "../assets/neoevent.jpg";
-import imagen2 from "../assets/anuncio.jpg";
+import imagen2 from "../assets/enfermera_servicios.jpg";
 const Eventos = () => (
     <div className="evento ">
         <div className="evento-encabezodo">
             <h1>EVENTOS</h1>
         </div>
         <div class="container event-section  ">
-            {/* <div class="row">
-                <div class="col-md-6 d-flex flex-column justify-content-center ">
-                    <h2 className="evento-titulo">
-                        III Encuentro de Neonatología
-                    </h2>
-                    <p className="text-justify">
-                        Unámonos para el tercer encuentro anual de Neonatología,
-                        donde los principales expertos discutirán los avances
-                        más recientes en el cuidado y tratamiento de neonatos.
-                        Este evento es una oportunidad imperdible para
-                        profesionales de la salud que buscan actualizarse sobre
-                        las prácticas más innovadoras en el campo.
-                    </p>
-
-                    <p className="evento-fecha">22 de marzo 10hs.</p>
-                </div>
-                <div class="col-md-6 event-image">
-                    <img
-                        src={imagen1}
-                        alt="imagen de evento"
-                        className="rounded"
-                        style={{ width: "80%", height: "100%" }}
-                    />
-                </div>
-            </div> */}
             <EventosSlider />
         </div>
     </div>
@@ -42,18 +17,18 @@ const Eventos = () => (
 export default Eventos;
 
 const CardEvento = ({ titulo, fecha, imagen, descripcion }) => (
-    <div class="row">
-        <div className="col-md-6 d-flex flex-column justify-content-center">
-            <h3 className="evento-titulo">{titulo}</h3>
-            <p className="evento-descripcion">{descripcion}</p>
-            <p className="evento-fecha">{fecha}</p>
+    <div class="row mx-3">
+        <div className=" col-12 col-lg-6 d-flex flex-column justify-content-center">
+            <h3 className="card-evento-titulo">{titulo}</h3>
+            <p className="card-evento-descripcion">{descripcion}</p>
+            <p className="card-evento-fecha">{fecha}</p>
         </div>
-        <div class="col-md-6 event-image">
+        <div class="col-12 col-lg-6 card-event-image">
             <img
                 src={imagen}
                 alt="imagen de evento"
-                className="rounded"
-                style={{ width: "80%", height: "100%" }}
+                className="rounded "
+                style={{ width: "100%", height: "100%" }}
             />
         </div>
     </div>

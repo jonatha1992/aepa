@@ -38,7 +38,9 @@
     /* Ajusta según tus necesidades */
     background-repeat: no-repeat;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 @keyframes logo-spin {
     from {
         transform: rotate(0deg);
@@ -63,7 +65,4 @@
 }
 image-home {
     height: 30vh;
-}
-
-@media (max-width: 767px) {
 }
