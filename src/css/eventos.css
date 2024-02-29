@@ -1,29 +1,19 @@
 .evento {
-    height: 100vh;
-    display: inline-block;
+    min-height: 100vh;
+    /* display: inline-block; */
     margin-bottom: 2rem;
 }
 
-.evento h1 {
-    color: beige;
-    background-color: var(--color3);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
-    display: inline-block;
-    width: 84%;
-    margin-top: 4rem;
-    font-size: 50px;
-    font-weight: bold;
-    text-align: center;
-}
 
-.event-section {
+
+.card-evento-anuncio {
+    padding: 1.5rem;
+        border-radius: 1rem;
+    height: 75vh;
     background: linear-gradient(to right, #008080, #00ced1);
     color: white;
-    padding: 50px;
-    width: 80%;
+/*     padding: 50px;
+    width: 80%; */
 }
 .card-evento-titulo {
     color: #333;

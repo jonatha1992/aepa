@@ -113,7 +113,7 @@ a:hover {
 }
 
 .main section {
-    display: flex;
+    /* display: flex; */
     /* height: 100vh; */
     /* padding: 20px; */
     background: rgb(230, 229, 225);
@@ -291,8 +291,8 @@ header h3 {
 
 #seccion4{
 
-padding: 0%;
-background-image: url("../assets/fondo_panta2.jpg");
+/* padding: 0%;
+background-image: url("../assets/fondo_panta2.jpg"); */
 
 }
 @media only screen and (max-width: 768px) {
