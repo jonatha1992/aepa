@@ -6,11 +6,6 @@ import imagen2 from "../assets/enfermera_servicios.jpg";
 const Eventos = () => (
     <div className="evento ">
         <div className="container   ">
-            <div className="evento-encabezodo">
-                <h1 className="cursos-titulo" style={{ width: "unset" }}>
-                    EVENTOS
-                </h1>
-            </div>
             <EventosSlider />
         </div>
     </div>
@@ -26,12 +21,7 @@ const CardEvento = ({ titulo, fecha, imagen, descripcion }) => (
             <p className="card-evento-fecha">{fecha}</p>
         </div>
         <div className=" card-event-image">
-            <img
-                src={imagen}
-                alt="imagen de evento"
-                className="rounded "
-                style={{ width: "100%", height: "100%" }}
-            />
+            <img src={imagen} alt="imagen de evento" className="rounded " style={{ width: "100%", height: "100%" }} />
         </div>
     </div>
 );
@@ -39,7 +29,7 @@ const CardEvento = ({ titulo, fecha, imagen, descripcion }) => (
 const EventosSlider = () => {
     const settings = {
         dots: false,
-        autoplay: true,
+        autoplay: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -96,6 +86,11 @@ const EventosSlider = () => {
         <div className="container">
             <div className="row gx-5 gy-5 " style={{ flexWrap: "wrap" }}>
                 <div className="col-12 col-md-6">
+                    <div className="evento-encabezodo">
+                        <h1 className="cursos-titulo" style={{ width: "unset" }}>
+                            EVENTOS
+                        </h1>
+                    </div>
                     <Slider {...settings}>
                         {eventos.map((evento, index) => (
                             <CardEvento
@@ -109,6 +104,11 @@ const EventosSlider = () => {
                     </Slider>
                 </div>
                 <div className="  col-12 col-md-6">
+                    <div className="evento-encabezodo">
+                        <h1 className="cursos-titulo" style={{ width: "unset" }}>
+                            EVENTOS
+                        </h1>
+                    </div>
                     <Slider {...settings}>
                         {eventos.map((evento, index) => (
                             <CardEvento
