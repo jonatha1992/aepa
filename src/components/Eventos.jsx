@@ -38,7 +38,8 @@ const CardEvento = ({ titulo, fecha, imagen, descripcion }) => (
 
 const EventosSlider = () => {
   const settings = {
-    dots: true,
+    dots: false,
+    autoplay: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
