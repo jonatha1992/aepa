@@ -4,6 +4,16 @@
     margin-bottom: 2rem;
 }
 
+.slick-prev{
+    color: var(--color3);
+        left: -1.5rem;
+}
+
+.evento-encabezodo{
+    display: flex;
+    justify-content: space-around;
+}
+
 
 
 .card-evento-anuncio {
