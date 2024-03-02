@@ -1,75 +1,83 @@
-.fondo-panta{
+.fondo-panta {
     background-image: url("../assets/fondo_panta.jpg");
     background-size: cover;
-        background-position: center;
+    background-position: center;
 }
 
-.fondo-panta{
-    padding-top:80px;
-    text-align:start;
-    padding-bottom:80px;
+.fondo-panta {
+    padding-top: 80px;
+    text-align: start;
+    padding-bottom: 80px;
 }
 
 .body-inscripcion {
-    padding:15px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana;
+    padding: 15px;
     font-size: 18px;
     color: var(--color3);
 }
 
-.body-inscripcion h2{
-    color: #12b0b4;
-        text-shadow: 2px 2px 4px var(--color3);
-        padding-top: 3rem;
-        font-weight: 900;
+.body-inscripcion h2 {
+    color: #2e4344;
+    text-shadow: 2px 2px 4px var(--color3);
+    padding-top: 1rem;
+    font-weight: 900;
 }
-.header-inscripcion{
+
+.body-inscripcion p {
+    font-weight: 400;
+}
+.header-inscripcion {
     position: sticky;
-            top: 5rem;
-            background: var(--color1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 500;
-    padding: 1.5rem
+    top: 5rem;
+    background: var(--color6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 500;
+    padding: 1.5rem;
 }
 
-.acordeon-mui{
+.acordeon-mui {
     position: unset;
-    z-index:  unset;
+    z-index: unset;
     width: 50%;
-    background: var(--color2)!important;
+    background: var(--color6) !important;
+    color: var(--color5);
 }
 
-.contenedor-imagen-curso img{
+.contenedor-imagen-curso img {
     height: 8rem;
-   
+    border-radius: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(0 0 0.75rem #444141);
+    height: 180px;
+    width: auto;
 }
 
-.container-modulos{
+.container-modulos {
     display: flex;
     flex-direction: column;
-
 }
 
-.boton-inscripcion{
+.boton-inscripcion {
     background-color: #4caf50;
-        color: #fff;
-        padding: 15px 20px;
-        border: 2px solid var(--color2);
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    color: #fff;
+    padding: 15px 20px;
+    border: 2px solid var(--color2);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
     font-size: 1.5rem;
-        text-transform: uppercase;
+    text-transform: uppercase;
 }
-
 
 .boton-inscripcion:hover {
     background-color: #e3e3e3;
     /* Nuevo color de fondo al pasar el ratón */
     color: #000000;
     /* Nuevo color de texto al pasar el ratón */
-    border-color: #1976D2;
+    border-color: #1976d2;
     /* Nuevo color del borde al pasar el ratón */
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     /* Nueva sombra al pasar el ratón */
@@ -78,38 +86,31 @@
 .info-inscripcion h2,
 .info-inscripcion h3 {
     text-shadow: 2px 2px 4px var(--color3);
-    /* Sombra de texto */
     font-weight: bold;
-    /* Peso de la fuente en negrita */
     text-transform: capitalize;
-    /* Convertir el texto a capitalizado (mayúsculas en la primera letra de cada palabra) */
-    color: var(--color3);
-    /* Color del texto */
+    color: var(--color5);
 }
 @media only screen and (max-width: 768px) {
-.header-inscripcion {
-        
+    .header-inscripcion {
         top: 8rem;
-
     }
-.container-modulos {
-   align-items: center;
+    .container-modulos {
+        align-items: center;
+    }
+    .acordeon-mui {
+        width: 100%;
+    }
 
-}
-.acordeon-mui {
-    width: 100%;
-}
-
-.fondo-panta{
-    padding-top:130px
-}
-.body-inscripcion {
-    padding-top: 2rem
-}
-.contenedor-imagen-curso img {
-    max-width: 8rem;
-}
-.contenedor-imagen-curso  {
-    display: none;
-}
+    .fondo-panta {
+        padding-top: 130px;
+    }
+    .body-inscripcion {
+        padding-top: 2rem;
+    }
+    .contenedor-imagen-curso img {
+        max-width: 8rem;
+    }
+    .contenedor-imagen-curso {
+        display: none;
+    }
 }

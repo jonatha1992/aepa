@@ -1,6 +1,5 @@
 #root {
     width: 100%;
-    /* max-width: 1280px; */
     margin: 0 auto;
     /*   padding: 2rem; */
     text-align: center;
@@ -16,6 +15,7 @@
     --color3: #243c74;
     --color4: #a87c60;
     --color5: #b4ccd6;
+    --color6: linear-gradient(to right, var(--color3), var(--color1));
 }
 
 .logo {
@@ -33,9 +33,7 @@
 .imagen-home {
     background-image: url("../assets/hero-image.jpeg");
     background-size: cover;
-    /* Ajusta según tus necesidades */
     background-position: center;
-    /* Ajusta según tus necesidades */
     background-repeat: no-repeat;
 }
 html {
