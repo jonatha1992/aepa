@@ -32,7 +32,7 @@ export default function AcordeonUnidades({ cursoid }) {
     }
 
     return (
-        <div className=" container-modulos">
+        <div className=" container-modulos ">
             {unidades.map((unidad) => (
                 <Accordion className="acordeon-mui" key={unidad.id}>
                     <AccordionSummary

@@ -83,8 +83,8 @@ const EventosSlider = () => {
     ];
 
     return (
-        <div className="container">
-            <div className="row gx-5 gy-5 " style={{ flexWrap: "wrap" }}>
+        <div className="container ">
+            <div className="row gx-5  " style={{ flexWrap: "wrap" }}>
                 <div className="col-12 col-md-6">
                     <div className="evento-encabezodo">
                         <h1 className="cursos-titulo" style={{ width: "unset" }}>
