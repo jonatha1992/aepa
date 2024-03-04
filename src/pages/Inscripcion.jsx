@@ -116,17 +116,9 @@ export default function Inscripcion() {
             <div className="header-inscripcion">
                 <div className="d-flex flex-column">
                     <div className="info-inscripcion" style={{}}>
-                        <h2>{curso.title}</h2>
-                        <h3>${curso.price} ARS</h3>
+                        <h2 className="fs-1 fw-bold">{curso.title}</h2>
+                        <h3>${curso.price.toLocaleString("es-AR")} ARS</h3>
                     </div>
-                    {/* <button
-                        className="boton-inscripcion"
-                        onClick={handleBuy}
-                        disabled={loading}
-                    >
-                        Inscribirme ahora🔽
-                    </button> */}
-
                     <Button
                         className="d-inline-block align-baseline  fs-4 fw-bold  hover-primary mt-4 bg-gradient "
                         type="submit"
@@ -219,22 +211,70 @@ export default function Inscripcion() {
                 </Modal>
             )}
 
-            <div className="body-inscripcion">
-                <h2>Misión</h2>
-                <hr />
+            <div className="body-inscripcion d-flex  flex-wrap  justify-content-between ">
+                <div className=" col-12">
+                    <h2>Misión</h2>
+                    <p className="fs-6 ">{curso.description}</p>
+                </div>
+                <div className=" col-12  ">
+                    <h2>Objetivos</h2>
 
-                <p>{curso.description}</p>
-                <h2>Objetivos</h2>
-                <hr />
-                <div>
-                    <ul>
+                    <ul className=" fs-6">
                         {curso.objetivos.map((objetivo, index) => (
                             <li key={index}>{objetivo}</li>
                         ))}
                     </ul>
                 </div>
-                <AcordeonUnidades cursoid={cursoid} />
-                {/* <div>{curso.targetAudience}</div> */}
+                <div className=" col-12 col-md-6">
+                    <h2>Contenido</h2>
+                    <AcordeonUnidades cursoid={cursoid} />
+                </div>
+                <div className="col-12 col-md-5  ">
+                    <h2>Detalles</h2>
+                    <div className="row">
+                        <div className="col-6 ">
+                            <h3>
+                                Clases<p>{curso.classes}</p>
+                            </h3>
+                        </div>
+                        <div className="col-6">
+                            <h3>
+                                Duración<p>{curso.duration}</p>
+                            </h3>
+                        </div>
+                        <div className="col-6">
+                            <h3>
+                                Inicio<p>{curso.start}</p>
+                            </h3>
+                        </div>
+                        <div className="col-6">
+                            <h3>
+                                Carga Horaria<p>{curso.workload + " Horas"}</p>
+                            </h3>
+                        </div>
+
+                        <div className="col-6">
+                            <h3>
+                                Autor<p>{curso.author}</p>
+                            </h3>
+                        </div>
+                        <div className="col-6">
+                            <h3>
+                                Coordinación<p> {curso.coordinacion}</p>
+                            </h3>
+                        </div>
+                        <div className="col-12 ">
+                            <h3>
+                                Disertantes
+                                <ul className=" fs-6">
+                                    {curso.disertantes.map((disertante, index) => (
+                                        <li key={index}> {disertante}</li>
+                                    ))}
+                                </ul>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
