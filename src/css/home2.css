@@ -291,8 +291,10 @@ header h3 {
 
 #seccion4{
 
-/* padding: 0%;
-background-image: url("../assets/fondo_panta2.jpg"); */
+background-image: url(/src/assets/fondo_panta2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
 }
 @media only screen and (max-width: 768px) {
