@@ -94,10 +94,14 @@ const FeatureGrid = () => {
               ))}
             </List>
           </div>
-          <div className="col-9">
-            <div className="container">
-              {activeFeature ? activeFeature.content : null}
-            </div>
+          <div
+            className="col-9"
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {activeFeature ? activeFeature.content : null}
           </div>
         </div>
       </div>

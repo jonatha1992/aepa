@@ -19,6 +19,7 @@ import { useAuth } from "../src/context/AuthContext";
 import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
 import Inscripcion from "./pages/Inscripcion.jsx";
+import MiPerfil from "./components/MiPerfil.jsx";
 
 function App() {
   const { logout, User, setuUser } = useAuth();
@@ -49,6 +50,7 @@ function App() {
             element={<UnidadesCursos />}
           />
           <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
+          <Route path="/perfil" element={<MiPerfil />} />
           <Route path="/miscursos" element={<MisCursos />} />
         </Route>
       </Routes>

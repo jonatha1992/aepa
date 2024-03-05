@@ -14,7 +14,7 @@ const FeatureGrid = () => {
       icon: <AutoStories fontSize="large" />,
       route: "/miscursos",
     },
-    { name: "Perfil", icon: <Settings fontSize="large" />, route: "/cursos" },
+    { name: "Perfil", icon: <Settings fontSize="large" />, route: "/perfil" },
     {
       name: "Notificaciones",
       icon: <Mail fontSize="large" />,

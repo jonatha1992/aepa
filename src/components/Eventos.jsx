@@ -128,7 +128,7 @@ const EventosSlider = () => {
         <div className="col-12 col-md-6">
           <div className="evento-encabezado">
             <h1 className="cursos-titulo" style={{ width: "unset" }}>
-              EVENTOS
+              ANUNCIOS
             </h1>
           </div>
           <Slider {...settings}>

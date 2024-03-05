@@ -18,45 +18,57 @@ const MisCursos = () => {
         <UnidadesCursos cursotitle={activeCourse} cursoid={activeCourse} />
       ) : (
         <div
-          className="container container-miscursos"
-          style={{ color: "black", paddingTop: "6rem" }}
+          className="container d-flex flex-column"
+          style={{
+            height: "100vh",
+            justifyContent: "center",
+          }}
         >
-          {cursos.map((curso, index) => (
-            <div
-              key={index}
-              className="miscursos-item"
-              onClick={() =>
-                handleCursoClick(curso.cursoid, curso.detalles.title)
-              }
-            >
+          <div
+            className=" container-miscursos"
+            style={{ color: "black", paddingTop: "" }}
+          >
+            {cursos.map((curso, index) => (
               <div
-                className="blur-background"
-                style={{
-                  backgroundImage: `url(${curso.detalles.imageUrl})`,
-                }}
+                key={index}
+                className="miscursos-item"
+                onClick={() =>
+                  handleCursoClick(curso.cursoid, curso.detalles.title)
+                }
               >
-                <div className="content d-flex">
-                  <span
-                    style={{
-                      width: "70%",
-                      fontSize: "1rem",
-                      textAlign: "start",
-                      color: "#606468",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {curso.detalles.title}
-                  </span>
-                  <div
-                    className="info-micurso"
-                    style={{ width: "30%", textAlign: "end", fontSize: "10px" }}
-                  >
-                    <span>25 contenidos sin ver</span>
+                <div
+                  className="blur-background"
+                  style={{
+                    backgroundImage: `url(${curso.detalles.imageUrl})`,
+                  }}
+                >
+                  <div className="content d-flex">
+                    <span
+                      style={{
+                        width: "70%",
+                        fontSize: "1rem",
+                        textAlign: "start",
+                        color: "#606468",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {curso.detalles.title}
+                    </span>
+                    <div
+                      className="info-micurso"
+                      style={{
+                        width: "30%",
+                        textAlign: "end",
+                        fontSize: "10px",
+                      }}
+                    >
+                      <span>25 contenidos sin ver</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
     </>
