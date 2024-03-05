@@ -165,9 +165,7 @@ const EventosSlider = () => {
         </div>
         <div className="col-12 col-md-6">
           <div className="evento-encabezado">
-            <h1 className="cursos-titulo" style={{ width: "unset" }}>
-              EVENTOS
-            </h1>
+            <h1 className="cursos-titulo">EVENTOS</h1>
           </div>
           <Slider {...settings}>
             {eventos.map((evento, index) => (
