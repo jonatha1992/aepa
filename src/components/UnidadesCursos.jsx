@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { ContenidoXCurso } from "../firebase.js";
+import { useEffect, useState } from "react";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Typography from "@mui/material/Typography";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import LinkIcon from "@mui/icons-material/Link";
 
-const UnidadesCursos = (props) => {
-  const { cursotitle, cursoid } = props;
-  const [contenido, setContenido] = useState([]);
-  const [openUnidad, setOpenUnidad] = useState(null);
+import { ContenidoXCurso } from "../firebase.js";
 
+const UnidadesCursos = ({ activeCourse }) => {
+  const { id, title } = activeCourse || {};
+  const [contenido, setContenido] = useState([]);
+  const [openUnidad, setOpenUnidad] = useState(true);
+  console.log(id, title);
   useEffect(() => {
     const fetchDataFromFirebase = async () => {
       try {
-        const contenidoData = await ContenidoXCurso(cursoid);
+        const contenidoData = await ContenidoXCurso(id);
         setContenido(contenidoData);
       } catch (error) {
         console.error("Error al obtener datos de Firebase:", error);
@@ -20,9 +25,8 @@ const UnidadesCursos = (props) => {
     };
 
     fetchDataFromFirebase();
-  }, [cursoid]);
+  }, [id]);
 
-  // Obtiene una lista de tipos únicos
   const obtenerTiposUnicos = () => {
     const tiposSet = new Set();
 
@@ -33,10 +37,8 @@ const UnidadesCursos = (props) => {
     return Array.from(tiposSet);
   };
 
-  // Llamamos a la función al cargar el componente
   const tiposUnicos = obtenerTiposUnicos();
 
-  // Estructura los datos para reflejar la jerarquía de árbol
   const arbolUnidadesTipos = contenido.reduce((arbol, unidad) => {
     if (!arbol[unidad.unidad]) {
       arbol[unidad.unidad] = {};
@@ -58,17 +60,18 @@ const UnidadesCursos = (props) => {
   };
 
   return (
-    <>
+    <div className="container" style={{}}>
       <div
-        className="container"
+        className="contenido-container"
         style={{
           display: "flex",
-          height: "100vh",
+          /*           height: "100vh", */
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-start",
         }}
       >
-        <h2
+        <Typography
+          variant="h4"
           style={{
             background: "white",
             color: "#606468",
@@ -78,16 +81,19 @@ const UnidadesCursos = (props) => {
             borderRadius: "5px",
           }}
         >
-          {cursotitle}
-        </h2>
+          {title}
+        </Typography>
         <div style={{ color: "black", background: "#5d809d" }}>
-          {/* Renderiza las unidades utilizando el acordeón de React */}
           {Object.entries(arbolUnidadesTipos).map(([numero, tipos]) => (
-            <div key={numero}>
-              <button
-                onClick={() => handleToggleUnidad(numero)}
+            <Accordion
+              key={numero}
+              /* expanded={openUnidad === numero}
+            onChange={() => handleToggleUnidad(numero)} */
+              defaultExpanded
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
                 style={{
-                  width: "100%",
                   background: "#5d809d",
                   color: "white",
                   fontSize: "1.5rem",
@@ -98,58 +104,56 @@ const UnidadesCursos = (props) => {
                 }}
               >
                 Unidad {numero}
-              </button>
-              {openUnidad === numero && (
-                <div
-                  style={{
-                    backgroundColor: "rgb(182 199 213)",
-                    paddingBottom: "0.5rem",
-                    borderRadius: "5px",
-                  }}
-                >
-                  {/* Renderiza los tipos únicos */}
-                  {Object.entries(tipos).map(([tipo, titulos]) => (
-                    <div key={tipo} style={{ marginBottom: "10px" }}>
-                      <p className="encabezado-tipo">{tipo}</p>
-                      {/* Renderiza los títulos de cada tipo */}
-                      {titulos.map((titulo) => (
-                        <div key={titulo} className="titulo-contenido">
-                          <div
-                            className="d-flex flex-row align-items-center"
-                            style={{ width: "75%" }}
-                          >
-                            {tipo === "pdf" && (
-                              <PictureAsPdfIcon
-                                style={{
-                                  width: "1.5em",
-                                  height: "1.5em",
-                                  marginRight: "5px",
-                                }}
-                              />
-                            )}
-                            {tipo === "link" && (
-                              <LinkIcon
-                                style={{
-                                  width: "1.5em",
-                                  height: "1.5em",
-                                  marginRight: "5px",
-                                }}
-                              />
-                            )}
-                            <p>{titulo}</p>
-                          </div>
-                          {/* Puedes agregar más detalles según sea necesario */}
+              </AccordionSummary>
+              <AccordionDetails
+                style={{
+                  backgroundColor: "rgb(182 199 213)",
+                  paddingBottom: "0.5rem",
+                  borderRadius: "5px",
+                }}
+              >
+                {Object.entries(tipos).map(([tipo, titulos]) => (
+                  <div key={tipo} style={{ marginBottom: "10px" }}>
+                    <Typography variant="h6" className="encabezado-tipo">
+                      {tipo}
+                    </Typography>
+                    {titulos.map((titulo) => (
+                      <div key={titulo} className="titulo-contenido">
+                        <div
+                          className="d-flex flex-row align-items-center"
+                          style={{ width: "75%" }}
+                        >
+                          {tipo === "pdf" && (
+                            <PictureAsPdfIcon
+                              style={{
+                                width: "1.5em",
+                                height: "1.5em",
+                                marginRight: "5px",
+                              }}
+                            />
+                          )}
+                          {tipo === "link" && (
+                            <LinkIcon
+                              style={{
+                                width: "1.5em",
+                                height: "1.5em",
+                                marginRight: "5px",
+                              }}
+                            />
+                          )}
+                          <Typography>{titulo}</Typography>
                         </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+                        {/* Puedes agregar más detalles según sea necesario */}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </AccordionDetails>
+            </Accordion>
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

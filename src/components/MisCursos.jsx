@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AlumnosContext } from "../context/AlumnoContext";
-
 import { useAuth } from "../context/AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UnidadesCursos from "./UnidadesCursos"; // Importa el componente que muestra las unidades
@@ -9,13 +8,18 @@ const MisCursos = () => {
   const { cursos, activeCourse, setActiveCourse } = useContext(AlumnosContext);
 
   const handleCursoClick = (cursoId, cursotitle) => {
-    setActiveCourse(cursoId);
+    setActiveCourse({ id: cursoId, title: cursotitle });
   };
+
+  useEffect(() => {
+    // Esto se ejecuta solo en el montaje inicial
+    setActiveCourse(null);
+  }, []); // El array de dependencias está vacío, por lo que solo se ejecutará una vez al montar el componente
 
   return (
     <>
       {activeCourse ? (
-        <UnidadesCursos cursotitle={activeCourse} cursoid={activeCourse} />
+        <UnidadesCursos activeCourse={activeCourse} />
       ) : (
         <div
           className="container d-flex flex-column"
