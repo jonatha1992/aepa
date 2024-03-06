@@ -137,7 +137,7 @@ footer {
 
 .main {
     min-height: 100vh;
-    background: rgb(230, 229, 225);
+    background-image: url(/src/assets/fondo_panta2.jpg);
     /* margin-top: 4rem; */
 }
 header h3 {

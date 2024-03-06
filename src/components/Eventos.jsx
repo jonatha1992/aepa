@@ -89,7 +89,7 @@ const CardEvento = ({ titulo, fecha, imagen, descripcion, fondoStyle }) => (
 const EventosSlider = () => {
   const settings = {
     dots: false,
-    autoplay: false,
+    autoplay: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -165,7 +165,7 @@ const EventosSlider = () => {
         </div>
         <div className="col-12 col-md-6">
           <div className="evento-encabezado">
-            <h1 className="cursos-titulo">EVENTOS</h1>
+            <h1 className="cursos-titulo">ANUNCIOS</h1>
           </div>
           <Slider {...settings}>
             {eventos.map((evento, index) => (
