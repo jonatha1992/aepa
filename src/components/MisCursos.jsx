@@ -3,6 +3,7 @@ import { AlumnosContext } from "../context/AlumnoContext";
 import { useAuth } from "../context/AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UnidadesCursos from "./UnidadesCursos"; // Importa el componente que muestra las unidades
+import Breadcrumbs from "./Breadcrumbs";
 
 const MisCursos = () => {
   const { cursos, activeCourse, setActiveCourse } = useContext(AlumnosContext);
@@ -28,6 +29,7 @@ const MisCursos = () => {
             justifyContent: "center",
           }}
         >
+          <Breadcrumbs />
           <div
             className=" container-miscursos"
             style={{ color: "black", paddingTop: "" }}

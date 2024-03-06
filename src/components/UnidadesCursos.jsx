@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import LinkIcon from "@mui/icons-material/Link";
-
+import Breadcrumbs from "./Breadcrumbs";
 import { ContenidoXCurso } from "../firebase.js";
 
 const UnidadesCursos = ({ activeCourse }) => {
@@ -70,6 +70,7 @@ const UnidadesCursos = ({ activeCourse }) => {
           justifyContent: "flex-start",
         }}
       >
+        <Breadcrumbs />
         <Typography
           variant="h4"
           style={{
