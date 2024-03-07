@@ -8,12 +8,13 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import LinkIcon from "@mui/icons-material/Link";
 import Breadcrumbs from "./Breadcrumbs";
 import { ContenidoXCurso } from "../firebase.js";
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 
 const UnidadesCursos = ({ activeCourse }) => {
   const { id, title } = activeCourse || {};
   const [contenido, setContenido] = useState([]);
   const [openUnidad, setOpenUnidad] = useState(true);
-  console.log(id, title);
+
   useEffect(() => {
     const fetchDataFromFirebase = async () => {
       try {
@@ -48,7 +49,7 @@ const UnidadesCursos = ({ activeCourse }) => {
       arbol[unidad.unidad][unidad.tipo] = [];
     }
 
-    arbol[unidad.unidad][unidad.tipo].push(unidad.titulo);
+    arbol[unidad.unidad][unidad.tipo].push(unidad);
 
     return arbol;
   }, {});
@@ -59,13 +60,16 @@ const UnidadesCursos = ({ activeCourse }) => {
     );
   };
 
+  const handleMaterialClick = (datourl) => {
+    window.open(datourl, "_blank");
+  };
+
   return (
     <div className="container" style={{}}>
       <div
         className="contenido-container"
         style={{
           display: "flex",
-          /*           height: "100vh", */
           flexDirection: "column",
           justifyContent: "flex-start",
         }}
@@ -86,16 +90,11 @@ const UnidadesCursos = ({ activeCourse }) => {
         </Typography>
         <div style={{ color: "black", background: "#5d809d" }}>
           {Object.entries(arbolUnidadesTipos).map(([numero, tipos]) => (
-            <Accordion
-              key={numero}
-              /* expanded={openUnidad === numero}
-            onChange={() => handleToggleUnidad(numero)} */
-              defaultExpanded
-            >
+            <Accordion key={numero} defaultExpanded>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 style={{
-                  background: "#5d809d",
+                  background: "var(--color6)",
                   color: "white",
                   fontSize: "1.5rem",
                   marginBottom: "5px",
@@ -113,38 +112,45 @@ const UnidadesCursos = ({ activeCourse }) => {
                   borderRadius: "5px",
                 }}
               >
-                {Object.entries(tipos).map(([tipo, titulos]) => (
+                {Object.entries(tipos).map(([tipo, detalles]) => (
                   <div key={tipo} style={{ marginBottom: "10px" }}>
-                    <Typography variant="h6" className="encabezado-tipo">
-                      {tipo}
-                    </Typography>
-                    {titulos.map((titulo) => (
-                      <div key={titulo} className="titulo-contenido">
+                    <div className="d-flex align-center">
+                      {tipo === "pdf" && (
+                        <PictureAsPdfIcon
+                          style={{
+                            width: "1.5em",
+                            height: "1.5em",
+                            marginRight: "5px",
+                          }}
+                        />
+                      )}
+                      {tipo === "link" && (
+                        <LinkIcon
+                          style={{
+                            width: "1.5em",
+                            height: "1.5em",
+                            marginRight: "5px",
+                          }}
+                        />
+                      )}
+                      <Typography variant="h6" className="encabezado-tipo">
+                        {tipo}
+                      </Typography>
+                    </div>
+                    {detalles.map((detalle) => (
+                      <div
+                        key={detalle.id}
+                        className="titulo-contenido"
+                        onClick={() => handleMaterialClick(detalle.datourl)}
+                        style={{ cursor: "pointer" }}
+                      >
                         <div
                           className="d-flex flex-row align-items-center"
                           style={{ width: "75%" }}
                         >
-                          {tipo === "pdf" && (
-                            <PictureAsPdfIcon
-                              style={{
-                                width: "1.5em",
-                                height: "1.5em",
-                                marginRight: "5px",
-                              }}
-                            />
-                          )}
-                          {tipo === "link" && (
-                            <LinkIcon
-                              style={{
-                                width: "1.5em",
-                                height: "1.5em",
-                                marginRight: "5px",
-                              }}
-                            />
-                          )}
-                          <Typography>{titulo}</Typography>
+                          <DownloadForOfflineIcon />
+                          <Typography>{detalle.titulo}</Typography>
                         </div>
-                        {/* Puedes agregar más detalles según sea necesario */}
                       </div>
                     ))}
                   </div>

@@ -21,7 +21,7 @@ export default function MiPerfil() {
   return (
     <div className="container ">
       <div
-        className="  contenido-container d-flex justify-content-start flex-column"
+        className=" align-items-center contenido-container d-flex justify-content-start flex-column"
         style={{}}
       >
         <Breadcrumbs />

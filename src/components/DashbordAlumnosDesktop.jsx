@@ -98,7 +98,7 @@ const FeatureGrid = () => {
             className="col-9"
             style={{
               display: "flex",
-              alignItems: "center",
+              /* alignItems: "center", */
             }}
           >
             {activeFeature ? activeFeature.content : null}

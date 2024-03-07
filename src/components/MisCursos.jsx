@@ -22,58 +22,65 @@ const MisCursos = () => {
       {activeCourse ? (
         <UnidadesCursos activeCourse={activeCourse} />
       ) : (
-        <div
-          className="container d-flex flex-column"
-          style={{
-            height: "100vh",
-            justifyContent: "center",
-          }}
-        >
-          <Breadcrumbs />
+        <div className="container ">
           <div
-            className=" container-miscursos"
-            style={{ color: "black", paddingTop: "" }}
+            className=" align-items-center contenido-container d-flex justify-content-start flex-column"
+            style={{}}
           >
-            {cursos.map((curso, index) => (
+            <Breadcrumbs />
+            <div
+              className="container d-flex flex-column"
+              style={{
+                height: "100vh",
+                /* justifyContent: "center", */
+              }}
+            >
               <div
-                key={index}
-                className="miscursos-item"
-                onClick={() =>
-                  handleCursoClick(curso.cursoid, curso.detalles.title)
-                }
+                className=" container-miscursos"
+                style={{ color: "black", paddingTop: "" }}
               >
-                <div
-                  className="blur-background"
-                  style={{
-                    backgroundImage: `url(${curso.detalles.imageUrl})`,
-                  }}
-                >
-                  <div className="content d-flex">
-                    <span
-                      style={{
-                        width: "70%",
-                        fontSize: "1rem",
-                        textAlign: "start",
-                        color: "#606468",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {curso.detalles.title}
-                    </span>
+                {cursos.map((curso, index) => (
+                  <div
+                    key={index}
+                    className="miscursos-item"
+                    onClick={() =>
+                      handleCursoClick(curso.cursoid, curso.detalles.title)
+                    }
+                  >
                     <div
-                      className="info-micurso"
+                      className="blur-background"
                       style={{
-                        width: "30%",
-                        textAlign: "end",
-                        fontSize: "10px",
+                        backgroundImage: `url(${curso.detalles.imageUrl})`,
                       }}
                     >
-                      <span>25 contenidos sin ver</span>
+                      <div className="content d-flex">
+                        <span
+                          style={{
+                            width: "70%",
+                            fontSize: "1rem",
+                            textAlign: "start",
+                            color: "#606468",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {curso.detalles.title}
+                        </span>
+                        <div
+                          className="info-micurso"
+                          style={{
+                            width: "30%",
+                            textAlign: "end",
+                            fontSize: "10px",
+                          }}
+                        >
+                          <span>25 contenidos sin ver</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       )}
