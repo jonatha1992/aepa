@@ -27,7 +27,7 @@ export function AutoProvider({ children }) {
       email,
       password
     );
-    console.log(credential);
+
     await sendEmailVerification(credential.user);
     return credential;
   };
@@ -53,7 +53,6 @@ export function AutoProvider({ children }) {
   useEffect(() => {
     onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser && currentUser.emailVerified) {
-        console.log("current", currentUser);
         const userResult = await getUser(currentUser.uid);
         setUser(userResult);
       }
