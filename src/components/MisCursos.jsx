@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UnidadesCursos from "./UnidadesCursos";
 import Breadcrumbs from "./Breadcrumbs";
+import { Link } from "react-router-dom";
 
 const MisCursos = () => {
   const { cursos, activeCourse, setActiveCourse } = useContext(AlumnosContext);
@@ -14,15 +15,22 @@ const MisCursos = () => {
 
   useEffect(() => {
     setActiveCourse(null);
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="container">
+    <div className="contenido-container">
       {cursos.length === 0 ? (
         <div>
           <Breadcrumbs />
           <div className="no-cursos-message">
-            <p>No estás inscrito en ningún curso.</p>
+            <p>No estás inscrito en ningún curso. inscribite a uno!</p>
+            <Link to="/#seccion3" className="text-primary hover-primary ">
+              Ver cursos
+            </Link>
           </div>
         </div>
       ) : (

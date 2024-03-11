@@ -90,7 +90,7 @@ const Login = () => {
         setLoading(false);
       }, 2000);
     }
-  }, [navigate]);
+  }, [navigate, User]);
 
   return (
     <>

@@ -8,9 +8,7 @@ import { FiMail } from "react-icons/fi"; //
 
 const Eventos = () => (
   <div className="evento">
-    <div className="container">
-      <EventosSlider />
-    </div>
+    <EventosSlider />
   </div>
 );
 
@@ -96,7 +94,7 @@ const CardEvento = ({ titulo, fecha, imagen, descripcion, fondoStyle }) => (
 const EventosSlider = () => {
   const settings = {
     dots: false,
-    autoplay: false,
+    autoplay: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -170,7 +168,7 @@ const EventosSlider = () => {
             ))}
           </Slider>
         </div>
-        <div className="col-12 col-md-6 pb-5">
+        <div className="col-12 col-md-6 ">
           <div className="evento-encabezado">
             <h1 className="cursos-titulo mt-0">ANUNCIOS</h1>
           </div>

@@ -1,7 +1,10 @@
 .evento {
-    min-height: 100vh;
-    /* display: inline-block; */
-    /* margin-bottom: 2rem; */
+    display: flex;
+        min-height: 100vh;
+        /* display: inline-block; */
+        /* margin-bottom: 2rem; */
+        flex-direction: column;
+        justify-content: center;
 }
 
 .slick-prev {
