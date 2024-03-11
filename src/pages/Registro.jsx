@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form, useFormikContext } from "formik";
 import * as Yup from "yup";
 import { Button, Stepper, Step, StepLabel, Box } from "@mui/material";
-import { FormikTextField, FormikSelectField, FormikDatePicker, FormikRadioButton } from "../components/Controles";
+import {
+  FormikTextField,
+  FormikSelectField,
+  FormikDatePicker,
+  FormikRadioButton,
+} from "../components/Controles";
 import { useAuth } from "../context/AuthContext";
 import { agregarUser } from "../controllers/controllerUser.js";
 import { ToastContainer, toast } from "react-toastify";
@@ -21,7 +26,9 @@ const validationSchemas = {
   0: Yup.object().shape({
     nombre_completo: Yup.string().required("El nombre es obligatorio"),
     DNI: Yup.string().required("El número es obligatorio"),
-    fecha_nacimiento: Yup.date().required("La fecha de nacimiento es obligatoria").typeError("Debe ser una fecha"),
+    fecha_nacimiento: Yup.date()
+      .required("La fecha de nacimiento es obligatoria")
+      .typeError("Debe ser una fecha"),
     pais: Yup.string().required("El país es obligatorio"),
     provincia: Yup.string().required("La provincia o estado es obligatorio"),
   }),
@@ -42,7 +49,9 @@ const validationSchemas = {
     puesto: Yup.string().required("El puesto es obligatorio"),
   }),
   4: Yup.object().shape({
-    email: Yup.string().email("Correo electrónico no válido").required("El correo electrónico es obligatorio"),
+    email: Yup.string()
+      .email("Correo electrónico no válido")
+      .required("El correo electrónico es obligatorio"),
     password: Yup.string()
       .required("La contraseña es obligatoria")
       .min(6, "La contraseña debe tener al menos 6 caracteres"),
@@ -88,7 +97,10 @@ const Registro = () => {
         }
 
         const result = await signup(values.email, values.password);
-        const newUser = { ...values, fecha_nacimiento: values.fecha_nacimiento.toDate() };
+        const newUser = {
+          ...values,
+          fecha_nacimiento: values.fecha_nacimiento.toDate(),
+        };
         newUser.uid = result.user.uid;
         console.log(newUser);
         await agregarUser(newUser);
@@ -101,8 +113,14 @@ const Registro = () => {
         actions.setSubmitting(false);
       }
     } catch (error) {
-      toast.error("Hubo un error al enviar el formulario" + error.message);
-      console.log(error);
+      if (error.message == "Firebase: Error (auth/email-already-in-use).") {
+        toast.error(
+          "Hubo un error al enviar el formulario" +
+            "ya existe un usuario con el correo ingresado."
+        );
+      } else {
+        toast.error("Hubo un error al enviar el formulario" + error.message);
+      }
     }
   };
 
@@ -198,10 +216,25 @@ const DatosPersonales = () => {
   }, [values.pais, setFieldValue]);
   return (
     <Box className="mt-4 col-12 col-md-4 d-flex flex-wrap ">
-      <FormikTextField className="m-2  col-12" name="nombre_completo" label="Nombre Completo" />
+      <FormikTextField
+        className="m-2  col-12"
+        name="nombre_completo"
+        label="Nombre Completo"
+      />
       <FormikTextField className="m-2  col-12" name="DNI" label="DNI" />
-      <FormikDatePicker className="m-2  col-12" name="fecha_nacimiento" label="Fecha de Nacimiento" type="date" />
-      <FormikSelectField className="m-2  col-12" name="pais" label="Pais" type="select" options={countries} />
+      <FormikDatePicker
+        className="m-2  col-12"
+        name="fecha_nacimiento"
+        label="Fecha de Nacimiento"
+        type="date"
+      />
+      <FormikSelectField
+        className="m-2  col-12"
+        name="pais"
+        label="Pais"
+        type="select"
+        options={countries}
+      />
       <FormikSelectField
         className="m-2  col-12"
         name="provincia"
@@ -216,13 +249,41 @@ const DatosPersonales = () => {
 const DatosContacto = () => {
   return (
     <Box className="mt-5 col-12 col-md-4  d-flex flex-wrap justify-content-between">
-      <FormikTextField className="m-2 col-md-7 col-12" name="localidad" label="Localidad" />
-      <FormikTextField className="m-2 col-md-3 col-12" name="codigo_postal" label="CP" />
-      <FormikTextField className="m-2 col-md-7 col-12" name="calle" label="Calle" />
-      <FormikTextField className="m-2 col-md-3 col-4" name="numero" label="Número" />
-      <FormikTextField className="mt-2 col-md-3 col-3" name="depto" label="Depto*" />
-      <FormikTextField className="mt-2 col-md-3 col-3" name="piso" label="Piso*" />
-      <FormikTextField className="mt-2 col-md-5 col-12" name="telefono" label="Télefono" />
+      <FormikTextField
+        className="m-2 col-md-7 col-12"
+        name="localidad"
+        label="Localidad"
+      />
+      <FormikTextField
+        className="m-2 col-md-3 col-12"
+        name="codigo_postal"
+        label="CP"
+      />
+      <FormikTextField
+        className="m-2 col-md-7 col-12"
+        name="calle"
+        label="Calle"
+      />
+      <FormikTextField
+        className="m-2 col-md-3 col-4"
+        name="numero"
+        label="Número"
+      />
+      <FormikTextField
+        className="mt-2 col-md-3 col-3"
+        name="depto"
+        label="Depto*"
+      />
+      <FormikTextField
+        className="mt-2 col-md-3 col-3"
+        name="piso"
+        label="Piso*"
+      />
+      <FormikTextField
+        className="mt-2 col-md-5 col-12"
+        name="telefono"
+        label="Télefono"
+      />
     </Box>
   );
 };
@@ -238,14 +299,24 @@ const DatosNivelDeFormacion = () => {
         value="Estudiante de Enfermeria"
         label="Estudiante de Enfermeria"
       />
-      <FormikRadioButton className="m-2 " name="nivel" value="Enfermero" label="Enfermero/a" />
+      <FormikRadioButton
+        className="m-2 "
+        name="nivel"
+        value="Enfermero"
+        label="Enfermero/a"
+      />
       <FormikRadioButton
         className="m-2 "
         name="nivel"
         value="Licenciado en Enfermeria"
         label="Licenciado en Enfermeria"
       />
-      <FormikRadioButton className="m-2 " name="nivel" value="Magister en Enfermeria" label="Magister en Enfermeria" />
+      <FormikRadioButton
+        className="m-2 "
+        name="nivel"
+        value="Magister en Enfermeria"
+        label="Magister en Enfermeria"
+      />
       <FormikRadioButton
         className="m-2 "
         name="nivel"
@@ -253,8 +324,19 @@ const DatosNivelDeFormacion = () => {
         label="Doctorado en Enfermeria"
       />
       <div className="d-flex flex-wrap">
-        <FormikRadioButton className="m-2 " value="Otro" name="nivel" label="Otro" />
-        {values.nivel === "Otro" && <FormikTextField className="" name="nivel_otro" label="Especifique Otro" />}
+        <FormikRadioButton
+          className="m-2 "
+          value="Otro"
+          name="nivel"
+          label="Otro"
+        />
+        {values.nivel === "Otro" && (
+          <FormikTextField
+            className=""
+            name="nivel_otro"
+            label="Especifique Otro"
+          />
+        )}
       </div>
     </Box>
   );
@@ -263,8 +345,16 @@ const DatosNivelDeFormacion = () => {
 const DatosAntecedentes = () => {
   return (
     <Box className="mt-4 col-12 col-md-4 d-flex flex-wrap ">
-      <FormikTextField className="m-2  col-12" name="institucion" label="Institución perteneciente" />
-      <FormikTextField className="m-2  col-12" name="puesto" label="Puesto que ocupa en la institución" />
+      <FormikTextField
+        className="m-2  col-12"
+        name="institucion"
+        label="Institución perteneciente"
+      />
+      <FormikTextField
+        className="m-2  col-12"
+        name="puesto"
+        label="Puesto que ocupa en la institución"
+      />
     </Box>
   );
 };
@@ -272,9 +362,24 @@ const DatosAntecedentes = () => {
 const DatosRegistro = () => {
   return (
     <Box className="mt-4 col-12 col-md-4 d-flex flex-wrap ">
-      <FormikTextField className="m-2  col-12" name="email" label="Email" type="email" />
-      <FormikTextField className="m-2  col-12" type="password" name="password" label="Password" />
-      <FormikTextField className="m-2  col-12" type="password" name="password2" label="Repetir password" />
+      <FormikTextField
+        className="m-2  col-12"
+        name="email"
+        label="Email"
+        type="email"
+      />
+      <FormikTextField
+        className="m-2  col-12"
+        type="password"
+        name="password"
+        label="Password"
+      />
+      <FormikTextField
+        className="m-2  col-12"
+        type="password"
+        name="password2"
+        label="Repetir password"
+      />
     </Box>
   );
 };

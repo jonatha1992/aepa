@@ -50,6 +50,7 @@ function App() {
             element={<UnidadesCursos />}
           />
           <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
+
           <Route path="/perfil" element={<MiPerfil />} />
           <Route path="/miscursos" element={<MisCursos />} />
         </Route>

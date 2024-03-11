@@ -52,8 +52,11 @@ export function AutoProvider({ children }) {
 
   useEffect(() => {
     onAuthStateChanged(auth, async (currentUser) => {
-      const userResult = await getUser(currentUser.uid);
-      setUser(userResult);
+      if (currentUser && currentUser.emailVerified) {
+        console.log("current", currentUser);
+        const userResult = await getUser(currentUser.uid);
+        setUser(userResult);
+      }
     });
   }, []);
 

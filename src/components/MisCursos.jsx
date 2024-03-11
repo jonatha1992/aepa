@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { AlumnosContext } from "../context/AlumnoContext";
 import { useAuth } from "../context/AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
-import UnidadesCursos from "./UnidadesCursos"; // Importa el componente que muestra las unidades
+import UnidadesCursos from "./UnidadesCursos";
 import Breadcrumbs from "./Breadcrumbs";
 
 const MisCursos = () => {
@@ -13,30 +13,30 @@ const MisCursos = () => {
   };
 
   useEffect(() => {
-    // Esto se ejecuta solo en el montaje inicial
     setActiveCourse(null);
-  }, []); // El array de dependencias está vacío, por lo que solo se ejecutará una vez al montar el componente
+  }, []);
 
   return (
-    <>
-      {activeCourse ? (
-        <UnidadesCursos activeCourse={activeCourse} />
+    <div className="container">
+      {cursos.length === 0 ? (
+        <div>
+          <Breadcrumbs />
+          <div className="no-cursos-message">
+            <p>No estás inscrito en ningún curso.</p>
+          </div>
+        </div>
       ) : (
-        <div className="container ">
-          <div
-            className=" align-items-center contenido-container d-flex justify-content-start flex-column"
-            style={{}}
-          >
-            <Breadcrumbs />
+        <div className="contenido-container d-flex justify-content-start flex-column">
+          <Breadcrumbs />
+          {activeCourse ? (
+            <UnidadesCursos activeCourse={activeCourse} />
+          ) : (
             <div
               className="container d-flex flex-column"
-              style={{
-                height: "100vh",
-                /* justifyContent: "center", */
-              }}
+              style={{ height: "100vh" }}
             >
               <div
-                className=" container-miscursos"
+                className="container-miscursos"
                 style={{ color: "black", paddingTop: "" }}
               >
                 {cursos.map((curso, index) => (
@@ -81,10 +81,10 @@ const MisCursos = () => {
                 ))}
               </div>
             </div>
-          </div>
+          )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

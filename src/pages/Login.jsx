@@ -54,6 +54,7 @@ const Login = () => {
       // Manejar inicio de sesión
       try {
         const userCredential = await login(values.email, values.password);
+        console.log(userCredential.user.emailVerified);
         if (userCredential.user.emailVerified) {
           setUser(await getUser(userCredential.user.uid));
           const from = new URLSearchParams(location.search).get("from");
@@ -67,6 +68,8 @@ const Login = () => {
           toast.error(
             "El correo electrónico no está verificado. Por favor, verifíquelo antes de iniciar sesión."
           );
+          setSubmitting(false);
+          return;
         }
       } catch (error) {
         toast.error(error.message);
@@ -87,7 +90,7 @@ const Login = () => {
         setLoading(false);
       }, 2000);
     }
-  }, [User, navigate]);
+  }, [navigate]);
 
   return (
     <>
