@@ -18,10 +18,18 @@
     display: flex;
     padding: 1.5rem;
     border-radius: 1rem;
-    height: 60vh;
+    height: 65vh;
     background: linear-gradient(to right, #008080, #00ced1);
     color: white;
     flex-direction: column;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .card-evento-anuncio {
+        height: 90vh;
+        width: 100%;
+    }
 }
 .card-evento-titulo {
     border-radius: 0.5rem;
@@ -31,20 +39,20 @@
     font-size: 28px;
     font-family: georia;
     /* margin-top: 2rem; */
-    padding-x: 0rem;
     padding-left: 1rem;
     padding-right: 1rem;
     margin-bottom: 0rem;
 }
 .card-evento-descripcion {
     height: 100%;
-        display: flex;
-        padding: 1rem;
-        color: white;
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-        font-size: 16px;
-        text-align: start;
-        align-items: center;
+    display: flex;
+    padding: 1rem;
+    color: white;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    align-items: center;
 }
 .card-event-image {
 }
