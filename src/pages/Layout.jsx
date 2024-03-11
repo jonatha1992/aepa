@@ -18,8 +18,7 @@ const Layout = ({ children }) => {
       "/homenew",
       "/login",
       "/cursos",
-    ].includes(location.pathname) &&
-    !location.pathname.startsWith("/unidades/");
+    ].includes(location.pathname) && !location.pathname.startsWith("/unidades");
 
   return (
     <>

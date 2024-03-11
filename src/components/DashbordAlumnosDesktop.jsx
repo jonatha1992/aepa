@@ -95,7 +95,7 @@ const FeatureGrid = () => {
             </List>
           </div>
           <div
-            className="col-9"
+            className="col-9 flex-column"
             style={{
               display: "flex",
               /* alignItems: "center", */
