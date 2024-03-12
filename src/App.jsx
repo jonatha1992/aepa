@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import {
   Talleres,
   Socios,
-  Dashbord,
   AltaContenido,
   Login,
   Registro,
@@ -38,7 +37,6 @@ function App() {
         <Route index element={<Home2 />} />
         <Route path="/login" element={<Login />} />
         <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
-        <Route path="/Dashbord" element={<Dashbord />} />
 
         <Route path="/registro" element={<Registro />} />
 

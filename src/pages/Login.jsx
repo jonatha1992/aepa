@@ -72,7 +72,13 @@ const Login = () => {
           return;
         }
       } catch (error) {
-        toast.error(error.message);
+        if (
+          error.message == "Firebase: Error (auth/invalid-login-credentials)."
+        ) {
+          toast.error(
+            "Los datos no corresponden a un usuario registrado, por favor registrese."
+          );
+        }
       }
     }
     setSubmitting(false);

@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, useFormikContext } from "formik";
 import * as Yup from "yup";
-import { Button, Stepper, Step, StepLabel, Box } from "@mui/material";
+import {
+  Button,
+  Stepper,
+  Step,
+  StepLabel,
+  Box,
+  Backdrop,
+  CircularProgress,
+} from "@mui/material";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material";
+
 import {
   FormikTextField,
   FormikSelectField,
@@ -65,6 +80,8 @@ const validationSchemas = {
 
 const Registro = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [successModalOpen, setSuccessModalOpen] = useState(false); // Nuevo estado para el modal
   const isLastStep = activeStep === steps.length - 1;
   const navigate = useNavigate();
   const { signup } = useAuth();
@@ -89,8 +106,15 @@ const Registro = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const handleModalClose = () => {
+    setSuccessModalOpen(false);
+    navigate("/login");
+  };
+
   const handleSubmit = async (values, actions) => {
     try {
+      setLoading(true);
+
       if (isLastStep) {
         if (values.nivel === "Otro") {
           values.nivel = values.nivel_otro;
@@ -104,16 +128,17 @@ const Registro = () => {
         newUser.uid = result.user.uid;
         console.log(newUser);
         await agregarUser(newUser);
-        toast.success("Formulario enviado con éxito!", {
-          onClose: () => navigate("/login"),
-        });
+
+        // Mostrar el modal de éxito
+        setSuccessModalOpen(true);
+
         actions.resetForm();
       } else {
         handleNext(values, actions);
         actions.setSubmitting(false);
       }
     } catch (error) {
-      if (error.message == "Firebase: Error (auth/email-already-in-use).") {
+      if (error.message === "Firebase: Error (auth/email-already-in-use).") {
         toast.error(
           "Hubo un error al enviar el formulario" +
             "ya existe un usuario con el correo ingresado."
@@ -121,6 +146,8 @@ const Registro = () => {
       } else {
         toast.error("Hubo un error al enviar el formulario" + error.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -128,6 +155,26 @@ const Registro = () => {
 
   return (
     <div className="background-registro ">
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+      <Dialog open={successModalOpen} onClose={handleModalClose}>
+        <DialogTitle>Registro Exitoso</DialogTitle>
+        <DialogContent>
+          <p>
+            Tu usuario se generó con éxito. Te enviamos un correo de
+            verificación para confirmar tu cuenta.
+          </p>
+        </DialogContent>
+        <DialogActions>
+          <Link onClick={handleModalClose} variant="contained" color="primary">
+            OK
+          </Link>
+        </DialogActions>
+      </Dialog>
       <ToastContainer autoClose={2000} />
       <div className="container ">
         <h1 className="text-center h2 mb-5 mt-5">Datos de Registro</h1>
