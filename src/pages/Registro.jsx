@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Formik, Form, useFormikContext } from "formik";
 import * as Yup from "yup";
 import {
@@ -170,9 +170,13 @@ const Registro = () => {
           </p>
         </DialogContent>
         <DialogActions>
-          <Link onClick={handleModalClose} variant="contained" color="primary">
+          <Button
+            onClick={handleModalClose}
+            variant="contained"
+            color="primary"
+          >
             OK
-          </Link>
+          </Button>
         </DialogActions>
       </Dialog>
       <ToastContainer autoClose={2000} />
