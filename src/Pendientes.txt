@@ -1,4 +1,0 @@
-1.Mostrar cursos . realizado
-2.Realizar controler de los cursos  realizado
-3.Colocar boton de inscripcion y logica sobre como inscribirse 
-4.realizar tabla de inscripciones 

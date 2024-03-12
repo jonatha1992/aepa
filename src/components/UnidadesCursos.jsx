@@ -67,14 +67,13 @@ const UnidadesCursos = ({ activeCourse }) => {
   return (
     <div className="container" style={{}}>
       <div
-        className="contenido-container"
+        className=""
         style={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
         }}
       >
-        <Breadcrumbs />
         <Typography
           variant="h4"
           style={{

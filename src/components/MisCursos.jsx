@@ -23,9 +23,9 @@ const MisCursos = () => {
 
   return (
     <div className="contenido-container">
+      <Breadcrumbs />
       {cursos.length === 0 ? (
         <div>
-          <Breadcrumbs />
           <div className="no-cursos-message">
             <p>No estás inscrito en ningún curso. inscribite a uno!</p>
             <Link to="/#seccion3" className="text-primary hover-primary ">
@@ -34,8 +34,7 @@ const MisCursos = () => {
           </div>
         </div>
       ) : (
-        <div className="contenido-container d-flex justify-content-start flex-column">
-          <Breadcrumbs />
+        <div className=" d-flex justify-content-start flex-column">
           {activeCourse ? (
             <UnidadesCursos activeCourse={activeCourse} />
           ) : (

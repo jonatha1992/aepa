@@ -93,6 +93,7 @@ const CardEvento = ({ titulo, fecha, imagen, descripcion, fondoStyle }) => (
 
 const EventosSlider = () => {
   const settings = {
+    arrows: false,
     dots: false,
     autoplay: true,
     infinite: true,
@@ -147,10 +148,7 @@ const EventosSlider = () => {
 
   return (
     <div className="container ">
-      <div
-        className="row gy-5"
-        style={{ flexWrap: "wrap", "--bs-gutter-x": "5rem" }}
-      >
+      <div className="row gy-5" style={{ flexWrap: "wrap" }}>
         <div className="col-12 col-md-6">
           <div className="evento-encabezado">
             <h1 className="cursos-titulo mt-0">EVENTOS</h1>
