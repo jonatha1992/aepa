@@ -317,6 +317,7 @@ background-image: url(/src/assets/fondo_panta2.jpg);
     .navbarstyle ul.menu-open {
         display: flex;
         top: 120px;
+        background-color: #1eacb6;
     }
 
     .navbarstyle li {
@@ -324,6 +325,7 @@ background-image: url(/src/assets/fondo_panta2.jpg);
         padding: 15px;
         width: 100%;
         box-sizing: border-box;
+        
     }
 
     .menu-icon {
