@@ -57,9 +57,10 @@ function Home2() {
               animate="visible"
               transition={{ duration: 0.5, delay: 0.25 }}
             >
-              <h2 className="titulo-hero">Bievenidos a AEPA</h2>
+              <h2 className="titulo-hero">Bievenidos a AESFRON</h2>
               <h2
                 style={{
+                  backgroundColor: "##1eacb6cf",
                   fontWeight: "bold",
                   textTransform: "uppercase",
                   color: "#2B2C2B",
@@ -72,6 +73,7 @@ function Home2() {
               <p
                 className="p-mobile"
                 style={{
+                  backgroundColor: "#c4d9f4bf",
                   fontWeight: "bold",
                   marginTop: "15px",
                   textTransform: "uppercase",
