@@ -9,7 +9,6 @@ import { useAuth } from "../src/context/AuthContext";
 import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
 import MiPerfil from "./components/MiPerfil.jsx";
-import Inscripcion from "./pages/Inscripcion.jsx";
 import AltaContenido from "./pages/AltaContenido.jsx";
 import Login from "./pages/Login.jsx";
 import Registro from "./pages/Registro.jsx";
