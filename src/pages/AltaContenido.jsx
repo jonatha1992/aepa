@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function AltaContenido() {
-  return <div>AltaContenido</div>;
+    return <div>AltaContenido</div>;
 }
