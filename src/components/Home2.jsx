@@ -57,7 +57,7 @@ function Home2() {
                             animate="visible"
                             transition={{ duration: 0.5, delay: 0.25 }}
                         >
-                            <h2 className="titulo-hero">Bievenidos a AESFRONv2</h2>
+                            <h2 className="titulo-hero">Bievenidos a AESFRONv3</h2>
                             <h2
                                 style={{
                                     backgroundColor: "##1eacb6cf",
