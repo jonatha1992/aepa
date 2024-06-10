@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 on:
     push:
         branches:
-            - qa # Despliega solo cuando hay cambios en la rama 'main'
+            - product # Despliega solo cuando hay cambios en la rama 'main'
 
 jobs:
     build_and_deploy:
