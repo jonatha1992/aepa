@@ -1,6 +1,6 @@
 import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
-import { Talleres, Socios, AltaContenido, Login, Registro, DashbordAlumnosLayout, Layout } from "./pages";
+import { AltaContenido, Login, Registro, DashbordAlumnosLayout, Layout } from "./pages";
 
 import MisCursos from "./components/MisCursos";
 import "bootstrap/dist/css/bootstrap.min.css";
