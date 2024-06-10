@@ -8,9 +8,15 @@ import ProtectedRoute from "../src/components/ProtectedRoute.jsx";
 import { useAuth } from "../src/context/AuthContext";
 import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
-import Inscripcion from "./pages/Inscripcion.jsx";
 import MiPerfil from "./components/MiPerfil.jsx";
-import { AltaContenido, Login, Registro, DashbordAlumnosLayout, Layout } from "./pages";
+import Inscripcion from "./pages/Inscripcion.jsx";
+import AltaContenido from "./pages/AltaContenido.jsx";
+import Login from "./pages/Login.jsx";
+import Registro from "./pages/Registro.jsx";
+import Inscripcion from "./pages/Inscripcion.jsx";
+import DashbordAlumnosLayout from "./pages/DashbordAlumnosLayout.jsx";
+import Layout from "./pages/Layout.jsx";
+// import { AltaContenido, Login, Registro, DashbordAlumnosLayout, Layout } from "./pages";
 
 function App() {
     const { logout, User, setuUser } = useAuth();
