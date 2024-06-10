@@ -1,6 +1,5 @@
 import "./css/App.css";
 import { Route, Routes } from "react-router-dom";
-import { AltaContenido, Login, Registro, DashbordAlumnosLayout, Layout } from "./pages";
 
 import MisCursos from "./components/MisCursos";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,6 +10,7 @@ import UnidadesCursos from "./components/UnidadesCursos";
 import Home2 from "./components/Home2";
 import Inscripcion from "./pages/Inscripcion.jsx";
 import MiPerfil from "./components/MiPerfil.jsx";
+import { AltaContenido, Login, Registro, DashbordAlumnosLayout, Layout } from "./pages";
 
 function App() {
     const { logout, User, setuUser } = useAuth();
