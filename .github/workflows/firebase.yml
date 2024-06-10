@@ -24,6 +24,9 @@ jobs:
             - name: List files in src
               run: ls -R src
 
+            - name: List files in src/pages
+              run: ls -R src/pages
+
             - name: Build project
               run: npm run build # Este es el script de construcción que se ejecutará antes del despliegue
 
