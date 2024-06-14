@@ -4,7 +4,7 @@ import "../css/home2.css";
 import { Link } from "react-router-dom";
 import Nosotros from "../components/Nosotros";
 import { motion, useInView, useAnimation } from "framer-motion";
-
+import videoSource from "../assets/video-aepa.mp4";
 import CursosSeccion from "./CursosSeccion";
 import Eventos from "../components/Eventos";
 
@@ -57,8 +57,8 @@ function Home2() {
               animate="visible"
               transition={{ duration: 0.5, delay: 0.25 }}
             >
-              <h2 className="titulo-hero">Bievenidos a AESFRONv4</h2>
-              <h2
+              <h2 className="titulo-hero">Bievenidos a AESFRON</h2>
+              {/*  <h2
                 style={{
                   backgroundColor: "##1eacb6cf",
                   fontWeight: "bold",
@@ -69,7 +69,17 @@ function Home2() {
                 }}
               >
                 eleva tu carrera, <br></br> transforma la atención médica
-              </h2>
+              </h2> */}
+
+              <div className="video-container">
+                <video
+                  className="video-responsive-home"
+                  src={videoSource}
+                  autoPlay
+                  loop
+                  muted
+                ></video>
+              </div>
               <p
                 className="p-mobile"
                 style={{
@@ -79,7 +89,8 @@ function Home2() {
                   textTransform: "uppercase",
                 }}
               >
-                Tu plataforma integral de formación para el personal de salud.
+                PRIORIZAMOS TU DESARROLLO PROFESIONAL PARA TRANSFORMAR LA
+                ATENCIÓN DE LOS CUIDADOS ENFERMEROS.
               </p>
             </motion.div>
             <div className="col-md-3"></div>

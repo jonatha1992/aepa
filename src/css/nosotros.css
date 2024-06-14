@@ -39,17 +39,21 @@
 }
 
 .parrafo-nosotros {
-    color: #333;
-    font-size: 1.1rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
     line-height: 1.6;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    /* margin-bottom: 2rem;
-    width: 80%; */
-    text-align: justify;
-    margin-left: auto; /* Centra el párrafo horizontalmente */
-    margin-right: auto;
+    color: #333;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.parrafo-nosotros .highlight {
     font-weight: bold;
-    margin-top: 2rem;
+    color: #2c3e50;
+    font-size: 18px;
+    font-style: italic;
 }
 
 .imagen-organizacion {

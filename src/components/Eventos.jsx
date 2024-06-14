@@ -5,6 +5,7 @@ import imagen1 from "../assets/neoevent.jpg";
 import imagen2 from "../assets/enfermera_servicios.jpg";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa"; // Importng all icons for simplicity
 import { FiMail } from "react-icons/fi"; //
+import Anuncios from "./Anuncios";
 
 const Eventos = () => (
   <div className="evento">
@@ -131,18 +132,24 @@ const EventosSlider = () => {
 
   const eventos = [
     {
-      titulo: "III Encuentro de Neonatología",
-      fecha: "22 de marzo 10hs.",
-      imagen: imagen1,
-      descripcion:
-        "Unámonos para el tercer encuentro anual de Neonatología, donde los principales expertos discutirán los avances más recientes en el cuidado y tratamiento de neonatos. Este evento es una oportunidad imperdible para profesionales de la salud que buscan actualizarse sobre las prácticas más innovadoras en el campo.",
+      titulo: "I Congreso de Enfermería",
+      fecha: "14 de Junio Congreso Anual 2024",
+      imagen: imagen1, // Asegúrate de tener la importación correcta para imagen1
+      descripcion: `AESFRON anuncia el primer Congreso de Enfermeros sin Fronteras,
+    El evento tendrá lugar en la Universidad Nacional de Lanús, ubicada en 
+    Buenos Aires, Argentina. Bajo el lema "Unidos por la Salud, Compromisos 
+    sin Fronteras, convocando a profesionales destacados, expertos y líderes comprometidos en 
+    la formación de profesionales. No solo será un encuentro presencial, sino que 
+    también abriremos nuestras puertas al mundo mediante la transmisión en línea 
+    a través de streaming. Este enfoque innovador nos permitirá llegar a 
+    importantes ciudades de todo el mundo, uniendo esfuerzos y conocimientos 
+    para promover el cuidado de la salud a nivel global.`,
     },
     {
       titulo: "III Encuentro Multidisciplinario de Enfermería",
       fecha: "22 de Noviembre Jornada Anual",
-      imagen: imagen2,
-      descripcion:
-        "Unámonos para el tercer encuentro anual de Neonatología, donde los principales expertos discutirán los avances más recientes en el cuidado y tratamiento de neonatos. Este evento es una oportunidad imperdible para profesionales de la salud que buscan actualizarse sobre las prácticas más innovadoras en el campo.",
+      imagen: imagen2, // Asegúrate de tener la importación correcta para imagen2
+      descripcion: `Unámonos para el tercer encuentro anual de Neonatología, donde los principales expertos discutirán los avances más recientes en el cuidado y tratamiento de neonatos. Este evento es una oportunidad imperdible para profesionales de la salud que buscan actualizarse sobre las prácticas más innovadoras en el campo.`,
     },
   ];
 
@@ -170,18 +177,8 @@ const EventosSlider = () => {
           <div className="evento-encabezado">
             <h1 className="cursos-titulo mt-0">ANUNCIOS</h1>
           </div>
-          <Slider {...settings}>
-            {eventos.map((evento, index) => (
-              <CardEvento
-                key={index}
-                titulo={evento.titulo}
-                fecha={evento.fecha}
-                imagen={evento.imagen}
-                descripcion={evento.descripcion}
-                fondoStyle={divStyle} // Pasa el estilo de fondo aquí
-              />
-            ))}
-          </Slider>
+
+          <Anuncios />
         </div>
       </div>
     </div>

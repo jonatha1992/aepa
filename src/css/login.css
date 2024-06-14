@@ -23,6 +23,11 @@
     height: auto;
 }
 
+.video-responsive-home {
+    width: 90%;
+    height: auto;
+}
+
 /* Estilos para el contenedor del formulario */
 .form-container {
     width: 100%;
