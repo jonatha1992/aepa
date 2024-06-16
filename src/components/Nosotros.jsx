@@ -23,10 +23,10 @@ export default function Nosotros() {
                         como ética, respeto, integridad, solidaridad, empatía, empoderamiento y resiliencia.
                     </p>
                 </motion.div>
-                <div className=" row  col-12  col-lg-6 justify-content-center  ">
-                    <div className="video-container">
-                        <video className="video-responsive" src={videoSource} autoPlay loop muted></video>
-                    </div>
+                {/* <div className=" row  col-12  col-lg-6 justify-content-center  "> */}
+                <div className="video-container">
+                    <video className="video-responsive" src={videoSource} autoPlay loop muted></video>
+                    {/* </div> */}
                 </div>
             </div>
         </div>
