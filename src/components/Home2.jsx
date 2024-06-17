@@ -47,9 +47,9 @@ function Home2() {
         <>
             <section id="seccion1">
                 <div className="container-fluid background-1">
-                    <div className="container mobile">
+                    <div className="container mobile ">
                         <motion.div
-                            className="col-md-5 text-start"
+                            className="col-md-5 text-start d-flex flex-column flex-column justify-content-center  align-items-center"
                             variants={{
                                 hidden: { opacity: 0, y: 75 },
                                 visible: { opacity: 1, u: 0 },
@@ -74,7 +74,12 @@ function Home2() {
 
                             {/* <div className="video-container"> */}
                             {/* <video className="video-responsive-home" src={videoSource} autoPlay loop muted></video> */}
-                            <img className="video-responsive-home" src={imagen_logo}></img>
+                            {/* <img className="video-responsive-home" src={imagen_logo}></img> */}
+
+                            <div className="video-container">
+                                <video className="video-responsive" src={videoSource} autoPlay loop muted></video>
+                                {/* </div> */}
+                            </div>
                             {/* </div> */}
                             <p
                                 className="p-mobile"
