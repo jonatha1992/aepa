@@ -85,7 +85,7 @@ function Home2() {
                                 className="p-mobile"
                                 style={{
                                     color: "var(--color3)",
-                                    fontWeight: "bold",
+                                    fontWeight: "900",
                                     marginTop: "15px",
                                     textTransform: "uppercase",
                                     WebkitTextStroke: "1px #194571",

@@ -41,7 +41,7 @@
 
 .parrafo-nosotros {
     font-family: "Arial", sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.6;
     color: #333;
     padding: 20px;
@@ -49,11 +49,10 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .parrafo-nosotros .highlight {
     font-weight: bold;
-    color: #2c3e50;
-    font-size: 18px;
+    color: #061f38;
+    font-size: 20px;
     font-style: italic;
 }
 
@@ -61,4 +60,34 @@
     align-items: center;
     margin-top: 1rem;
     filter: drop-shadow(0 0 0.75rem #444141);
+    width: 200px;
+    border: 2px solid var(--color3);
+}
+
+.label-imagen {
+    color: var(--color3);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.label-imagen .titulo {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+}
+
+.label-imagen .nombre {
+    display: block;
+    font-size: 1em;
+    font-weight: normal;
+    text-transform: none;
+    color: var(--color4);
+    font-weight: 800;
+}
+
+/* Asegúrate de definir los colores si no lo has hecho aún */
+:root {
+    --color3: #333; /* Color del título */
+    --color4: #bb7815; /* Color del nombre */
 }
