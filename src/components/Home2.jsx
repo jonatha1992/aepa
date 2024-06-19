@@ -59,41 +59,12 @@ function Home2() {
                             transition={{ duration: 0.5, delay: 0.25 }}
                         >
                             <h2 className="titulo-hero">Bienvenidos a AESFRON</h2>
-                            {/*  <h2
-                style={{
-                  backgroundColor: "##1eacb6cf",
-                  fontWeight: "bold",
-                  textTransform: "uppercase",
-                  color: "#2B2C2B",
-                  fontSize: "1.5rem",
-                  marginBottom: "30px",
-                }}
-              >
-                eleva tu carrera, <br></br> transforma la atención médica
-              </h2> */}
-
-                            {/* <div className="video-container"> */}
-                            {/* <video className="video-responsive-home" src={videoSource} autoPlay loop muted></video> */}
-                            {/* <img className="video-responsive-home" src={imagen_logo}></img> */}
-
                             <div className="video-container">
                                 <video className="video-responsive" src={videoSource} autoPlay loop muted></video>
-                                {/* </div> */}
                             </div>
-                            {/* </div> */}
-                            <p
-                                className="p-mobile"
-                                style={{
-                                    color: "var(--color3)",
-                                    fontWeight: "900",
-                                    marginTop: "15px",
-                                    textTransform: "uppercase",
-                                    WebkitTextStroke: "1px #194571",
-                                    textStroke: "1px #194571",
-                                }}
-                            >
-                                PRIORIZAMOS TU DESARROLLO PROFESIONAL PARA TRANSFORMAR LA ATENCIÓN DE LOS CUIDADOS
-                                ENFERMEROS.
+                            <p className="p-mobile">
+                                Priorizamos tu desarrollo profesional para transformar la atención de los cuidados
+                                enfermeros
                             </p>
                         </motion.div>
                         <div className="col-md-3"></div>

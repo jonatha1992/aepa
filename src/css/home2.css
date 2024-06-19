@@ -42,7 +42,7 @@ header {
     font-weight: bold;
     color: var(--color3);
     text-transform: uppercase;
-    -webkit-text-stroke: 2px #194571;
+    -webkit-text-stroke: 2px #b6b6b6;
     font-size: 3rem;
     text-align: center;
     /* background-color: var(--color3); */
@@ -294,6 +294,17 @@ header h3 {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.p-mobile {
+    display: block;
+    color: var(--color3);
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+    -webkit-text-stroke: 1px var(--color3);
+}
+
 @media only screen and (max-width: 768px) {
     .navbarstyle ul {
         flex-direction: column;
@@ -339,10 +350,14 @@ header h3 {
         flex-direction: column;
         justify-content: flex-end;
     }
-    .p-mobile {
+    /* .p-mobile {
         display: block;
-        -webkit-text-stroke: 1px #194571;
-    }
+        color: #333;
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+            sans-serif;
+    } */
 
     .icon {
         width: 80%;
