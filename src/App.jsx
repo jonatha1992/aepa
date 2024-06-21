@@ -15,39 +15,43 @@ import Registro from "./pages/Registro.jsx";
 import Inscripcion from "./pages/Inscripcion.jsx";
 import DashbordAlumnosLayout from "./pages/DashbordAlumnosLayout.jsx";
 import Layout from "./pages/Layout.jsx";
+import Admin from "./components/Admin.jsx";
 // import { AltaContenido, Login, Registro, DashbordAlumnosLayout, Layout } from "./pages";
 
 function App() {
-    const { logout, User, setuUser } = useAuth();
-    const navigate = useNavigate();
+  const { logout, User, setuUser } = useAuth();
+  const navigate = useNavigate();
 
-    const handleLogout = async () => {
-        await logout();
-        setuUser(null);
-        navigate("/login");
-    };
+  const handleLogout = async () => {
+    await logout();
+    setuUser(null);
+    navigate("/login");
+  };
 
-    return (
-        <Layout>
-            {/* <div className="container" style={{ marginTop: "220px", color: "white" }}> */}
-            <Routes>
-                <Route index element={<Home2 />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
+  return (
+    <Layout>
+      {/* <div className="container" style={{ marginTop: "220px", color: "white" }}> */}
+      <Routes>
+        <Route index element={<Home2 />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
 
-                <Route path="/registro" element={<Registro />} />
+        <Route path="/registro" element={<Registro />} />
 
-                <Route element={<ProtectedRoute isAllowed={!!User} />}>
-                    <Route path="/admin" element={<AltaContenido />} />
-                    <Route path="/Alumnos" element={<DashbordAlumnosLayout />} />
-                    <Route path="/unidades/:cursotitle/:cursoid" element={<UnidadesCursos />} />
-                    <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
+        <Route element={<ProtectedRoute isAllowed={!!User} />}>
+          <Route path="/Alumnos" element={<DashbordAlumnosLayout />} />
+          <Route
+            path="/unidades/:cursotitle/:cursoid"
+            element={<UnidadesCursos />}
+          />
+          <Route path="/inscripcion/:cursoid" element={<Inscripcion />} />
 
-                    <Route path="/perfil" element={<MiPerfil />} />
-                    <Route path="/miscursos" element={<MisCursos />} />
-                </Route>
-            </Routes>
-        </Layout>
-    );
+          <Route path="/perfil" element={<MiPerfil />} />
+          <Route path="/miscursos" element={<MisCursos />} />
+          <Route path="/admin" element={<Admin />} />
+        </Route>
+      </Routes>
+    </Layout>
+  );
 }
 export default App;

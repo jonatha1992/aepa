@@ -1,11 +1,12 @@
-import React from "react";
 import CourseStepper from "../components/CourseStepper";
 
-export default function AltaContenido() {
+const AltaCursos = () => {
   return (
     <>
-      <div>AltaContenido</div>;
+      <div>AltaCurso</div>;
       <CourseStepper />
     </>
   );
-}
+};
+
+export default AltaCursos;
